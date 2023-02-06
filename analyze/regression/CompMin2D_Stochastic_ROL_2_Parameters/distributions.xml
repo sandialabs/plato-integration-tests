@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ParameterList name="Distributions">
+  <ParameterList name="TestStochastic0">
+    <Parameter name="Name" type="string" value="Uniform"/>
+    <ParameterList name="Uniform">
+      <Parameter name="Lower Bound" type="double" value="1.0e2"/>
+      <Parameter name="Upper Bound" type="double" value="1.0e4"/>
+    </ParameterList>
+  </ParameterList>
+  <ParameterList name="TestStochastic1">
+    <Parameter name="Name" type="string" value="Uniform"/>
+    <ParameterList name="Uniform">
+      <Parameter name="Lower Bound" type="double" value="-1.0e4"/>
+      <Parameter name="Upper Bound" type="double" value="1.0e4"/>
+    </ParameterList>
+  </ParameterList>
+</ParameterList>

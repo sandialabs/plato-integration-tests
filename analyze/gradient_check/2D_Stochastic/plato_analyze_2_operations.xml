@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Operation>
+  <Function>WriteOutput</Function>
+  <Name>Write Output</Name>
+  <Output>
+    <ArgumentName>displacement X</ArgumentName>
+  </Output>
+  <Output>
+    <ArgumentName>displacement Y</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>ComputeCriterionValue</Function>
+  <Name>Compute Objective Value</Name>
+  <Criterion>My Objective</Criterion>
+  <Target>0.0</Target>
+  <Parameter>
+    <ArgumentName>TestStochastic0</ArgumentName>
+    <Target>[Plato Problem]:[Natural Boundary Conditions]:[Traction Vector Boundary Condition with ID 1]:Values(0)</Target>
+    <InitialValue>0.0</InitialValue>
+  </Parameter>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Input>
+    <ArgumentName>StochasticParameters</ArgumentName>
+  </Input>
+  <Output>
+    <Argument>Value</Argument>
+    <ArgumentName>Objective Value</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>ComputeCriterionGradient</Function>
+  <Name>Compute Objective Gradient</Name>
+  <Criterion>My Objective</Criterion>
+  <Parameter>
+    <ArgumentName>TestStochastic0</ArgumentName>
+    <Target>[Plato Problem]:[Natural Boundary Conditions]:[Traction Vector Boundary Condition with ID 1]:Values(0)</Target>
+    <InitialValue>0.0</InitialValue>
+  </Parameter>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Output>
+    <Argument>Gradient</Argument>
+    <ArgumentName>Objective Gradient</ArgumentName>
+  </Output>
+</Operation>

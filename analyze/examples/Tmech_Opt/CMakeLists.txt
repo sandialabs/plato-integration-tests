@@ -1,0 +1,32 @@
+Requires_features( PLATOANALYZE_ENABLE_AMGX )
+
+# Name the test with the directory name
+Plato_new_test(TEST_NAME)
+
+# Copy Input files from source to binary dir
+set( testFiles "plato_input_deck.i")
+Plato_add_test_files("${testFiles}")
+Plato_analyze_copy_test_data("tm2.exo")
+
+# Specify which comm will provide the output for comparison
+set( IO_COMM_INDEX 0 )
+
+# Set number of processors for PlatoMain comm 
+set( PLATOMAIN_NP 4 )
+
+# Set number of processors for Performer comms
+set( ANALYZE_NP 1 )
+
+# Create list of comm sizes 
+set( NUM_PROCS "${PLATOMAIN_NP} ${ANALYZE_NP}" )
+
+# set mesh for epu at end
+set(OUTPUT_MESH platomain.exo)
+set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")
+
+set( SKIP_EXODIFF 0 )
+# Run test
+#Plato_add_xmlgen_test(${TEST_NAME} ${XMLGEN_COMMAND} ${NUM_PROCS} ${IO_COMM_INDEX} ${OUTPUT_MESH} ${SKIP_EXODIFF})
+
+Plato_add_xmlgen_no_run_expect_fail_test(${TEST_NAME} ${XMLGEN_COMMAND})
+set_property(TEST ${TEST_NAME} PROPERTY LABELS "medium")

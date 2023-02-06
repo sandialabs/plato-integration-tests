@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<include filename="defines.xml" />
+<?xml version="1.0"?>
+<Operation>
+  <Function>Update Problem</Function>
+  <Name>Update Problem</Name>
+</Operation>
+<Operation>
+  <Function>Cache State</Function>
+  <Name>Cache State</Name>
+</Operation>
+<Operation>
+  <Function>Displacement</Function>
+  <Name>Compute Displacement</Name>
+  <PenaltyModel>SIMP</PenaltyModel>
+  <Topology>
+    <Name>Topology</Name>
+  </Topology>
+  <SIMP>
+    <PenaltyExponent>3.0</PenaltyExponent>
+    <MinimumValue>0.001</MinimumValue>
+  </SIMP>
+</Operation>
+<Operation>
+  <Function>Compute Criterion Value</Function>
+  <Name>Compute Objective</Name>
+  <PenaltyModel>SIMP</PenaltyModel>
+  <Topology>
+    <Name>Topology</Name>
+  </Topology>
+  <SIMP>
+    <PenaltyExponent>3.0</PenaltyExponent>
+    <MinimumValue>0.001</MinimumValue>
+  </SIMP>
+  <OutputValue>
+    <Name>Internal Energy</Name>
+  </OutputValue>
+</Operation>
+<Operation>
+  <Function>Compute Criterion Gradient</Function>
+  <Name>Compute Gradient</Name>
+  <Output>
+    <ArgumentName>DFDX</ArgumentName>
+  </Output>
+</Operation>
