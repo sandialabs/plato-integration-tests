@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Operation>
+  <Name>Compute ObjectiveX</Name>
+  <Function>ComputeCriterionX</Function>
+  <Criterion>Internal Elastic Energy</Criterion>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Output>
+    <Argument>Value</Argument>
+    <ArgumentName>Objective Value</ArgumentName>
+  </Output>
+  <Output>
+    <Argument>Gradient</Argument>
+    <ArgumentName>GradientX</ArgumentName>
+  </Output>
+</Operation>

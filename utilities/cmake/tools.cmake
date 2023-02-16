@@ -1,8 +1,31 @@
 ###############################################################################
+## Sets variables pointing to executables
+## Paths to these binaries are expected to be set via `spack load`
+###############################################################################
+function( Set_binaries )
+  set(NUMDIFF_COMMAND "numdiff" PARENT_SCOPE)
+  set(SEACAS_EPU "epu" PARENT_SCOPE)
+  set(SEACAS_EXODIFF "exodiff" PARENT_SCOPE)
+  set(SEACAS_DECOMP "decomp" PARENT_SCOPE)
+  set(PLATOMAIN_BINARY "PlatoMain" PARENT_SCOPE)
+  set(PLATOESP_BINARY "PlatoESP" PARENT_SCOPE)
+  set(ANALYZE_BINARY "analyze_MPMD" PARENT_SCOPE)
+  set(Python3_EXECUTABLE "python3" PARENT_SCOPE)
+endfunction()
+
+###############################################################################
+## Use this function to copy a utility script to a specified binary directory.
+## FILE_OUT_VAR will contain the path to the copied file.
+###############################################################################
+function( Copy_utility_file_to_dir UTILITY_PATH FILE_NAME COPY_DIR FILE_OUT_VAR)
+  configure_file("${UTILITY_PATH}/${FILE_NAME}" "${COPY_DIR}/${FILE_NAME}" COPYONLY)
+  set(${FILE_OUT_VAR} "${COPY_DIR}/${FILE_NAME}" PARENT_SCOPE)
+endfunction()
+
+###############################################################################
 ## Use this function to find the reference diff file in the
 ## current source directory.
 ## Assumes that the reference diff file has extension .ref.diff
-##
 ###############################################################################
 function( Set_diff_reference_files DIFF_REFERENCE )
   file( GLOB DIFF_REFERENCE_LOCAL RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.ref.diff)
@@ -57,144 +80,6 @@ macro( Copy_cmake_utilities_to_binary_dir )
   file(COPY ${SOURCE_CMAKE_UTILITIES_DIR} DESTINATION ${BINARY_CMAKE_UTILITIES_DIR})
   set(BINARY_CMAKE_UTILITIES_DIR "${BINARY_CMAKE_UTILITIES_DIR}/cmake")
 endmacro( Copy_cmake_utilities_to_binary_dir )
-
-###############################################################################
-## Plato_find_exe( 
-##    VAR_NAME     == Return variable containing filepath to executable.
-##    EXE_NAME     == Filename of executable.
-##   [SEARCH_PATH] == Directories below this path are searched.
-## )
-###############################################################################
-function( Plato_find_exe VAR_NAME EXE_NAME SEARCH_PATH )
-
-  message(STATUS " ")
-  message(STATUS "Finding ${EXE_NAME} executable")
-
-  message("-- searching in " ${SEARCH_PATH})
-  find_program( ${VAR_NAME}_SEARCH_RESULT ${EXE_NAME}
-                HINTS ${SEARCH_PATH}
-                NO_DEFAULT_PATH )
-
-  if( ${VAR_NAME}_SEARCH_RESULT MATCHES "NOTFOUND" )
-    message(FATAL_ERROR "!! ${EXE_NAME} executable not found !!")
-  endif( ${VAR_NAME}_SEARCH_RESULT MATCHES "NOTFOUND" )
-
-  set( ${VAR_NAME} ${${VAR_NAME}_SEARCH_RESULT} PARENT_SCOPE )
-  message(STATUS "${EXE_NAME} executable found")
-  message(STATUS "Using:  ${${VAR_NAME}_SEARCH_RESULT}")
-  message(STATUS " ")
-
-endfunction(Plato_find_exe)
-###############################################################################
-
-
-
-###############################################################################
-## Plato_find_lib( 
-##    VAR_NAME      == Return variable containing filepath to library.
-##    OPTION_NAME   == If ON, function attempts to find requested library.
-##    LIB_BASE_NAME == Basename of library.
-##    SEARCH_PATH   == Directories below this path are searched.
-##   [PROPER_NAME]  == Alternate name.  Used for message output only.
-## )
-###############################################################################
-
-function( Plato_find_lib VAR_NAME OPTION_NAME LIB_BASE_NAME SEARCH_PATH )
-
-  if( ${OPTION_NAME} )
-
-message(STATUS "The search path is:  ${SEARCH_PATH} ") 
-
-  if( ARGN GREATER 0 )  ## if optional argument included
-    set(OUT_NAME ${ARGV0})
-  else( ARGN GREATER 0 )  ## otherwise
-    set(OUT_NAME ${LIB_BASE_NAME})
-  endif( ARGN GREATER 0 )
-  
-  message(STATUS " ")
-  message(STATUS "Finding ${OUT_NAME} executable")
-  
-  find_library( ${VAR_NAME}_SEARCH_RESULT ${LIB_BASE_NAME}
-                HINTS ${SEARCH_PATH}
-                DOC "${OUT_NAME} library"
-                NO_DEFAULT_PATH )
-  
-  if( ${VAR_NAME}_SEARCH_RESULT MATCHES "NOTFOUND" )
-    message(FATAL_ERROR "!! ${OUT_NAME} library not found !!")
-  endif( ${VAR_NAME}_SEARCH_RESULT MATCHES "NOTFOUND" )
-  
-  set( ${VAR_NAME} ${${VAR_NAME}_SEARCH_RESULT} PARENT_SCOPE )
-  message(STATUS "${OUT_NAME} library found")
-  message(STATUS "Using:  ${${VAR_NAME}_SEARCH_RESULT}")
-  message(STATUS " ")
-  
-  endif( ${OPTION_NAME} )
-    
-endfunction(Plato_find_lib)
-
-###############################################################################
-## Plato_find_path( 
-##    VAR_NAME      == Return variable containing filepath to file
-##    OPTION_NAME   == If ON, function attempts to find requested file
-##    FILE_NAME     == name of file to be found
-##    SEARCH_PATH   == Directories below this path are searched.
-## )
-###############################################################################
-
-function( Plato_find_path VAR_NAME OPTION_NAME FILE_NAME SEARCH_PATH )
-
-  if( ${OPTION_NAME} )
-
-message(STATUS "The search path is:  ${SEARCH_PATH} ") 
-
-  message(STATUS " ")
-  message(STATUS "Finding ${OUT_NAME}")
-  
-  find_path( ${VAR_NAME}_SEARCH_RESULT ${FILE_NAME}
-                HINTS ${SEARCH_PATH}
-                DOC "${FILE_NAME} file"
-                NO_DEFAULT_PATH )
-  
-  if( ${VAR_NAME}_SEARCH_RESULT MATCHES "NOTFOUND" )
-    message(FATAL_ERROR "!! ${FILE_NAME} not found !!")
-  endif( ${VAR_NAME}_SEARCH_RESULT MATCHES "NOTFOUND" )
-  
-  set( ${VAR_NAME} ${${VAR_NAME}_SEARCH_RESULT} PARENT_SCOPE )
-  message(STATUS "${FILE_NAME} found")
-  message(STATUS "Using:  ${${VAR_NAME}_SEARCH_RESULT}")
-  message(STATUS " ")
-  
-  endif( ${OPTION_NAME} )
-    
-endfunction(Plato_find_path)
-
-###############################################################################
-function( Plato_no_src_build )
-
-if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
-  message(STATUS " ")
-  message(STATUS "In-source builds are not allowed.")
-  message(STATUS "Please remove CMakeCache.txt and the CMakeFiles/ directory and then build out-of-source.")
-  message(STATUS "(That is, create a build directory below the source directory and build from there.)" )
-  message(STATUS " ")
-  message(FATAL_ERROR " ")
-endif()
-
-endfunction( Plato_no_src_build )
-
-
-###############################################################################
-## Plato_add_text_to_file( 
-##    FILE_TO_MODIFY == File where text will be appended.
-##    STRING_TO_ADD  == String to append to file.
-## )
-###############################################################################
-
-function( Plato_add_text_to_file FILE_TO_MODIFY STRING_TO_ADD )
-  
-  file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/${FILE_TO_MODIFY} ${STRING_TO_ADD})
-    
-endfunction(Plato_add_text_to_file)
 
 ###############################################################################
 ## Plato_add_test_files( 
@@ -435,24 +320,30 @@ endfunction( Plato_add_expect_fail_test )
 
 
 ###############################################################################
-## Plato_add_numdiff_test( 
-##    TEST_NAME      == test name
-##    NUM_PROCS      == number of processors to use for test
-##    IO_COMM_INDEX  == io communicator index
-## )
+## Plato_add_numdiff_test
+## Optional argument: Options for ndselect, so that rows or columns of the 
+## file to compare can be removed.
 ###############################################################################
 
 function( Plato_add_numdiff_test RUN_COMMAND TEST_NAME NUMDIFF_COMMAND NUMDIFF_ABSOLUTE NUMDIFF_TOLERANCE )
 
+    set(OptionalArgs ${ARGN})
+    list(LENGTH OptionalArgs NumOptionalArgs)
+    if(NumOptionalArgs GREATER 0)
+        list(GET OptionalArgs 0 NDSELECT_OPTIONS)
+    else()
+        unset(NDSELECT_OPTIONS)
+    endif()
+
     add_test( NAME ${TEST_NAME}
               COMMAND ${CMAKE_COMMAND} 
               -DTEST_COMMAND=${RUN_COMMAND}
-              -DDATA_DIR=${CMAKE_CURRENT_SOURCE_DIR} 
               -DOUT_FILE=${OUT_FILE} 
               -DGOLD_FILE=${GOLD_FILE} 
               -DNUMDIFF_COMMAND=${NUMDIFF_COMMAND}
               -DNUMDIFF_ABSOLUTE=${NUMDIFF_ABSOLUTE}
               -DNUMDIFF_TOLERANCE=${NUMDIFF_TOLERANCE}
+              -DNDSELECT_OPTIONS=${NDSELECT_OPTIONS}
               -P ${BINARY_CMAKE_UTILITIES_DIR}/runnumdifftest.cmake )
 
 endfunction( Plato_add_numdiff_test )
@@ -470,7 +361,6 @@ function( Plato_add_xmlgen_numdiff_test TEST_NAME XMLGEN_COMMAND NUMDIFF_COMMAND
            COMMAND ${CMAKE_COMMAND} 
            -DTEST_COMMAND=${RUN_COMMAND}
            -DXMLGEN_COMMAND=${XMLGEN_COMMAND}
-           -DDATA_DIR=${CMAKE_CURRENT_SOURCE_DIR} 
            -DOUT_FILE=${OUT_FILE} 
            -DGOLD_FILE=${GOLD_FILE} 
            -DNUMDIFF_COMMAND=${NUMDIFF_COMMAND}
@@ -643,31 +533,6 @@ function( Plato_add_serial_test RUN_COMMAND TEST_NAME OUTPUT_MESH EXODIFF_COMMAN
 endfunction( Plato_add_serial_test )
 
 ###############################################################################
-## Plato_add_execution( 
-## )
-###############################################################################
-
-function( Plato_add_execution RUN_COMMAND TEST_NAME NUM_PROCS IO_COMM_INDEX CUBIT_JOURNAL GENERATED_MESH OUTPUT_MESH )
-
-    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/mpirun.source ${RUN_COMMAND})
-
-    add_test(NAME ${TEST_NAME}
-           COMMAND ${CMAKE_COMMAND} 
-           -DTEST_COMMAND=${RUN_COMMAND}
-           -DTEST_NAME=${TEST_NAME} 
-           -DNUM_PROCS=${NUM_PROCS}
-           -DSEACAS_EPU=${SEACAS_EPU} 
-           -DSEACAS_DECOMP=${SEACAS_DECOMP}
-           -DDATA_DIR=${CMAKE_CURRENT_SOURCE_DIR} 
-           -DIO_COMM_INDEX=${IO_COMM_INDEX}
-           -DCUBIT_JOURNAL=${CUBIT_JOURNAL}
-           -DGENERATED_MESH=${GENERATED_MESH}
-           -DOUTPUT_MESH=${OUTPUT_MESH}
-           -P ${BINARY_CMAKE_UTILITIES_DIR}/runexecution.cmake)
-
-endfunction( Plato_add_execution )
-
-###############################################################################
 ## Plato_new_test( 
 ##    TEST_NAME      == test name
 ## )
@@ -675,39 +540,14 @@ endfunction( Plato_add_execution )
 
 function( Plato_new_test TEST_NAME )
 
-  cmake_path(GET CMAKE_CURRENT_SOURCE_DIR FILENAME TEST_NAME)
+  cmake_path(GET CMAKE_CURRENT_SOURCE_DIR FILENAME DIR_NAME)
   cmake_path(GET CMAKE_CURRENT_SOURCE_DIR PARENT_PATH FIRST_PARENT_DIR)
   cmake_path(GET FIRST_PARENT_DIR FILENAME TEST_TYPE_NAME)
   cmake_path(GET FIRST_PARENT_DIR PARENT_PATH SECOND_PARENT_DIR)
   cmake_path(GET SECOND_PARENT_DIR FILENAME INTEGRATION_CODE_NAME)
-  set( TEST_NAME "${INTEGRATION_CODE_NAME}_${TEST_TYPE_NAME}_${TEST_NAME}" PARENT_SCOPE )
+  set( ${TEST_NAME} "${INTEGRATION_CODE_NAME}_${TEST_TYPE_NAME}_${DIR_NAME}" PARENT_SCOPE )
 
 endfunction( Plato_new_test )
-
-###############################################################################
-## Plato_abstract_to_realized( 
-## )
-###############################################################################
-
-function( Plato_abstract_to_realized ABSOLUTE_PATH_TO_ABSTRACT_FILES BINARY_REALIZED_FILES SED_COMMAND_SUBS)
-
-    # for each abstract and realized file pair
-    list(LENGTH BINARY_REALIZED_FILES LIST_LENGTH)
-    math(EXPR LAST_LIST_INDEX "${LIST_LENGTH} - 1")
-    foreach(LIST_INDEX RANGE ${LAST_LIST_INDEX})
-        # get abstract and realized
-        list(GET ABSOLUTE_PATH_TO_ABSTRACT_FILES ${LIST_INDEX} THIS_ABSOLUTE_SOURCE)
-        list(GET BINARY_REALIZED_FILES ${LIST_INDEX} THIS_RELATIVE_BINARY)
-
-        # make realized from abstract via substitutions
-        EXECUTE_PROCESS(COMMAND sed "${SED_COMMAND_SUBS}" ${THIS_ABSOLUTE_SOURCE} OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/${THIS_RELATIVE_BINARY} RESULT_VARIABLE HAD_ERROR)
-
-        if(HAD_ERROR)
-            message(FATAL_ERROR "abstract file substitution failed")
-        endif()
-    endforeach()
-
-endfunction( Plato_abstract_to_realized )
 
 ###############################################################################
 ## Plato_add_output_exists_test 

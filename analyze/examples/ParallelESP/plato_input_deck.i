@@ -10,7 +10,7 @@ end service
 
 begin service 3
   code plato_esp
-  number_processors 5
+  number_processors 4
 end service
 
 begin criterion 1
@@ -70,14 +70,6 @@ begin load 2
     value 0 1e3 0
 end load
       
-begin constraint 1
-  criterion 2
-  absolute_target 17.5
-  type less_than
-  service 2
-  scenario 1
-end constraint
-
 begin block 1
    material 1
 end block
@@ -90,14 +82,14 @@ end material
 
 begin optimization_parameters
 //   filter_radius_scale 4.48
-   max_iterations 2 
+   max_iterations 25
    output_frequency 1
    optimization_algorithm rol_bound_constrained
 //   discretization density 
 //   initial_density_value .5
    normalize_in_aggregator false
    csm_file rocker.csm
-   num_shape_design_variables 5
+   num_shape_design_variables 4
    optimization_type shape
 //   verbose true
 end optimization_parameters

@@ -1,14 +1,14 @@
-Requires_features( ENABLE_PLATO_SERVICES ESP_ENABLED )
+Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( testFiles "plato_input_deck.i;rocker.csm")
+set( testFiles "plato_input_deck.i;rocker.csm;solution.txt.gold")
 Plato_add_test_files("${testFiles}")
 
 # Set xml generator command
-set(XMLGEN_COMMAND "../../base/src/input_generator/XMLGenerator plato_input_deck.i")
+set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")
 
 # Set the name of the interface file
 set( INTERFACE_FILE interface.xml )

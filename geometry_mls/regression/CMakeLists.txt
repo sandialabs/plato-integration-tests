@@ -1,0 +1,5 @@
+add_subdirectory(ComputeMLSField)
+add_subdirectory(ComputeMLSField2D)
+add_subdirectory(InitializeMLSPoints)
+add_subdirectory(MapFieldToMLSPoints)
+add_subdirectory(MapFieldToMLSPoints2D)

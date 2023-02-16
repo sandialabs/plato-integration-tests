@@ -90,6 +90,6 @@ begin optimization_parameters
 end optimization_parameters
 
 begin mesh
-   name mesh.exo
+   name rect.exo
 end mesh
 

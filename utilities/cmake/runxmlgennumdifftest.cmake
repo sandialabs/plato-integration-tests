@@ -23,7 +23,7 @@ else()
 endif()
 
 # 2. Run numdiff command
-SET(DIFF_TEST "${NUMDIFF_COMMAND} ${NUMDIFF_FLAG} ${NUMDIFF_TOLERANCE} ${OUT_FILE} ${DATA_DIR}/${GOLD_FILE}")
+SET(DIFF_TEST "${NUMDIFF_COMMAND} ${NUMDIFF_FLAG} ${NUMDIFF_TOLERANCE} ${OUT_FILE} ${GOLD_FILE}")
 
 message("Running unix-diff command:")
 message("${DIFF_TEST}")

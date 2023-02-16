@@ -93,5 +93,5 @@ end optimization_parameters
 
 
 begin mesh
-   name mesh.exo
+   name beam.exo
 end mesh

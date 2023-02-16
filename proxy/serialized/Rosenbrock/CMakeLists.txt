@@ -15,6 +15,6 @@ add_test( NAME ${TEST_NAME}
           "-DTEST_COMMAND_LOAD=${LOAD_RUN_COMMAND}"
           -DRESULT_FILE="plato_ksbc_algorithm_diagnostics.txt" 
           -DRESULT_FILE_SAVE="plato_ksbc_algorithm_diagnostics_save.txt" 
-          -P ${CMAKE_SOURCE_DIR}/base/config/load_save_comparison.cmake )
+          -P ${BINARY_CMAKE_UTILITIES_DIR}/load_save_comparison.cmake )
 
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")

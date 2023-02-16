@@ -4,7 +4,7 @@ Requires_features( ENABLE_PLATO_SERVICES ESP_ENABLED )
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( testFiles "plato_input_deck.i;rocker_origin.csm")
+set( testFiles "plato_input_deck.i;rocker_origin.csm;solution.txt.gold")
 Plato_add_test_files("${testFiles}")
 
 # Set xml generator command

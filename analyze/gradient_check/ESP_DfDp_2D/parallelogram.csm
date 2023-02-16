@@ -1,0 +1,35 @@
+# v2.csm written by ocsmSave (v1.16)
+
+# Constant, Design, and Output Parameters:
+despmtr Lx 1.0 lbound 0.1 ubound 10.0 initial 1.0
+despmtr Ly 2.0 lbound 0.1 ubound 10.0 initial 2.0
+
+outpmtr MeshLength
+
+# Global Attributes:
+set MeshLength Lx/10
+
+skbeg     -Lx/2   -Ly/2   0
+   linseg     Lx/2   -Ly/2   0
+   linseg     Lx/2    Ly/2   0
+   linseg    -Lx/2    Ly/2   0
+   linseg    -Lx/2   -Ly/2   0
+skend     0
+
+select    body   6
+select    edge   1
+attribute capsGroup   $yminus_sideset
+
+select    body   6
+select    edge   3
+attribute capsGroup   $yplus_nodeset
+
+select    body   6
+select    edge   4
+attribute capsGroup   $xminus_nodeset
+
+select    body   6
+select    edge   2
+attribute capsGroup   $xplus_sideset
+
+end

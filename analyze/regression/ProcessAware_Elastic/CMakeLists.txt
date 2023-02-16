@@ -2,7 +2,7 @@
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-file( GLOB testFiles RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.xml *.exo *.exodiff_commands)
+file( GLOB testFiles RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.xml *.exo *.gold)
 Plato_add_test_files("${testFiles}")
 
 # Set number of processors for PlatoMain comm
@@ -11,12 +11,6 @@ set( PLATOMAIN_NP 1 )
 # Set number of processors for Performer comms
 set( ANALYZE_1_NP 1 )
 set( ANALYZE_2_NP 1 )
-
-# Create list of comm sizes 
-set( NUM_PROCS "${PLATOMAIN_NP} ${ANALYZE_1_NP} ${ANALYZE_2_NP}" )
-
-# Specify which comm will provide the output for comparison
-set( IO_COMM_INDEX 0 )
 
 # Set the name of the interface file
 set( INTERFACE_FILE interface.xml )
@@ -38,10 +32,11 @@ set(APP_FILE analyzeApp_1.xml)
 set(INPUT_FILE --input-config=Scenario_1.xml)
 Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_2_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
+set( OUT_FILE "plato_optimality_criteria_diagnostics.txt")
+set( GOLD_FILE "plato_optimality_criteria_diagnostics.txt.gold")
+set( NUMDIFF_USE_ABSOLUTE FALSE)
+set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 # Add the test
-file( GLOB EXODIFF_COMMAND_FILE RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.exodiff_commands)
-file( GLOB EXODIFF_REFERENCE *.ref.exo )
-set(INPUT_MESH bolted_bracket.exo)
-set(OUTPUT_MESH platomain.exo.1.0)
-Plato_add_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUM_PROCS} ${IO_COMM_INDEX} ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE} ${INPUT_MESH} ${OUTPUT_MESH})
+Plato_add_numdiff_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "medium")

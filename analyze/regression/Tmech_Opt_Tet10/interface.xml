@@ -466,7 +466,7 @@
     <OutputStage>Output To File</OutputStage>
   </Output>
   <Options>
-    <MaxNumOuterIterations>30</MaxNumOuterIterations>
+    <MaxNumOuterIterations>10</MaxNumOuterIterations>
     <KSMaxTrustRegionIterations>5</KSMaxTrustRegionIterations>
     <HessianType>zero</HessianType>
     <LimitedMemoryStorage>8</LimitedMemoryStorage>
@@ -507,6 +507,6 @@
     <NormalizedTargetValue>0.2</NormalizedTargetValue>
   </Constraint>
   <Convergence>
-    <MaxIterations>30</MaxIterations>
+    <MaxIterations>10</MaxIterations>
   </Convergence>
 </Optimizer>

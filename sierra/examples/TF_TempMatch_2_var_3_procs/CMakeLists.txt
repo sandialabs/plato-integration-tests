@@ -4,7 +4,7 @@ Requires_features( ESP_ENABLED )
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( testFiles "temperature_matching.csm;aria.i;gold.exo;plato_input_deck.i")
+set( testFiles "temperature_matching.csm;aria.i;gold.exo;plato_input_deck.i;solution.csm.gold")
 Plato_add_test_files("${testFiles}")
 
 # Set xml generator command

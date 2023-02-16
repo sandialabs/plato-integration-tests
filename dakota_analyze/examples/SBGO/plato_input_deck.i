@@ -71,6 +71,7 @@ end material
 
 begin optimization_parameters
     optimization_type dakota
+    esp_workflow aflr4_aflr3
     dakota_workflow sbgo
     concurrent_evaluations 3
     num_shape_design_variables 2

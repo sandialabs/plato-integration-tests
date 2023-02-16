@@ -1,0 +1,34 @@
+# v2.csm written by ocsmSave (v1.16)
+
+cfgpmtr egadsFaceMeshSizes 1
+cfgpmtr egadsMeshMaxCurvatureDistances 1
+cfgpmtr egadsMeshMaxDihedralAngles 20
+cfgpmtr egadsMaxTetEdgeSize 1
+
+# Constant, Design, and Output Parameters:
+despmtr Lx 1.0 lbound 0.1 ubound 10.0 initial 1.0
+despmtr Ly 2.0 lbound 0.1 ubound 10.0 initial 2.0
+despmtr Lz 5.0 lbound 0.1 ubound 10.0 initial 5.0
+
+# Global Attributes:
+set MeshLength Lx/1
+
+box       -Lx/2.0   -Ly/2.0   -Lz/2.0   Lx   Ly   Lz
+
+select    BODY 1
+attribute _name   $block_1
+attribute capsAIM   $egadsTessAIM;tetgenAIM;platoAIM
+attribute capsMeshLength egadsMaxTetEdgeSize
+select    face
+attribute capsGroup   $dummy_att
+attribute capsMesh    $FaceSize1
+
+select    body   1
+select    face   1   1   1
+attribute capsGroup   $xminus_sideset
+
+select    body   1
+select    face   1   2   1
+attribute capsGroup   $xplus_sideset
+
+end

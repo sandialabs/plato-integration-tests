@@ -1,3 +1,4 @@
+add_subdirectory(SD_MassMockModalMatchTet4)
 add_subdirectory(SD_ModalMatchPartTet4)
 add_subdirectory(SD_ModalMatchWholeTet10)
 add_subdirectory(SD_ModalMatchWholeTet4)
