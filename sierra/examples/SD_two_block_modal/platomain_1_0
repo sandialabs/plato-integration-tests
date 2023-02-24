@@ -1,0 +1,165 @@
+param: 15.0
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 15.0
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 25.0
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 19.341266
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 15.0
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 16.745755
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 19.042667
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.894211
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.410719
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 18.030867
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.720793
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.565756
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.455368
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.532221
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.477875
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.668879
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.573377
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.525626
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.50175
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.492274
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.497012
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.499381
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.502484
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500932
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.499841
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.499999
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500078
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500117
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500137
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500147
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500152
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500154
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500155
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500156
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500156
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500156
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500157
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+param: 17.500156
+command:  BEGIN{ip=0};{if($1~"despmtr"){if(ip==0){print $1, $2, val, $4, $5, $6, $7, $8, $9}else{print $0}ip++}else{print $0}}
+ Plato CLI: Generating exodus mesh from csm model
+ -----------------------------------------------------------------------------
+  Terminate signal received on Performer 'platomain_1': 
+    Message: 
+
+ INFO: Interface::broadcastStageIndex: Terminate stage requested.  Exiting.
+
+
+ -----------------------------------------------------------------------------
+

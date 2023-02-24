@@ -1,0 +1,26 @@
+
+  ROL::Problem::finalize
+    Problem Summary:
+      Has Bound Constraint? .............. yes
+      Has Equality Constraint? ........... no
+      Has Inequality Constraint? ......... no
+      Has Linear Equality Constraint? .... yes
+        Names: ........................... Equality Linear Constraint 0
+        Total: ........................... 1
+      Has Linear Inequality Constraint? .. no
+
+
+Lin-More Trust-Region Method (Type B, Bound Constraints)
+  iter  value          gnorm          snorm          delta          #fval     #grad     #hess     #proj     tr_flag   
+  0     5.016630e-01   1.690034e-02   ---            1.500000e+01   1         1         0         2         ---       
+  1     4.149317e-01   1.140298e-02   6.337628e+00   1.500000e+01   2         2         4         9         0         
+  2     3.703617e-01   9.651572e-03   4.276113e+00   1.800000e+01   3         3         5         13        0         
+  3     3.372426e-01   8.721157e-03   3.619338e+00   2.160000e+01   4         4         6         17        0         
+  4     2.206048e-01   5.895834e-03   1.635216e+01   2.160000e+01   5         5         8         22        0         
+  5     1.646952e-01   4.284454e-03   1.105466e+01   2.160000e+01   6         6         9         26        0         
+  6     1.342029e-01   3.346235e-03   8.024428e+00   2.160000e+01   7         7         10        30        0         
+  7     1.152709e-01   2.735656e-03   6.226982e+00   2.592000e+01   8         8         11        34        0         
+  8     6.952719e-02   1.265842e-03   2.365447e+01   2.592000e+01   9         9         13        39        0         
+  9     5.764085e-02   8.758052e-04   1.095049e+01   2.592000e+01   10        10        14        43        0         
+  10    5.180897e-02   6.593652e-04   7.451149e+00   3.110400e+01   11        11        15        47        0         
+Optimization Terminated with Status: Iteration Limit Exceeded

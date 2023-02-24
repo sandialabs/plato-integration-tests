@@ -1,0 +1,6 @@
+add_subdirectory(Rocket_ROL_BC)
+add_subdirectory(Rosenbrock_Constraints_ROL_BC)
+add_subdirectory(RosenbrockRadius_ROL)
+add_subdirectory(Rosenbrock_ROL_BC)
+add_subdirectory(Topo2D_MMA)
+add_subdirectory(Topo2D_ROL_KSAL)

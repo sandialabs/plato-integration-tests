@@ -1,0 +1,5 @@
+mpirun \
+  -np 1 -x PLATO_PERFORMER_ID=0 -x PLATO_INTERFACE_FILE=interface.xml PlatoMain : \
+  -np 1 -x PLATO_PERFORMER_ID=1 -x PLATO_INTERFACE_FILE=interface.xml RosenbrockProxy : \
+  -np 1 -x PLATO_PERFORMER_ID=2 -x PLATO_INTERFACE_FILE=interface.xml LinearOperationProxy weights1.txt : \
+  -np 1 -x PLATO_PERFORMER_ID=3 -x PLATO_INTERFACE_FILE=interface.xml LinearOperationProxy weights2.txt
