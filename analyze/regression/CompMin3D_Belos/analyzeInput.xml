@@ -1,6 +1,7 @@
 <ParameterList name="Problem">
   <Parameter name="Physics" type="string" value="Plato Driver"/>
   <Parameter  name="Spatial Dimension"    type="int"    value="3"/>
+  <Parameter name="Input Mesh" type="string" value="bolted_bracket.exo"/>
 
   <ParameterList name="Plato Problem">
     <Parameter name="Physics"            type="string"  value="Mechanical"/>
