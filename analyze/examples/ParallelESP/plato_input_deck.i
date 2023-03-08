@@ -10,12 +10,11 @@ end service
 
 begin service 3
   code plato_esp
-  number_processors 4
+  number_processors 5
 end service
 
 begin criterion 1
   type mechanical_compliance
-  //minimum_ersatz_material_value 1e-9
 end criterion
 
 begin criterion 2
@@ -29,7 +28,6 @@ begin scenario 1
   loads 1 2
   boundary_conditions 1
   material 1
-//  minimum_ersatz_material_value 1e-3
   linear_solver_tolerance 1e-6
 end scenario
 
@@ -81,17 +79,13 @@ begin material 1
 end material
 
 begin optimization_parameters
-//   filter_radius_scale 4.48
    max_iterations 25
    output_frequency 1
    optimization_algorithm rol_bound_constrained
-//   discretization density 
-//   initial_density_value .5
    normalize_in_aggregator false
    csm_file rocker.csm
-   num_shape_design_variables 4
+   num_shape_design_variables 5
    optimization_type shape
-//   verbose true
 end optimization_parameters
 
 begin mesh

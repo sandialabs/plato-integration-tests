@@ -25,5 +25,3 @@ SET(CUSTOM_COMMAND "python ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_RO
 
 # Add the test
 Plato_add_xmlgen_custom_command_test(${TEST_NAME} ${XMLGEN_COMMAND} ${CUSTOM_COMMAND})
-Plato_disable_test(${TEST_NAME} "Reason unclear, possibly issues with ESP 1.21")
-

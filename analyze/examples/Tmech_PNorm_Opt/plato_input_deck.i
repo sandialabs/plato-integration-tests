@@ -148,7 +148,7 @@ end output
 
 begin optimization_parameters
    filter_radius_scale 2.98
-   max_iterations 30 
+   max_iterations 10 
    output_frequency 1000 
    // Gold will have to be updated when this is enabled
    optimization_algorithm rol_linear_constraint
