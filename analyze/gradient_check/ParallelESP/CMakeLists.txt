@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ENABLE_PYTHON PLATOANALYZE_ROL_ENABLED)
+Requires_features(PLATOANALYZE_ENABLE_PYTHON )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

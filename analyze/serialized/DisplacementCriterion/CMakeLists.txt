@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ROL_ENABLED)
+Requires_features()
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -8,9 +8,8 @@ set( testFiles "plato_input_deck.i;xml_comparison_files.txt;serialize_comparison
 Plato_add_test_files("${testFiles}")
 Plato_analyze_copy_test_data("beam.exo")
 
-add_custom_target(${TEST_NAME} ALL
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/gold ${CMAKE_CURRENT_BINARY_DIR}/gold
-    DEPENDS ${MY_TARGET})
+file(COPY        ${CMAKE_CURRENT_SOURCE_DIR}/gold
+     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 # Set xml generator command
 set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")
