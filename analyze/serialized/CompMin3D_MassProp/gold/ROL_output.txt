@@ -11,6 +11,6 @@
 Augmented Lagrangian Solver (Type G, General Constraints)
 Subproblem Solver: Trust Region
   iter  fval           cnorm          gLnorm         snorm          penalty   feasTol   optTol    #fval   #grad   #cval   subIter 
-  0     4.335294e+02   7.018312e-02   1.114172e+03   ---            3.08e+02  5.76e-03  3.25e-03  1       1       1       ---     
-  1     2.251693e+01   1.297052e-02   1.681861e+00   7.019208e+01   3.08e+02  5.76e-03  3.25e-03  20      10      20      10      
+  0     4.353149e+02   7.018312e-02   1.114265e+03   ---            3.09e+02  5.74e-03  3.24e-03  1       1       1       ---     
+  1     2.354997e+01   1.404940e-02   1.647791e+00   7.027125e+01   3.09e+02  5.74e-03  3.24e-03  20      10      20      10      
 Optimization Terminated with Status: Iteration Limit Exceeded

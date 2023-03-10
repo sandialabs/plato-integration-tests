@@ -2,8 +2,15 @@
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( testFiles "plato_input_deck.i;tm2.exo;ROL_output.txt.gold")
+set( testFiles "plato_input_deck.i;ROL_output.txt.gold")
 Plato_add_test_files("${testFiles}")
+
+configure_file(
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../data/tm2.exo
+  ${CMAKE_CURRENT_BINARY_DIR}/tm2.exo
+  COPYONLY
+)
+
 
 set( OUT_FILE "ROL_output.txt")
 set( GOLD_FILE "ROL_output.txt.gold")

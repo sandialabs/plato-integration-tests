@@ -6,9 +6,14 @@ despmtr   Cyl1Len       5.00000 lbound 4.0 ubound 6.0 initial 5.0
 
 # Global Attributes:
 
-set       MeshLength 0.25
-
 # Branches:
 cylinder  -Cyl1Len/2   0   0   Cyl1Len/2   0   0   Cyl1Rad
+
+select    BODY
+attribute _name   $block_1
+attribute capsAIM   $aflr4AIM;aflr3AIM;platoAIM
+attribute capsMeshLength  0.25
+select    face
+attribute capsGroup   $remaining_surface
 
 end

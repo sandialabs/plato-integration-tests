@@ -35,7 +35,6 @@
         <ParameterList name="Block 2">
           <Parameter name="Element Block" type="string" value="block_2" />
           <Parameter name="Material Model" type="string" value="material_1" />
-          <Parameter name="Fixed Control" type="bool" value="true" />
         </ParameterList>
       </ParameterList>
     </ParameterList>

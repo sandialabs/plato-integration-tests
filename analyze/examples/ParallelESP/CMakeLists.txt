@@ -8,7 +8,7 @@ set( testFiles "rocker.csm;plato_input_deck.i;solution.csm.gold")
 Plato_add_test_files("${testFiles}")
 
 # Set xml generator command
-set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i && sed -i '/<ParameterList name=\"Step\">/{n\;s/Trust Region/Line Search/\;n\;n\;s/value=\"20\"/value=\"5\"/}' rol_inputs.xml")
+set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")
 
 # Set file names for diff
 set( OUT_FILE "rocker_opt.csm")

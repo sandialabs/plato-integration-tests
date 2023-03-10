@@ -4,29 +4,25 @@ Requires_features( PLATOANALYZE_ENABLE_AMGX )
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( testFiles "plato_input_deck.i")
+set( testFiles "plato_input_deck.i;ROL_output.txt.gold")
 Plato_add_test_files("${testFiles}")
-Plato_analyze_copy_test_data("tm2.exo")
 
-# Specify which comm will provide the output for comparison
-set( IO_COMM_INDEX 0 )
+configure_file(
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../data/tm2.exo
+  ${CMAKE_CURRENT_BINARY_DIR}/tm2.exo
+  COPYONLY
+)
 
-# Set number of processors for PlatoMain comm 
-set( PLATOMAIN_NP 4 )
+set( OUT_FILE "ROL_output.txt")
+set( GOLD_FILE "ROL_output.txt.gold")
 
-# Set number of processors for Performer comms
-set( ANALYZE_NP 1 )
-
-# Create list of comm sizes 
-set( NUM_PROCS "${PLATOMAIN_NP} ${ANALYZE_NP}" )
-
-# set mesh for epu at end
-set(OUTPUT_MESH platomain.exo)
 set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")
+
+set( NUMDIFF_USE_ABSOLUTE FALSE)
+set( NUMDIFF_RELATIVE_TOLERANCE 1e-2 )
 
 set( SKIP_EXODIFF 0 )
 # Run test
-#Plato_add_xmlgen_test(${TEST_NAME} ${XMLGEN_COMMAND} ${NUM_PROCS} ${IO_COMM_INDEX} ${OUTPUT_MESH} ${SKIP_EXODIFF})
+Plato_add_xmlgen_numdiff_test(${TEST_NAME} ${XMLGEN_COMMAND} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
-Plato_add_xmlgen_no_run_expect_fail_test(${TEST_NAME} ${XMLGEN_COMMAND})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "medium")
