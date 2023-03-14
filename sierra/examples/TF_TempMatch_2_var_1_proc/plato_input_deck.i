@@ -47,7 +47,7 @@ end output
 begin optimization_parameters
    max_iterations 15
    output_frequency 5
-   //optimization_algorithm ksbc
+   esp_workflow egads_tetgen
    optimization_algorithm rol_bound_constrained
    rol_subproblem_model lin_more
    hessian_type zero

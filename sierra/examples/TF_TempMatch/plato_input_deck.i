@@ -43,6 +43,7 @@ end output
 begin optimization_parameters
    max_iterations 100 
    output_frequency 1
+   esp_workflow egads_tetgen
    optimization_algorithm rol_bound_constrained
    rol_subproblem_model lin_more
    hessian_type zero
