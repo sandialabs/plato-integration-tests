@@ -12,7 +12,7 @@ despmtr   Radius       0.25000 lbound 0.25 ubound 0.25 initial 0.25
 box       -Xdim/2.0   -Ydim/2.0   -Zdim/2.0   Xdim   Ydim   Zdim
 cylinder  -Xdim/2.0   0.0   0.0   Xdim/2.0   0.0   0.0   Radius
 subtract  none   1   0
-set       MeshLength Xdim/50.0
+set       MeshLength 0.02
 select    body   3
 select    face   1   1   1
 attribute capsGroup   $base
