@@ -16,7 +16,7 @@ conpmtr Rlo 0.3 # lbound 0.3 ubound 0.3
 conpmtr Po 0.2 # lbound 0.2 ubound 0.2
 
 # Global Attributes:
-set MeshLength Px/4
+set MeshLength 0.5
 
 # Branches:
 skbeg     0   0   0   1

@@ -32,7 +32,6 @@ espCommand += " --input " + model + ".csm"
 espCommand += " --output-model " + model + "_opt.csm"
 espCommand += " --output-mesh " + model + ".exo"
 espCommand += " --tesselation " + model + ".eto"
-espCommand += " --workflow egads_tetgen"
 espCommand += " --parameters " + str(Lx) + " " +  str(Ly) + " " + str(Lz)
 os.system(espCommand)
 
