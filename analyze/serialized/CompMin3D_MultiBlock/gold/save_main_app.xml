@@ -10,10 +10,12 @@
 				<TopologyName>Topology</TopologyName>
 				<VolumeName>Volume</VolumeName>
 				<GradientName>Volume Gradient</GradientName>
-				<PenaltyModel class_id="6" class_name="SIMP" tracking_level="1" version="0" object_id="_1">
-					<PenaltyModel class_id="7" tracking_level="0" version="0"></PenaltyModel>
-					<PenaltyExponent>1.00000000000000000e+00</PenaltyExponent>
-					<MinimumValue>0.00000000000000000e+00</MinimumValue>
+				<PenaltyModel class_id="6" tracking_level="0" version="0">
+					<tx class_id="7" class_name="SIMP" tracking_level="1" version="0" object_id="_1">
+						<PenaltyModel class_id="8" tracking_level="0" version="0"></PenaltyModel>
+						<PenaltyExponent>1.00000000000000000e+00</PenaltyExponent>
+						<MinimumValue>0.00000000000000000e+00</MinimumValue>
+					</tx>
 				</PenaltyModel>
 			</second>
 		</item>
@@ -24,16 +26,18 @@
 				<TopologyName>Topology</TopologyName>
 				<VolumeName>Volume</VolumeName>
 				<GradientName>Volume Gradient</GradientName>
-				<PenaltyModel class_id_reference="6" object_id="_3">
-					<PenaltyModel></PenaltyModel>
-					<PenaltyExponent>1.00000000000000000e+00</PenaltyExponent>
-					<MinimumValue>0.00000000000000000e+00</MinimumValue>
+				<PenaltyModel>
+					<tx class_id_reference="7" object_id="_3">
+						<PenaltyModel></PenaltyModel>
+						<PenaltyExponent>1.00000000000000000e+00</PenaltyExponent>
+						<MinimumValue>0.00000000000000000e+00</MinimumValue>
+					</tx>
 				</PenaltyModel>
 			</second>
 		</item>
 		<item>
 			<first>Compute Lower Bounds</first>
-			<second class_id="8" class_name="SetLowerBounds" tracking_level="1" version="0" object_id="_4">
+			<second class_id="9" class_name="SetLowerBounds" tracking_level="1" version="0" object_id="_4">
 				<LocalOp></LocalOp>
 				<OutputSize>0</OutputSize>
 				<LowerBoundVectorLength>0</LowerBoundVectorLength>
@@ -42,7 +46,7 @@
 				<Discretization>density</Discretization>
 				<MaterialUseCase>solid</MaterialUseCase>
 				<OutputLayout>1</OutputLayout>
-				<FixedBlockMetadata class_id="9" tracking_level="0" version="0">
+				<FixedBlockMetadata class_id="10" tracking_level="0" version="0">
 					<OptimizationBlockValue>0.00000000000000000e+00</OptimizationBlockValue>
 					<BlockIDs>
 						<count>0</count>
@@ -64,7 +68,7 @@
 						<count>0</count>
 						<item_version>0</item_version>
 					</BoundaryValues>
-					<MaterialStates class_id="12" tracking_level="0" version="0">
+					<MaterialStates class_id="13" tracking_level="0" version="0">
 						<count>0</count>
 						<item_version>0</item_version>
 					</MaterialStates>
@@ -73,7 +77,7 @@
 		</item>
 		<item>
 			<first>Compute Upper Bounds</first>
-			<second class_id="13" class_name="SetUpperBounds" tracking_level="1" version="0" object_id="_5">
+			<second class_id="14" class_name="SetUpperBounds" tracking_level="1" version="0" object_id="_5">
 				<LocalOp></LocalOp>
 				<OutputSize>0</OutputSize>
 				<UpperBoundVectorLength>0</UpperBoundVectorLength>
@@ -113,7 +117,7 @@
 		</item>
 		<item>
 			<first>Copy Field</first>
-			<second class_id="14" class_name="CopyField" tracking_level="1" version="0" object_id="_6">
+			<second class_id="15" class_name="CopyField" tracking_level="1" version="0" object_id="_6">
 				<LocalOp></LocalOp>
 				<InputName>InputField</InputName>
 				<OutputName>OutputField</OutputName>
@@ -121,7 +125,7 @@
 		</item>
 		<item>
 			<first>Copy Value</first>
-			<second class_id="15" class_name="CopyValue" tracking_level="1" version="0" object_id="_7">
+			<second class_id="16" class_name="CopyValue" tracking_level="1" version="0" object_id="_7">
 				<LocalOp></LocalOp>
 				<InputName>InputValue</InputName>
 				<OutputName>OutputValue</OutputName>
@@ -129,12 +133,12 @@
 		</item>
 		<item>
 			<first>Design Volume</first>
-			<second class_id="16" class_name="DesignVolume" tracking_level="1" version="0" object_id="_8">
+			<second class_id="17" class_name="DesignVolume" tracking_level="1" version="0" object_id="_8">
 				<LocalOp></LocalOp>
-				<LocalArguments class_id="17" tracking_level="0" version="0">
+				<LocalArguments class_id="18" tracking_level="0" version="0">
 					<count>1</count>
 					<item_version>0</item_version>
-					<item class_id="18" tracking_level="0" version="0">
+					<item class_id="19" tracking_level="0" version="0">
 						<Layout>0</Layout>
 						<Name>Design Volume</Name>
 						<Length>1</Length>
@@ -145,7 +149,7 @@
 		</item>
 		<item>
 			<first>Filter Control</first>
-			<second class_id="19" class_name="Filter" tracking_level="1" version="0" object_id="_9">
+			<second class_id="20" class_name="Filter" tracking_level="1" version="0" object_id="_9">
 				<LocalOp></LocalOp>
 				<InputToFilterName>Field</InputToFilterName>
 				<InputBaseFieldName></InputBaseFieldName>
@@ -155,7 +159,7 @@
 		</item>
 		<item>
 			<first>Filter Gradient</first>
-			<second class_id_reference="19" object_id="_10">
+			<second class_id_reference="20" object_id="_10">
 				<LocalOp></LocalOp>
 				<InputToFilterName>Gradient</InputToFilterName>
 				<InputBaseFieldName>Field</InputBaseFieldName>
@@ -165,12 +169,12 @@
 		</item>
 		<item>
 			<first>Initialize Field</first>
-			<second class_id="20" class_name="InitializeField" tracking_level="1" version="0" object_id="_11">
+			<second class_id="21" class_name="InitializeField" tracking_level="1" version="0" object_id="_11">
 				<LocalOp></LocalOp>
 				<CreateSpheres>0</CreateSpheres>
 				<Iteration>0</Iteration>
 				<UniformValue>5.00000000000000000e-01</UniformValue>
-				<MinCoords class_id="21" tracking_level="0" version="0">
+				<MinCoords class_id="22" tracking_level="0" version="0">
 					<elems>
 						<count>3</count>
 						<item>0.00000000000000000e+00</item>
@@ -205,7 +209,7 @@
 		</item>
 		<item>
 			<first>PlatoMainOutput</first>
-			<second class_id="22" class_name="PlatoMainOutput" tracking_level="1" version="0" object_id="_12">
+			<second class_id="23" class_name="PlatoMainOutput" tracking_level="1" version="0" object_id="_12">
 				<LocalOp></LocalOp>
 				<OutputData>
 					<count>7</count>
