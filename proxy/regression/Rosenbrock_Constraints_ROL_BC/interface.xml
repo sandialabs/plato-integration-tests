@@ -321,7 +321,7 @@
     <GradientStageName>Linear Operation Gradient 1</GradientStageName> <!--NEEDS TO MATCH STAGE NAME -->
     <ReferenceValueName></ReferenceValueName>
     <ReferenceValue>1.0</ReferenceValue>
-    <AbsoluteTargetValue>-3.0</AbsoluteTargetValue>
+    <AbsoluteTargetValue>1.0</AbsoluteTargetValue>
   </Constraint>
   <Constraint>
     <ValueName>Constraint Value 2</ValueName> <!--NEEDS TO MATCH SHARED DATA NAME -->
@@ -330,7 +330,7 @@
     <GradientStageName>Linear Operation Gradient 2</GradientStageName> <!--NEEDS TO MATCH STAGE NAME -->
     <ReferenceValueName></ReferenceValueName>
     <ReferenceValue>1.0</ReferenceValue>
-    <AbsoluteTargetValue>10.0</AbsoluteTargetValue>
+    <AbsoluteTargetValue>-2.0</AbsoluteTargetValue>
   </Constraint>
   <BoundConstraint>
     <Upper>10</Upper>

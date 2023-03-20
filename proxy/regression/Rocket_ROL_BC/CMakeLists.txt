@@ -1,4 +1,4 @@
-Requires_features( ENABLE_ROL )
+Requires_features()
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -22,3 +22,4 @@ set( RUN_COMMAND "source ${CMAKE_CURRENT_BINARY_DIR}/mpirun.source" )
 
 # Add the test
 Plato_add_numdiff_test(${RUN_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
