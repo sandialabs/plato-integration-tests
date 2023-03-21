@@ -2,6 +2,7 @@ import sys
 import os
 import exodus
 import PythonPlatoESP
+import numpy as np
 
 # specify sensitivity tolerance
 sensitivityTol = float(sys.argv[1])
@@ -28,6 +29,10 @@ os.system(espCommand)
 # read in mesh
 mesh = exodus.ExodusDB()
 mesh.read(model + ".exo")
+
+# read in sensitivity map
+sensMap = np.loadtxt('./ESP_Mesh/Scratch/plato/sensMap.txt', dtype=int)
+sensMap = sensMap[2:]
 
 # create plato esp instances
 platoESP0 = PythonPlatoESP.PlatoESP(performerInput, performerOperations, "plato esp instance")
@@ -58,10 +63,12 @@ def check_face_sensitivity(dim, faceCoord, grad, gold):
     coordTol = 1.0E-8 * abs(2.0*faceCoord)
 
     errors = []
-    for nodeIndex in range(mesh.numNodes):
-        X = mesh.getCoordData(nodeIndex, "index")
+    for nodeIndex in range(len(sensMap)):
+        nodeID = sensMap[nodeIndex] - 1
+        X = mesh.getCoordData(nodeID, "index")
         if (X[dim] <= (faceCoord + coordTol) and X[dim] >= (faceCoord - coordTol)):
-            relError = (grad[3*nodeIndex + dim] - gold) / gold
+            gradVal = grad[3*nodeIndex + dim]
+            relError = (gradVal - gold) / gold
             errors.append(abs(relError))
 
     return errors
@@ -124,7 +131,7 @@ errorArray = (maxErrorXP, maxErrorXM, maxErrorYP, maxErrorYM, maxErrorZP, maxErr
 for error in errorArray:
     if(error > sensitivityTol):
         errorsAcceptable = 0
-    
+
 if(errorsAcceptable):
     print("\n Success: Sensitivity values match gold")
     sys.exit(0)
