@@ -1,5 +1,5 @@
 # Constant, Design, and Output Parameters:
-despmtr Py 2.0 lbound 2.0 ubound 3.0 initial 2.0
+despmtr Py 2.5 lbound 2.0 ubound 3.0 initial 2.5
 despmtr Boffset 0.25 lbound 0.05 ubound 0.38 initial 0.25
 despmtr Lx 6.5 lbound 5.0 ubound 8.0 initial 6.5
 despmtr Px 2.0 lbound 1.6 ubound 2.4 initial 2.0
@@ -13,7 +13,7 @@ conpmtr Rlo 0.3 # lbound 0.3 ubound 0.3
 conpmtr Po 0.2 # lbound 0.2 ubound 0.2
 
 # Global Attributes:
-set MeshLength 0.5
+set MeshLength 0.25
 
 # Branches:
 skbeg     0   0   0   1

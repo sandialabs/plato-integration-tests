@@ -15,12 +15,6 @@ end service
 
 begin criterion 1
   type mechanical_compliance
-  //minimum_ersatz_material_value 1e-9
-end criterion
-
-begin criterion 2
-  type volume
-  minimum_ersatz_material_value 0
 end criterion
 
 begin scenario 1
@@ -29,7 +23,6 @@ begin scenario 1
   loads 1 2
   boundary_conditions 1
   material 1
-//  minimum_ersatz_material_value 1e-3
   linear_solver_tolerance 1e-6
 end scenario
 
@@ -70,14 +63,6 @@ begin load 2
     value 0 1e3 0
 end load
       
-begin constraint 1
-  criterion 2
-  absolute_target 17.5
-  type less_than
-  service 2
-  scenario 1
-end constraint
-
 begin block 1
    material 1
 end block
@@ -90,15 +75,10 @@ end material
 
 begin optimization_parameters
    check_gradient true
-   rol_gradient_check_perturbation_scale 0.01
-   rol_gradient_check_steps 12
-//   filter_radius_scale 4.48
+   rol_gradient_check_perturbation_scale 0.5
+   rol_gradient_check_steps 6
    max_iterations 2 
-   output_frequency 1
-   optimization_algorithm rol_linear_constraint
- //  reset_algorithm_on_update true
-//   discretization density 
-//   initial_density_value .5
+   optimization_algorithm rol_bound_constrained
    normalize_in_aggregator false
    csm_file rocker.csm
    num_shape_design_variables 5
@@ -109,4 +89,3 @@ end optimization_parameters
 begin mesh
    name rocker.exo
 end mesh
-
