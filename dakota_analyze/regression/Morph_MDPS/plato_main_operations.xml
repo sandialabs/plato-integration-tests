@@ -33,12 +33,6 @@
 </Operation>
 <Operation>
   <Function>SystemCall</Function>
-  <Name>wait_0</Name>
-  <Command>while ps -u `whoami` | grep morph_mesher; do sleep 1; done</Command>
-  <OnChange>false</OnChange>
-</Operation>
-<Operation>
-  <Function>SystemCall</Function>
   <Name>join_meshed_geometry_0</Name>
   <Command>cd evaluations_0; epu -auto rocker_0.exo.4.0</Command>
   <OnChange>false</OnChange>
@@ -77,12 +71,6 @@
 </Operation>
 <Operation>
   <Function>SystemCall</Function>
-  <Name>wait_1</Name>
-  <Command>while ps -u `whoami` | grep morph_mesher; do sleep 1; done</Command>
-  <OnChange>false</OnChange>
-</Operation>
-<Operation>
-  <Function>SystemCall</Function>
   <Name>join_meshed_geometry_1</Name>
   <Command>cd evaluations_1; epu -auto rocker_1.exo.4.0</Command>
   <OnChange>false</OnChange>
@@ -118,12 +106,6 @@
   <Argument>--input</Argument>
   <Argument>morph_input_2.i</Argument>
   <AppendInput>false</AppendInput>
-</Operation>
-<Operation>
-  <Function>SystemCall</Function>
-  <Name>wait_2</Name>
-  <Command>while ps -u `whoami` | grep morph_mesher; do sleep 1; done</Command>
-  <OnChange>false</OnChange>
 </Operation>
 <Operation>
   <Function>SystemCall</Function>
