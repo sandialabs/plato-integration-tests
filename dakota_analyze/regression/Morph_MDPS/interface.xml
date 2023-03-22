@@ -94,14 +94,6 @@
   <Operation>
     <For var="I" in="Parameters">
       <Operation>
-        <Name>wait_{I}</Name>
-        <PerformerName>plato_services_{I}</PerformerName>
-      </Operation>
-    </For>
-  </Operation>
-  <Operation>
-    <For var="I" in="Parameters">
-      <Operation>
         <Name>join_meshed_geometry_{I}</Name>
         <PerformerName>plato_services_{I}</PerformerName>
       </Operation>
