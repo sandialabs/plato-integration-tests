@@ -17,4 +17,7 @@ select    body   3
 select    face   1   1   1
 attribute capsGroup   $base
 
+select    BODY
+attribute _name $block_1
+
 end

@@ -11,4 +11,7 @@ set MeshLength  0.25
 # Branches:
 cylinder  -Cyl1Len/2   0   0   Cyl1Len/2   0   0   Cyl1Rad
 
+select    body   1
+attribute _name $block_1
+
 end

@@ -10,6 +10,9 @@ set MeshLength 8.0
 
 box       -Lx/2.0   -Ly/2.0   -Lz/2.0   Lx   Ly   Lz
 
+select    body   1
+attribute _name $block_1
+
 select    body
 attribute _name   $block_1
 attribute capsAIM   $aflr4AIM;aflr3AIM;platoAIM
