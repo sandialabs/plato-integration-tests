@@ -59,6 +59,9 @@ cylinder  -Lx/2.0   Py/2.0   0.0   -Lx/2.0   Py/2.0   Pz   Rlo
 subtract  none   1   0
 
 select    body   28
+attribute _name $block_1
+
+select    body   28
 select    face   27   3   1
 attribute capsGroup   $left_axis
 
@@ -83,13 +86,14 @@ select    face   17   3   1
 attribute capsGroup   $center_axis
 
 select body
-attribute _name $block_1
 attribute capsAIM $aflr4AIM;aflr3AIM;platoAIM
 attribute capsMeshLength 0.5
 
 attribute capsGroup $solid_group
 select face
 attribute capsGroup $solid_group
+attribute capsMeshLength 0.5
+
 select    body   28
 select    face   27   3   1
 attribute capsGroup   $left_axis
