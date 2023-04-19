@@ -129,7 +129,6 @@ begin optimization_parameters
    filter_radius_scale 4.48
    max_iterations 5
    output_frequency 1000 
-   //optimization_algorithm mma
    optimization_algorithm rol_augmented_lagrangian
    discretization density 
    initial_density_value .4

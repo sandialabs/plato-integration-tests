@@ -330,9 +330,7 @@
 
 <Optimizer>
   <Package>OC</Package>
-  <NLopt>
-    <Method>MMA</Method>
-  </NLopt>
+  
   <Output>
     <OutputStage>Output To File</OutputStage>
   </Output>

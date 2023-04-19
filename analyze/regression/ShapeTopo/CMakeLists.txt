@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_IPOPT_ENABLED PLATOANALYZE_ENABLE_ESP)
+Requires_features(PLATOANALYZE_ENABLE_ESP)
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -55,3 +55,5 @@ set(OUTPUT_MESH platomain.exo.1.0)
 Plato_add_test("${PLATO_NEW_TEST}" ${TEST_NAME} ${NUM_PROCS} ${IO_COMM_INDEX} ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE} ${INPUT_MESH} ${OUTPUT_MESH})
 
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
+
+Plato_disable_test(${TEST_NAME} "The ShapeTopo feature uses MMA which was removed")

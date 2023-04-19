@@ -124,7 +124,6 @@ begin optimization_parameters
    filter_type kernel
    max_iterations 1
    output_frequency 1000 
-   //optimization_algorithm mma
    optimization_algorithm rol_augmented_lagrangian
    verbose true
    discretization density 

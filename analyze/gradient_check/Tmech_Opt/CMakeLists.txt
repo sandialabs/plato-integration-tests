@@ -6,12 +6,7 @@ Plato_new_test(TEST_NAME)
 # Copy Input files from source to binary dir
 set( testFiles "plato_input_deck.i;ROL_gradient_check_output.gold.txt")
 Plato_add_test_files("${testFiles}")
-
-configure_file(
-  ${CMAKE_CURRENT_SOURCE_DIR}/../../data/tm2.exo
-  ${CMAKE_CURRENT_BINARY_DIR}/tm2.exo
-  COPYONLY
-)
+Plato_analyze_copy_test_data( "tm2.exo" )
 
 # Set xml generator command
 set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")

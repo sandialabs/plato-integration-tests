@@ -94,7 +94,6 @@ end material
 begin optimization_parameters
    discretization density 
    initial_density_value .5
-   //optimization_algorithm mma
    optimization_algorithm rol_linear_constraint
    mma_use_ipopt_sub_problem_solver false
    max_iterations 20

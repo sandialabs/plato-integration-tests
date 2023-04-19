@@ -85,7 +85,6 @@ begin optimization_parameters
    number_buffer_layers 0
    filter_type kernel
    filter_radius_absolute .4
-   //optimization_algorithm mma
    optimization_algorithm rol_augmented_lagrangian
    mma_use_ipopt_sub_problem_solver false
    normalize_in_aggregator false
