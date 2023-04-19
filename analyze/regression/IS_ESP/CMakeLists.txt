@@ -1,6 +1,6 @@
 Requires_features(PLATOANALYZE_ENABLE_PYTHON PLATOANALYZE_ENABLE_ESP)
 
-set( testFiles "brick.csm;interface.xml;opt.py;plato_analyze_input_deck_1.xml;plato_analyze_operations_1.xml;platomain.xml;plato_operations.xml")
+set( testFiles "brick.csm;opt.py;plato_analyze_input_deck_1.xml;plato_analyze_operations_1.xml;platomain.xml;plato_operations.xml")
 
 Plato_add_test_files( "${testFiles}" )
 

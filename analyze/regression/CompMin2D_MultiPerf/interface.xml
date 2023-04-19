@@ -465,9 +465,6 @@
      <HessianType>zero</HessianType>
      <InputFileName>rol_inputs.xml</InputFileName>
   </Options>
-  <NLopt>
-    <Method>MMA</Method>
-  </NLopt>
   <Output>
     <OutputStage>Output To File</OutputStage>
   </Output>

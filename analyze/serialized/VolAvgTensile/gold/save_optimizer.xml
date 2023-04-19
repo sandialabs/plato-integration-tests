@@ -23,20 +23,12 @@
 		<MaxNumIterations>500</MaxNumIterations>
 		<LimitedMemoryStorage>8</LimitedMemoryStorage>
 		<ProblemUpdateFrequency>0</ProblemUpdateFrequency>
-		<GCMMAMaxInnerIterations>5</GCMMAMaxInnerIterations>
 		<KSMaxTrustRegionIterations>25</KSMaxTrustRegionIterations>
 		<ROLCheckGradientSteps>12</ROLCheckGradientSteps>
 		<ROLCheckGradientSeed>0</ROLCheckGradientSeed>
 		<ROLStochasticDistributionsFile>distributions.xml</ROLStochasticDistributionsFile>
 		<ROLStochasticNumberOfSamples>3</ROLStochasticNumberOfSamples>
 		<ROLStochasticSamplerSeed>42</ROLStochasticSamplerSeed>
-		<InitialMovingAsymptoteScaleFactor>5.00000000000000000e-01</InitialMovingAsymptoteScaleFactor>
-		<GCMMAInnerKKTTolerance>5.00000000000000010e-04</GCMMAInnerKKTTolerance>
-		<CCSAOuterKKTTolerance>1.00000000000000004e-10</CCSAOuterKKTTolerance>
-		<CCSAOuterControlStagnationTolerance>1.00000000000000002e-08</CCSAOuterControlStagnationTolerance>
-		<GCMMAInnerControlStagnationTolerance>1.00000000000000002e-08</GCMMAInnerControlStagnationTolerance>
-		<CCSAOuterObjectiveStagnationTolerance>9.99999999999999955e-07</CCSAOuterObjectiveStagnationTolerance>
-		<CCSAOuterStationarityTolerance>1.00000000000000005e-04</CCSAOuterStationarityTolerance>
 		<KSTrustRegionExpansionFactor>2.00000000000000000e+00</KSTrustRegionExpansionFactor>
 		<KSTrustRegionContractionFactor>7.50000000000000000e-01</KSTrustRegionContractionFactor>
 		<KSOuterGradientTolerance>1.00000000000000005e-04</KSOuterGradientTolerance>
