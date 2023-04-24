@@ -127,7 +127,7 @@ end material
 
 begin optimization_parameters
    filter_radius_scale 4.48
-   max_iterations 5
+   max_iterations 1
    output_frequency 1000 
    optimization_algorithm rol_augmented_lagrangian
    discretization density 
