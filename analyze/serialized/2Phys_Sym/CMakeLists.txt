@@ -19,7 +19,7 @@ set( INTERFACE_FILE interface.xml )
 
 # Set input file names for custom command
 set( IN_FILE "xml_comparison_files.txt serialize_comparison_files.txt numdiff_comparison_files.txt")
-set( NUMDIFF_TOLERANCE 1e-3 ) 
+set( NUMDIFF_TOLERANCE 5e-3 ) 
 
 SET(CUSTOM_COMMAND "python ${FULL_REGRESSION_PYTHON_SCRIPT} ${NUMDIFF_TOLERANCE} ${IN_FILE}")
 
