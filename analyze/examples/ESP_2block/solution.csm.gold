@@ -1,0 +1,32 @@
+attribute capsAIM $aflr4AIM;aflr3AIM;platoAIM
+attribute capsMeshLength 3
+
+# sphere_block.csm written by ocsmSave (v1.22)
+
+# Constant, Design, and Output Parameters:
+despmtr radius 3.0066605 lbound .1 ubound 6 initial 5
+
+# Global Attributes
+set MeshLength 3
+
+# Branches:
+SPHERE    0   0   0   radius
+SELECT    body
+SELECT    face
+ATTRIBUTE capsGroup   $solid_group
+select face 1 
+attribute capsGroup $load_face
+
+BOX       10   0   0   2   1   1
+SELECT    body
+SELECT    face
+ATTRIBUTE capsGroup   $solid_group
+select face 1 
+attribute capsGroup $bc_face
+
+
+patbeg i @stack.size
+  select body @stack[i]
+  attribute _name $block_+val2str(i,0)
+patend
+END
