@@ -13,11 +13,11 @@ set MeshLength 0.2
 box       -Xdim/2.0   -Ydim/2.0   -Zdim/2.0   Xdim   Ydim   Zdim
 cylinder  -Xdim/2.0   0.0   0.0   Xdim/2.0   0.0   0.0   Radius
 subtract  none   1   0
+
 select    body   3
+select face 
+attribute capsGroup $solid_group
 select    face   1   1   1
 attribute capsGroup   $base
-
-select    BODY
-attribute _name $block_1
 
 end
