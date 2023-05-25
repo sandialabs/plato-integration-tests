@@ -157,8 +157,6 @@ begin optimization_parameters
    output_frequency 1000 
    discretization density 
    initial_density_value .2
-   al_penalty_parameter 1
-   al_penalty_scale_factor 1.05
    fixed_block_ids 2
 end optimization_parameters
 
