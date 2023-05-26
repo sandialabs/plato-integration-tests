@@ -17,6 +17,7 @@ skbeg     -Lx/2   -Ly/2   0
 skend     0
 
 select    body   6
+attribute capsMeshLength MeshLength
 select    edge   1
 attribute capsGroup   $yminus_sideset
 

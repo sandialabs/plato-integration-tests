@@ -11,7 +11,8 @@ set MeshLength 8.0
 box       -Lx/2.0   -Ly/2.0   -Lz/2.0   Lx   Ly   Lz
 
 select    body   1
-attribute _name $block_1
+select face
+attribute capsGroup $solid_group
 
 select    body   1
 select    face   1   1   1
