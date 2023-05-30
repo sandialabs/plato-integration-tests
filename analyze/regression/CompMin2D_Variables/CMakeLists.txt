@@ -26,13 +26,12 @@ set(APP_FILE analyzeApp.xml)
 set(INPUT_FILE --input-config=mitchell_tri.xml)
 Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
-# Add the test
-set( OUT_FILE "plato_optimality_criteria_diagnostics.txt")
-set( GOLD_FILE "plato_optimality_criteria_diagnostics.txt.gold")
+# Files and tolerances
+set( OUT_FILE "ROL_output.txt")
+set( GOLD_FILE "ROL_output.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
-set( NDSELECT_OPTIONS "-L 4" ) # keep up to gradient norm
 # Add the test
-Plato_add_numdiff_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE} ${NDSELECT_OPTIONS})
+Plato_add_numdiff_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "medium")
 
