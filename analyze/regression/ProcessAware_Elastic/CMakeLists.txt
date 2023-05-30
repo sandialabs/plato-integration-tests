@@ -32,11 +32,11 @@ set(APP_FILE analyzeApp_1.xml)
 set(INPUT_FILE --input-config=Scenario_1.xml)
 Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_2_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
-set( OUT_FILE "plato_optimality_criteria_diagnostics.txt")
-set( GOLD_FILE "plato_optimality_criteria_diagnostics.txt.gold")
+# Files and tolerances
+set( OUT_FILE "ROL_output.txt")
+set( GOLD_FILE "ROL_output.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 # Add the test
 Plato_add_numdiff_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
-
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "medium")
