@@ -512,16 +512,13 @@
 </Stage>
 
 <Optimizer>
-  <Package>OC</Package>
+  <Package>ROL LinearConstraint</Package>
+  <Options>
+     <InputFileName>rol_inputs.xml</InputFileName>
+  </Options>
   <Output>
     <OutputStage>Output To File</OutputStage>
   </Output>
-  <OC>
-    <MoveLimiter>1.0</MoveLimiter>
-    <StabilizationParameter>0.5</StabilizationParameter>
-    <UseNewtonSearch>True</UseNewtonSearch>
-    <ConstraintMaxIterations>25</ConstraintMaxIterations>
-  </OC>
   <OptimizationVariables>
     <ValueName>Optimization DOFs</ValueName>
     <InitializationStage>Initialize Optimization DOFs</InitializationStage>
