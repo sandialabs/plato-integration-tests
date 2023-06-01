@@ -543,11 +543,8 @@
   <Package>ROL AugmentedLagrangian</Package>
   <Options>
     <MaxNumOuterIterations>1</MaxNumOuterIterations>
-    <KSMaxTrustRegionIterations>5</KSMaxTrustRegionIterations>
     <HessianType>zero</HessianType>
-    <LimitedMemoryStorage>8</LimitedMemoryStorage>
     <ProblemUpdateFrequency>5</ProblemUpdateFrequency>
-    <DisablePostSmoothing>true</DisablePostSmoothing>
     <ResetAlgorithmOnUpdate>false</ResetAlgorithmOnUpdate>
     <InputFileName>rol_inputs.xml</InputFileName>
   </Options>
