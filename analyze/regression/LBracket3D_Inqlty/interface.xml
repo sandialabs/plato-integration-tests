@@ -283,27 +283,14 @@
 </Stage>
 
 <Optimizer>
-  <Package>KSBC</Package>
+  <Package>ROL BoundConstrained</Package>
   <Options>
-    <KSTrustRegionExpansionFactor>4</KSTrustRegionExpansionFactor>
-    <KSTrustRegionContractionFactor>0.5</KSTrustRegionContractionFactor>
-    <KSMaxTrustRegionIterations>5</KSMaxTrustRegionIterations>
-    <KSInitialRadiusScale>0.25</KSInitialRadiusScale>
-    <KSMaxRadiusScale>0.9</KSMaxRadiusScale>
-    <HessianType>disabled</HessianType>
-    <MinTrustRegionRadius>1e-12</MinTrustRegionRadius>
-    <LimitedMemoryStorage>8</LimitedMemoryStorage>
-    <KSOuterGradientTolerance>1e-11</KSOuterGradientTolerance>
-    <KSOuterStationarityTolerance>1e-11</KSOuterStationarityTolerance>
-    <KSOuterStagnationTolerance>1e-11</KSOuterStagnationTolerance>
-    <KSOuterControlStagnationTolerance>1e-11</KSOuterControlStagnationTolerance>
-    <KSOuterActualReductionTolerance>1e-11</KSOuterActualReductionTolerance>
+    <HessianType>zero</HessianType>
+    <InputFileName>rol_inputs.xml</InputFileName>
     <ProblemUpdateFrequency>5</ProblemUpdateFrequency>
-    <DisablePostSmoothing>true</DisablePostSmoothing>
-    <KSTrustRegionRatioLow>0.05</KSTrustRegionRatioLow>
-    <KSTrustRegionRatioMid>0.2</KSTrustRegionRatioMid>
-    <KSTrustRegionRatioUpper>0.45</KSTrustRegionRatioUpper>
+    <ResetAlgorithmOnUpdate>true</ResetAlgorithmOnUpdate>
   </Options>
+
   <Output>
     <OutputStage>Output To File</OutputStage>
   </Output>
@@ -332,6 +319,6 @@
     <Lower>0</Lower>
   </BoundConstraint>
   <Convergence>
-    <MaxIterations>7</MaxIterations>
+    <MaxIterations>10</MaxIterations>
   </Convergence>
 </Optimizer>
