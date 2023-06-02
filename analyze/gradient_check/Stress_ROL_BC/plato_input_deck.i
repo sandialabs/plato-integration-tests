@@ -83,22 +83,7 @@ begin optimization_parameters
    rol_subproblem_model lin_more
    reset_algorithm_on_update true
    hessian_type zero
-   ks_trust_region_expansion_factor 4
-   ks_trust_region_contraction_factor .5
-   ks_max_trust_region_iterations 5
-   ks_initial_radius_scale .25
-   ks_max_radius_scale .9
-   ks_min_trust_region_radius 1e-12
-   ks_outer_gradient_tolerance 1e-11
-   ks_outer_stationarity_tolerance 1e-11
-   ks_outer_stagnation_tolerance 1e-11
-   ks_outer_control_stagnation_tolerance 1e-11
-   ks_outer_actual_reduction_tolerance 1e-11
    problem_update_frequency 5
-   ks_disable_post_smoothing true
-   ks_trust_region_ratio_low .05
-   ks_trust_region_ratio_mid .2
-   ks_trust_region_ratio_high .45
    prune_mesh false
    number_refines 0
    output_frequency 500
