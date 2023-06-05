@@ -80,9 +80,9 @@ begin optimization_parameters
    filter_type helmholtz
    filter_radius_absolute 0.173
    boundary_sticking_penalty 1.0
-   max_iterations 20 
+   max_iterations 2
    output_frequency 1000 
-   optimization_algorithm oc
+   optimization_algorithm rol_augmented_lagrangian
    discretization density 
    initial_density_value .5
    normalize_in_aggregator false
