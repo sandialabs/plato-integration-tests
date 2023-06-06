@@ -99,7 +99,6 @@
     <HessianType>finite_difference</HessianType>
     <OutputControlToFile>true</OutputControlToFile>
     <OutputDiagnosticsToFile>true</OutputDiagnosticsToFile>
-    <KSTrustRegionExpansionFactor>4</KSTrustRegionExpansionFactor>
     <InputFileName>rol_inputs.xml</InputFileName>
   </Options>
   <OptimizationVariables>

@@ -25,8 +25,8 @@ set(APP_FILE analyzeApp.xml)
 set(INPUT_FILE --input-config=analyzeInput.xml)
 Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
-set( OUT_FILE "plato_ksbc_algorithm_diagnostics.txt")
-set( GOLD_FILE "plato_ksbc_algorithm_diagnostics.txt.gold")
+set( OUT_FILE "ROL_output.txt")
+set( GOLD_FILE "ROL_output.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 # Add the test

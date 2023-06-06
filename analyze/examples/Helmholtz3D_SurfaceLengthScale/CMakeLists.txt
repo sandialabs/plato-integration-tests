@@ -2,11 +2,10 @@
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( GOLD_FILE "plato_optimality_criteria_diagnostics.txt.gold")
+set( OUT_FILE "ROL_output.txt")
+set( GOLD_FILE "${OUT_FILE}.gold")
 set( testFiles "plato_input_deck.i;beam.exo;${GOLD_FILE}")
 Plato_add_test_files("${testFiles}")
-
-set( OUT_FILE "plato_optimality_criteria_diagnostics.txt")
 
 set(XMLGEN_COMMAND "XMLGenerator plato_input_deck.i")
 

@@ -507,11 +507,8 @@
   <Package>ROL Stochastic</Package>
   <Options>
     <MaxNumOuterIterations>300</MaxNumOuterIterations>
-    <KSMaxTrustRegionIterations>5</KSMaxTrustRegionIterations>
     <HessianType>zero</HessianType>
-    <LimitedMemoryStorage>8</LimitedMemoryStorage>
     <ProblemUpdateFrequency>5</ProblemUpdateFrequency>
-    <DisablePostSmoothing>true</DisablePostSmoothing>
     <ResetAlgorithmOnUpdate>false</ResetAlgorithmOnUpdate>
     <InputFileName>rol_inputs.xml</InputFileName>
     <ROLStochasticDistributionsFile>distributions.xml</ROLStochasticDistributionsFile>

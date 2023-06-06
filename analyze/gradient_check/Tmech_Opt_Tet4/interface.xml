@@ -473,11 +473,6 @@
   <Output>
     <OutputStage>Output To File</OutputStage>
   </Output>
-  <Options>
-    <KSMaxTrustRegionIterations>5</KSMaxTrustRegionIterations>
-    <AugLagPenaltyParam>1</AugLagPenaltyParam>
-    <AugLagPenaltyParamScaleFactor>1.05</AugLagPenaltyParamScaleFactor>
-  </Options>
   <OptimizationVariables>
     <ValueName>Optimization DOFs</ValueName>
     <InitializationStage>Initialize Optimization</InitializationStage>

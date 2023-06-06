@@ -519,7 +519,11 @@
     <Name>Cache State</Name>
 </Stage>
 <Optimizer>
-    <Package>OC</Package>
+    <Package>ROL LinearConstraint</Package>
+    <Options>
+       <HessianType>zero</HessianType>
+       <InputFileName>rol_inputs.xml</InputFileName>
+    </Options>
     <Convergence>
         <MaxIterations>5</MaxIterations>
     </Convergence>
