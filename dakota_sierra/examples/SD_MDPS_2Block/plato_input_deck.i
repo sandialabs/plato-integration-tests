@@ -55,7 +55,7 @@ begin boundary_condition 1
     type fixed_value
     location_type sideset
     #location_name center_axis
-    location_id 4
+    location_id 1
     degree_of_freedom dispx dispz dispy
     value 0 0 0
 end boundary_condition
@@ -64,7 +64,7 @@ begin load 1
     type traction
     location_type sideset
     #location_name left_axis
-    location_id 3
+    location_id 2
     value -1.0e3 0 0
 end load
 
@@ -72,7 +72,7 @@ begin load 2
     type traction
     location_type sideset
     #location_name right_axis
-    location_id 2
+    location_id 3
     value 1.0e3 0 0
 end load
 
@@ -80,7 +80,7 @@ begin load 3
     type traction
     location_type sideset
     #location_name left_axis
-    location_id 3
+    location_id 2
     value 0 -2.0e3 0
 end load
 
@@ -88,7 +88,7 @@ begin load 4
     type traction
     location_type sideset
     #location_name right_axis
-    location_id 2
+    location_id 3
     value 0 -2.0e3 0
 end load
       
