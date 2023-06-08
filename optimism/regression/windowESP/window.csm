@@ -28,7 +28,6 @@ skend     0
 subtract
 
 select body
-attribute capsMeshLength 1
 select    body   13
 select    edge   1
 attribute capsGroup   $yminus_sideset
