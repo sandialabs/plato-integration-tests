@@ -388,434 +388,436 @@
 			</UserName>
 		</item>
 	</AllSharedData>
-	<DataLayer class_id="6" tracking_level="1" version="0" object_id="_0">
-		<SharedDataVector class_id="7" tracking_level="0" version="0">
-			<count>22</count>
-			<item_version>1</item_version>
-			<item class_id="8" tracking_level="0" version="1">
-				<px class_id="9" class_name="SharedField" tracking_level="1" version="0" object_id="_1">
-					<SharedData class_id="10" tracking_level="0" version="0"></SharedData>
-					<SharedFieldName>Control</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id="11" class_name="SharedValue" tracking_level="1" version="0" object_id="_2">
-					<SharedData></SharedData>
-					<SharedValueName>Lower Bound Value</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>platomain_1</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_3">
-					<SharedData></SharedData>
-					<SharedFieldName>Lower Bound Vector</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_4">
-					<SharedData></SharedData>
-					<SharedValueName>Upper Bound Value</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>platomain_1</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_5">
-					<SharedData></SharedData>
-					<SharedFieldName>Upper Bound Vector</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_6">
-					<SharedData></SharedData>
-					<SharedValueName>Design Volume</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>platomain_1</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_7">
-					<SharedData></SharedData>
-					<SharedValueName>Criterion Value - criterion_1_service_2_scenario_1</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>plato_analyze_2</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_8">
-					<SharedData></SharedData>
-					<SharedFieldName>Criterion Gradient - criterion_1_service_2_scenario_1</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>2</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_9">
-					<SharedData></SharedData>
-					<SharedValueName>Criterion Value - criterion_2_service_1_scenario_1</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>platomain_1</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_10">
-					<SharedData></SharedData>
-					<SharedFieldName>Criterion Gradient - criterion_2_service_1_scenario_1</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_11">
-					<SharedData></SharedData>
-					<SharedValueName>Criterion Value - criterion_3_service_3_scenario_1</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>plato_analyze_3</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_12">
-					<SharedData></SharedData>
-					<SharedFieldName>Criterion Gradient - criterion_3_service_3_scenario_1</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>2</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_13">
-					<SharedData></SharedData>
-					<SharedValueName>Constraint Value 1</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>platomain_1</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_14">
-					<SharedData></SharedData>
-					<SharedFieldName>Constraint Gradient 1</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="11" object_id="_15">
-					<SharedData></SharedData>
-					<SharedValueName>Objective Value</SharedValueName>
-					<ProviderNames>
-						<count>1</count>
-						<item_version>0</item_version>
-						<item>platomain_1</item>
-					</ProviderNames>
-					<NumData>1</NumData>
-					<IsDynamic>0</IsDynamic>
-					<Layout>0</Layout>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_16">
-					<SharedData></SharedData>
-					<SharedFieldName>Objective Gradient</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_17">
-					<SharedData></SharedData>
-					<SharedFieldName>Aggregate Gradient</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_18">
-					<SharedData></SharedData>
-					<SharedFieldName>dispx_plato_analyze_2</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>2</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_19">
-					<SharedData></SharedData>
-					<SharedFieldName>dispy_plato_analyze_2</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>2</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_20">
-					<SharedData></SharedData>
-					<SharedFieldName>dispz_plato_analyze_2</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>2</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_21">
-					<SharedData></SharedData>
-					<SharedFieldName>Topology</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-			<item>
-				<px class_id_reference="9" object_id="_22">
-					<SharedData></SharedData>
-					<SharedFieldName>Clamped Topology</SharedFieldName>
-					<Layout>1</Layout>
-					<Broadcast>3</Broadcast>
-				</px>
-			</item>
-		</SharedDataVector>
-		<SharedDataMap class_id="12" tracking_level="0" version="0">
-			<count>22</count>
-			<item_version>0</item_version>
-			<item class_id="13" tracking_level="0" version="0">
-				<first>Aggregate Gradient</first>
-				<second class_id="14" tracking_level="0" version="0">
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_17"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Clamped Topology</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_22"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Constraint Gradient 1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_14"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Constraint Value 1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_13"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Control</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_1"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Criterion Gradient - criterion_1_service_2_scenario_1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_8"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Criterion Gradient - criterion_2_service_1_scenario_1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_10"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Criterion Gradient - criterion_3_service_3_scenario_1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_12"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Criterion Value - criterion_1_service_2_scenario_1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_7"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Criterion Value - criterion_2_service_1_scenario_1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_9"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Criterion Value - criterion_3_service_3_scenario_1</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_11"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Design Volume</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_6"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Lower Bound Value</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_2"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Lower Bound Vector</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_3"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Objective Gradient</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_16"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Objective Value</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_15"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Topology</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_21"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Upper Bound Value</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="11" object_id_reference="_4"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>Upper Bound Vector</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_5"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>dispx_plato_analyze_2</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_18"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>dispy_plato_analyze_2</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_19"></px>
-					</weak_ptr>
-				</second>
-			</item>
-			<item>
-				<first>dispz_plato_analyze_2</first>
-				<second>
-					<weak_ptr>
-						<px class_id_reference="9" object_id_reference="_20"></px>
-					</weak_ptr>
-				</second>
-			</item>
-		</SharedDataMap>
+	<DataLayer class_id="6" tracking_level="0" version="0">
+		<tx class_id="7" tracking_level="1" version="0" object_id="_0">
+			<SharedDataVector class_id="8" tracking_level="0" version="0">
+				<count>22</count>
+				<item_version>1</item_version>
+				<item class_id="9" tracking_level="0" version="1">
+					<px class_id="10" class_name="SharedField" tracking_level="1" version="0" object_id="_1">
+						<SharedData class_id="11" tracking_level="0" version="0"></SharedData>
+						<SharedFieldName>Control</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id="12" class_name="SharedValue" tracking_level="1" version="0" object_id="_2">
+						<SharedData></SharedData>
+						<SharedValueName>Lower Bound Value</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>platomain_1</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_3">
+						<SharedData></SharedData>
+						<SharedFieldName>Lower Bound Vector</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_4">
+						<SharedData></SharedData>
+						<SharedValueName>Upper Bound Value</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>platomain_1</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_5">
+						<SharedData></SharedData>
+						<SharedFieldName>Upper Bound Vector</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_6">
+						<SharedData></SharedData>
+						<SharedValueName>Design Volume</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>platomain_1</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_7">
+						<SharedData></SharedData>
+						<SharedValueName>Criterion Value - criterion_1_service_2_scenario_1</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>plato_analyze_2</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_8">
+						<SharedData></SharedData>
+						<SharedFieldName>Criterion Gradient - criterion_1_service_2_scenario_1</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>2</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_9">
+						<SharedData></SharedData>
+						<SharedValueName>Criterion Value - criterion_2_service_1_scenario_1</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>platomain_1</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_10">
+						<SharedData></SharedData>
+						<SharedFieldName>Criterion Gradient - criterion_2_service_1_scenario_1</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_11">
+						<SharedData></SharedData>
+						<SharedValueName>Criterion Value - criterion_3_service_3_scenario_1</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>plato_analyze_3</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_12">
+						<SharedData></SharedData>
+						<SharedFieldName>Criterion Gradient - criterion_3_service_3_scenario_1</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>2</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_13">
+						<SharedData></SharedData>
+						<SharedValueName>Constraint Value 1</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>platomain_1</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_14">
+						<SharedData></SharedData>
+						<SharedFieldName>Constraint Gradient 1</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="12" object_id="_15">
+						<SharedData></SharedData>
+						<SharedValueName>Objective Value</SharedValueName>
+						<ProviderNames>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>platomain_1</item>
+						</ProviderNames>
+						<NumData>1</NumData>
+						<IsDynamic>0</IsDynamic>
+						<Layout>0</Layout>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_16">
+						<SharedData></SharedData>
+						<SharedFieldName>Objective Gradient</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_17">
+						<SharedData></SharedData>
+						<SharedFieldName>Aggregate Gradient</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_18">
+						<SharedData></SharedData>
+						<SharedFieldName>dispx_plato_analyze_2</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>2</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_19">
+						<SharedData></SharedData>
+						<SharedFieldName>dispy_plato_analyze_2</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>2</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_20">
+						<SharedData></SharedData>
+						<SharedFieldName>dispz_plato_analyze_2</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>2</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_21">
+						<SharedData></SharedData>
+						<SharedFieldName>Topology</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="10" object_id="_22">
+						<SharedData></SharedData>
+						<SharedFieldName>Clamped Topology</SharedFieldName>
+						<Layout>1</Layout>
+						<Broadcast>3</Broadcast>
+					</px>
+				</item>
+			</SharedDataVector>
+			<SharedDataMap class_id="13" tracking_level="0" version="0">
+				<count>22</count>
+				<item_version>0</item_version>
+				<item class_id="14" tracking_level="0" version="0">
+					<first>Aggregate Gradient</first>
+					<second class_id="15" tracking_level="0" version="0">
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_17"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Clamped Topology</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_22"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Constraint Gradient 1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_14"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Constraint Value 1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_13"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Control</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_1"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Criterion Gradient - criterion_1_service_2_scenario_1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_8"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Criterion Gradient - criterion_2_service_1_scenario_1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_10"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Criterion Gradient - criterion_3_service_3_scenario_1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_12"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Criterion Value - criterion_1_service_2_scenario_1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_7"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Criterion Value - criterion_2_service_1_scenario_1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_9"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Criterion Value - criterion_3_service_3_scenario_1</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_11"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Design Volume</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_6"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Lower Bound Value</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_2"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Lower Bound Vector</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_3"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Objective Gradient</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_16"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Objective Value</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_15"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Topology</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_21"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Upper Bound Value</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="12" object_id_reference="_4"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>Upper Bound Vector</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_5"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>dispx_plato_analyze_2</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_18"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>dispy_plato_analyze_2</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_19"></px>
+						</weak_ptr>
+					</second>
+				</item>
+				<item>
+					<first>dispz_plato_analyze_2</first>
+					<second>
+						<weak_ptr>
+							<px class_id_reference="10" object_id_reference="_20"></px>
+						</weak_ptr>
+					</second>
+				</item>
+			</SharedDataMap>
+		</tx>
 	</DataLayer>
-	<Stages class_id="15" tracking_level="0" version="0">
+	<Stages class_id="16" tracking_level="0" version="0">
 		<count>10</count>
 		<item_version>0</item_version>
-		<item class_id="16" tracking_level="0" version="0">
-			<tx class_id="17" tracking_level="1" version="0" object_id="_23">
+		<item class_id="17" tracking_level="0" version="0">
+			<tx class_id="18" tracking_level="1" version="0" object_id="_23">
 				<StageName>Design Volume</StageName>
-				<Operations class_id="18" tracking_level="0" version="0">
+				<Operations class_id="19" tracking_level="0" version="0">
 					<count>1</count>
 					<item_version>0</item_version>
-					<item class_id="19" tracking_level="0" version="0">
-						<tx class_id="20" class_name="SingleOperation" tracking_level="1" version="0" object_id="_24">
-							<Operation class_id="21" tracking_level="0" version="0">
+					<item class_id="20" tracking_level="0" version="0">
+						<tx class_id="21" class_name="SingleOperation" tracking_level="1" version="0" object_id="_24">
+							<Operation class_id="22" tracking_level="0" version="0">
 								<OperationName>Design Volume</OperationName>
 								<PerformerName>platomain_1</PerformerName>
-								<ArgumentNames class_id="22" tracking_level="0" version="0">
+								<ArgumentNames class_id="23" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
-									<item class_id="23" tracking_level="0" version="0">
+									<item class_id="24" tracking_level="0" version="0">
 										<first>Design Volume</first>
 										<second>Design Volume</second>
 									</item>
@@ -828,10 +830,10 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_6"></px>
+										<px class_id_reference="12" object_id_reference="_6"></px>
 									</item>
 								</OutputData>
-								<Parameters class_id="24" tracking_level="0" version="0">
+								<Parameters class_id="25" tracking_level="0" version="0">
 									<count>0</count>
 									<item_version>0</item_version>
 								</Parameters>
@@ -847,20 +849,20 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="11" object_id_reference="_6"></px>
+						<px class_id_reference="12" object_id_reference="_6"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_25">
+			<tx class_id_reference="18" object_id="_25">
 				<StageName>Initial Guess</StageName>
 				<Operations>
 					<count>1</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_26">
+						<tx class_id_reference="21" object_id="_26">
 							<Operation>
 								<OperationName>Initialize Field</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -880,7 +882,7 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -899,20 +901,20 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_1"></px>
+						<px class_id_reference="10" object_id_reference="_1"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_27">
+			<tx class_id_reference="18" object_id="_27">
 				<StageName>Set Lower Bounds</StageName>
 				<Operations>
 					<count>1</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_28">
+						<tx class_id_reference="21" object_id="_28">
 							<Operation>
 								<OperationName>Compute Lower Bounds</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -932,14 +934,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_2"></px>
+										<px class_id_reference="12" object_id_reference="_2"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_3"></px>
+										<px class_id_reference="10" object_id_reference="_3"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -954,27 +956,27 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="11" object_id_reference="_2"></px>
+						<px class_id_reference="12" object_id_reference="_2"></px>
 					</item>
 				</InputData>
 				<OutputData>
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_3"></px>
+						<px class_id_reference="10" object_id_reference="_3"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_29">
+			<tx class_id_reference="18" object_id="_29">
 				<StageName>Set Upper Bounds</StageName>
 				<Operations>
 					<count>1</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_30">
+						<tx class_id_reference="21" object_id="_30">
 							<Operation>
 								<OperationName>Compute Upper Bounds</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -994,14 +996,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_4"></px>
+										<px class_id_reference="12" object_id_reference="_4"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_5"></px>
+										<px class_id_reference="10" object_id_reference="_5"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1016,27 +1018,27 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="11" object_id_reference="_4"></px>
+						<px class_id_reference="12" object_id_reference="_4"></px>
 					</item>
 				</InputData>
 				<OutputData>
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_5"></px>
+						<px class_id_reference="10" object_id_reference="_5"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_31">
+			<tx class_id_reference="18" object_id="_31">
 				<StageName>Output To File</StageName>
 				<Operations>
 					<count>3</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_32">
+						<tx class_id_reference="21" object_id="_32">
 							<Operation>
 								<OperationName>EnforceBounds</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1064,20 +1066,20 @@
 									<count>3</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_3"></px>
+										<px class_id_reference="10" object_id_reference="_3"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_5"></px>
+										<px class_id_reference="10" object_id_reference="_5"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_22"></px>
+										<px class_id_reference="10" object_id_reference="_22"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1088,7 +1090,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_33">
+						<tx class_id_reference="21" object_id="_33">
 							<Operation>
 								<OperationName>Write Output</OperationName>
 								<PerformerName>plato_analyze_2</PerformerName>
@@ -1116,13 +1118,13 @@
 									<count>3</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_18"></px>
+										<px class_id_reference="10" object_id_reference="_18"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_19"></px>
+										<px class_id_reference="10" object_id_reference="_19"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_20"></px>
+										<px class_id_reference="10" object_id_reference="_20"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1133,7 +1135,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_34">
+						<tx class_id_reference="21" object_id="_34">
 							<Operation>
 								<OperationName>PlatoMainOutput</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1173,25 +1175,25 @@
 									<count>7</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_22"></px>
+										<px class_id_reference="10" object_id_reference="_22"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_16"></px>
+										<px class_id_reference="10" object_id_reference="_16"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_14"></px>
+										<px class_id_reference="10" object_id_reference="_14"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_18"></px>
+										<px class_id_reference="10" object_id_reference="_18"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_19"></px>
+										<px class_id_reference="10" object_id_reference="_19"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_20"></px>
+										<px class_id_reference="10" object_id_reference="_20"></px>
 									</item>
 								</InputData>
 								<OutputData>
@@ -1218,13 +1220,13 @@
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_35">
+			<tx class_id_reference="18" object_id="_35">
 				<StageName>Compute Constraint Value 1</StageName>
 				<Operations>
 					<count>3</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_36">
+						<tx class_id_reference="21" object_id="_36">
 							<Operation>
 								<OperationName>Filter Control</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1244,14 +1246,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1262,7 +1264,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_37">
+						<tx class_id_reference="21" object_id="_37">
 							<Operation>
 								<OperationName>Compute Constraint Value 1</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1286,17 +1288,17 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_9"></px>
+										<px class_id_reference="12" object_id_reference="_9"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_10"></px>
+										<px class_id_reference="10" object_id_reference="_10"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1307,7 +1309,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_38">
+						<tx class_id_reference="21" object_id="_38">
 							<Operation>
 								<OperationName>Copy Value</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1327,14 +1329,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_9"></px>
+										<px class_id_reference="12" object_id_reference="_9"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_13"></px>
+										<px class_id_reference="12" object_id_reference="_13"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1349,27 +1351,27 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_1"></px>
+						<px class_id_reference="10" object_id_reference="_1"></px>
 					</item>
 				</InputData>
 				<OutputData>
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="11" object_id_reference="_13"></px>
+						<px class_id_reference="12" object_id_reference="_13"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_39">
+			<tx class_id_reference="18" object_id="_39">
 				<StageName>Compute Constraint Gradient 1</StageName>
 				<Operations>
 					<count>3</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_40">
+						<tx class_id_reference="21" object_id="_40">
 							<Operation>
 								<OperationName>Filter Control</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1389,14 +1391,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1407,7 +1409,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_41">
+						<tx class_id_reference="21" object_id="_41">
 							<Operation>
 								<OperationName>Compute Constraint Gradient 1</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1431,17 +1433,17 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_9"></px>
+										<px class_id_reference="12" object_id_reference="_9"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_10"></px>
+										<px class_id_reference="10" object_id_reference="_10"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1452,7 +1454,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_42">
+						<tx class_id_reference="21" object_id="_42">
 							<Operation>
 								<OperationName>Filter Gradient</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1476,17 +1478,17 @@
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_10"></px>
+										<px class_id_reference="10" object_id_reference="_10"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_14"></px>
+										<px class_id_reference="10" object_id_reference="_14"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1501,27 +1503,27 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_1"></px>
+						<px class_id_reference="10" object_id_reference="_1"></px>
 					</item>
 				</InputData>
 				<OutputData>
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_14"></px>
+						<px class_id_reference="10" object_id_reference="_14"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_43">
+			<tx class_id_reference="18" object_id="_43">
 				<StageName>Compute Objective Value</StageName>
 				<Operations>
 					<count>3</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_44">
+						<tx class_id_reference="21" object_id="_44">
 							<Operation>
 								<OperationName>Filter Control</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1541,14 +1543,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1559,7 +1561,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id="25" class_name="MultiOperation" tracking_level="1" version="0" object_id="_45">
+						<tx class_id="26" class_name="MultiOperation" tracking_level="1" version="0" object_id="_45">
 							<Operation>
 								<OperationName></OperationName>
 								<PerformerName></PerformerName>
@@ -1571,17 +1573,17 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_7"></px>
+										<px class_id_reference="12" object_id_reference="_7"></px>
 									</item>
 									<item>
-										<px class_id_reference="11" object_id_reference="_11"></px>
+										<px class_id_reference="12" object_id_reference="_11"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1592,7 +1594,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_46">
+						<tx class_id_reference="21" object_id="_46">
 							<Operation>
 								<OperationName>Aggregate Data</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1616,17 +1618,17 @@
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_7"></px>
+										<px class_id_reference="12" object_id_reference="_7"></px>
 									</item>
 									<item>
-										<px class_id_reference="11" object_id_reference="_11"></px>
+										<px class_id_reference="12" object_id_reference="_11"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="11" object_id_reference="_15"></px>
+										<px class_id_reference="12" object_id_reference="_15"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1641,27 +1643,27 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_1"></px>
+						<px class_id_reference="10" object_id_reference="_1"></px>
 					</item>
 				</InputData>
 				<OutputData>
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="11" object_id_reference="_15"></px>
+						<px class_id_reference="12" object_id_reference="_15"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_47">
+			<tx class_id_reference="18" object_id="_47">
 				<StageName>Compute Objective Gradient</StageName>
 				<Operations>
 					<count>4</count>
 					<item_version>0</item_version>
 					<item>
-						<tx class_id_reference="20" object_id="_48">
+						<tx class_id_reference="21" object_id="_48">
 							<Operation>
 								<OperationName>Filter Control</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1681,14 +1683,14 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1699,7 +1701,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="25" object_id="_49">
+						<tx class_id_reference="26" object_id="_49">
 							<Operation>
 								<OperationName></OperationName>
 								<PerformerName></PerformerName>
@@ -1711,17 +1713,17 @@
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_21"></px>
+										<px class_id_reference="10" object_id_reference="_21"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_8"></px>
+										<px class_id_reference="10" object_id_reference="_8"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_12"></px>
+										<px class_id_reference="10" object_id_reference="_12"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1732,7 +1734,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_50">
+						<tx class_id_reference="21" object_id="_50">
 							<Operation>
 								<OperationName>Aggregate Data</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1756,17 +1758,17 @@
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_8"></px>
+										<px class_id_reference="10" object_id_reference="_8"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_12"></px>
+										<px class_id_reference="10" object_id_reference="_12"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_17"></px>
+										<px class_id_reference="10" object_id_reference="_17"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1777,7 +1779,7 @@
 						</tx>
 					</item>
 					<item>
-						<tx class_id_reference="20" object_id="_51">
+						<tx class_id_reference="21" object_id="_51">
 							<Operation>
 								<OperationName>Filter Gradient</OperationName>
 								<PerformerName>platomain_1</PerformerName>
@@ -1801,17 +1803,17 @@
 									<count>2</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_1"></px>
+										<px class_id_reference="10" object_id_reference="_1"></px>
 									</item>
 									<item>
-										<px class_id_reference="9" object_id_reference="_17"></px>
+										<px class_id_reference="10" object_id_reference="_17"></px>
 									</item>
 								</InputData>
 								<OutputData>
 									<count>1</count>
 									<item_version>1</item_version>
 									<item>
-										<px class_id_reference="9" object_id_reference="_16"></px>
+										<px class_id_reference="10" object_id_reference="_16"></px>
 									</item>
 								</OutputData>
 								<Parameters>
@@ -1826,21 +1828,21 @@
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_1"></px>
+						<px class_id_reference="10" object_id_reference="_1"></px>
 					</item>
 				</InputData>
 				<OutputData>
 					<count>1</count>
 					<item_version>1</item_version>
 					<item>
-						<px class_id_reference="9" object_id_reference="_16"></px>
+						<px class_id_reference="10" object_id_reference="_16"></px>
 					</item>
 				</OutputData>
 				<CurrentOperationIndex>0</CurrentOperationIndex>
 			</tx>
 		</item>
 		<item>
-			<tx class_id_reference="17" object_id="_52">
+			<tx class_id_reference="18" object_id="_52">
 				<StageName>Update Shared Data</StageName>
 				<Operations>
 					<count>0</count>

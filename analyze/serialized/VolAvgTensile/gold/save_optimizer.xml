@@ -21,6 +21,7 @@
 		<MaxNumIterations>500</MaxNumIterations>
 		<ProblemUpdateFrequency>0</ProblemUpdateFrequency>
 		<ROLCheckGradientSteps>12</ROLCheckGradientSteps>
+		<ROLCheckGradientStepSize>10</ROLCheckGradientStepSize>
 		<ROLCheckGradientSeed>0</ROLCheckGradientSeed>
 		<ROLStochasticDistributionsFile>distributions.xml</ROLStochasticDistributionsFile>
 		<ROLStochasticNumberOfSamples>3</ROLStochasticNumberOfSamples>
