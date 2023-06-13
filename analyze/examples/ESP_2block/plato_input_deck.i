@@ -78,7 +78,6 @@ begin optimization_parameters
    output_frequency 1000
    optimization_algorithm rol_bound_constrained
    rol_subproblem_model lin_more
-   rol_initial_trust_region_radius .1
    normalize_in_aggregator false
    csm_file sphere_block.csm
    num_shape_design_variables 1
