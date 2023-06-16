@@ -24,4 +24,3 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-2 )
 # Add the test
 Plato_add_xmlgen_numdiff_test(${TEST_NAME} ${XMLGEN_COMMAND} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "large")
-Plato_disable_test(${TEST_NAME} "Until decomp operation is fixed")
