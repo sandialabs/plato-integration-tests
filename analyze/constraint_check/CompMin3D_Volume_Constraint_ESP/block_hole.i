@@ -8,11 +8,6 @@ begin service 2
    number_processors 1
 end service
 
-//begin service 4
-//   code plato_analyze
-//   number_processors 1
-//end service
-
 begin service 3
    code plato_esp
    number_processors 1
