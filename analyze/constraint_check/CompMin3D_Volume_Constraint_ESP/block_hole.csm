@@ -1,0 +1,24 @@
+# box_hole.csm written by ocsmSave (v1.22)
+set MeshLength .2
+# Constant, Design, and Output Parameters:
+despmtr   radius       .25 lbound .1 ubound .4 initial .25
+
+# Global Attributes:
+
+# Branches:
+BOX       0   0   0   1   1   1
+CYLINDER  .50   .50   -1   .50   .50   2   radius
+SUBTRACT  none   1   0
+
+select body
+select face
+attribute capsGroup $solid_group
+
+SELECT    body   3
+SELECT    face   1   5   1
+ATTRIBUTE capsGroup   $load_ss
+SELECT    body   3
+SELECT    face   1   6   1
+ATTRIBUTE capsGroup   $fixed_ss
+
+END
