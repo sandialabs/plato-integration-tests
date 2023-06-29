@@ -1,0 +1,1 @@
+file(COPY targets.xml DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
