@@ -6,7 +6,6 @@ file(GLOB COMMON_TEST_FILES
   "${CMAKE_CURRENT_BINARY_DIR}/../common/*.i"
   "${CMAKE_CURRENT_BINARY_DIR}/../common/*.source"
   "${CMAKE_CURRENT_BINARY_DIR}/../common/*.csm"
-  "${CMAKE_CURRENT_BINARY_DIR}/../common/plato_sd_mass_main"
 )
 
 file(COPY ${COMMON_TEST_FILES} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
