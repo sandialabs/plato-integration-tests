@@ -47,29 +47,33 @@
 		<ObjectiveValueStageName></ObjectiveValueStageName>
 		<ObjectiveGradientStageName></ObjectiveGradientStageName>
 		<ObjectiveHessianStageName></ObjectiveHessianStageName>
-		<ObjectiveValueParametersOperationName></ObjectiveValueParametersOperationName>
-		<ObjectiveGradientParametersOperationName></ObjectiveGradientParametersOperationName>
-		<ObjectiveHessianParametersOperationName></ObjectiveHessianParametersOperationName>
 		<StochasticParametersNames class_id="4" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</StochasticParametersNames>
-		<InitialGuess>
-			<count>1</count>
+		<StochasticSampleSharedDataNames class_id="5" tracking_level="0" version="0">
+			<count>0</count>
 			<item_version>0</item_version>
+		</StochasticSampleSharedDataNames>
+		<InitialGuess>
+			<count>2</count>
+			<item_version>0</item_version>
+			<item>1.00000000000000000e+00</item>
 			<item>5.00000000000000000e-01</item>
 		</InitialGuess>
 		<LowerBoundValues>
-			<count>1</count>
+			<count>2</count>
 			<item_version>0</item_version>
+			<item>1.00000000000000000e+00</item>
 			<item>0.00000000000000000e+00</item>
 		</LowerBoundValues>
 		<UpperBoundValues>
-			<count>1</count>
+			<count>2</count>
 			<item_version>0</item_version>
 			<item>1.00000000000000000e+00</item>
+			<item>1.00000000000000000e+00</item>
 		</UpperBoundValues>
-		<ConstraintNormalizedTargetValues class_id="6" tracking_level="0" version="0">
+		<ConstraintNormalizedTargetValues class_id="7" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</ConstraintNormalizedTargetValues>
@@ -113,7 +117,7 @@
 			<count>0</count>
 			<item_version>0</item_version>
 		</UpdateProblemStageNames>
-		<ConstraintGradientNames class_id="7" tracking_level="0" version="0">
+		<ConstraintGradientNames class_id="8" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</ConstraintGradientNames>
@@ -126,7 +130,7 @@
 			<item_version>0</item_version>
 		</ConstraintReferenceValueNames>
 	</InputData>
-	<StageDataMng class_id="8" tracking_level="0" version="0">
+	<StageDataMng class_id="9" tracking_level="0" version="0">
 		<InputData>
 			<Name>Input Data</Name>
 		</InputData>
@@ -134,11 +138,11 @@
 			<count>0</count>
 			<item_version>0</item_version>
 		</StageNames>
-		<OperationInputs class_id="9" tracking_level="0" version="0">
+		<OperationInputs class_id="10" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</OperationInputs>
-		<SharedDataMap class_id="10" tracking_level="0" version="0">
+		<SharedDataMap class_id="11" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</SharedDataMap>
