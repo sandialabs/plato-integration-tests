@@ -1,5 +1,6 @@
 add_subdirectory(2D_Stochastic)
 add_subdirectory(2D_Stochastic_2_Parameters)
+add_subdirectory(2D_Stochastic_2_Performers)
 add_subdirectory(BodyLoads)
 add_subdirectory(CompliantContact)
 add_subdirectory(CompMin2D_ROL_LC)

@@ -15,8 +15,13 @@
   <Criterion>My Objective</Criterion>
   <Target>0.0</Target>
   <Parameter>
-    <ArgumentName>TestStochastic0</ArgumentName>
+    <ArgumentName>TestStochastic_1_1</ArgumentName>
     <Target>[Plato Problem]:[Natural Boundary Conditions]:[Traction Vector Boundary Condition with ID 1]:Values(0)</Target>
+    <InitialValue>0.0</InitialValue>
+  </Parameter>
+  <Parameter>
+    <ArgumentName>TestStochastic_1_2</ArgumentName>
+    <Target>[Plato Problem]:[Natural Boundary Conditions]:[Traction Vector Boundary Condition with ID 1]:Values(1)</Target>
     <InitialValue>0.0</InitialValue>
   </Parameter>
   <Input>
@@ -32,8 +37,13 @@
   <Name>Compute Objective Gradient</Name>
   <Criterion>My Objective</Criterion>
   <Parameter>
-    <ArgumentName>TestStochastic0</ArgumentName>
+    <ArgumentName>TestStochastic_1_1</ArgumentName>
     <Target>[Plato Problem]:[Natural Boundary Conditions]:[Traction Vector Boundary Condition with ID 1]:Values(0)</Target>
+    <InitialValue>0.0</InitialValue>
+  </Parameter>
+  <Parameter>
+    <ArgumentName>TestStochastic_1_2</ArgumentName>
+    <Target>[Plato Problem]:[Natural Boundary Conditions]:[Traction Vector Boundary Condition with ID 1]:Values(1)</Target>
     <InitialValue>0.0</InitialValue>
   </Parameter>
   <Input>
