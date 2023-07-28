@@ -47,11 +47,7 @@
 		<ObjectiveValueStageName></ObjectiveValueStageName>
 		<ObjectiveGradientStageName></ObjectiveGradientStageName>
 		<ObjectiveHessianStageName></ObjectiveHessianStageName>
-		<StochasticParametersNames class_id="4" tracking_level="0" version="0">
-			<count>0</count>
-			<item_version>0</item_version>
-		</StochasticParametersNames>
-		<StochasticSampleSharedDataNames class_id="5" tracking_level="0" version="0">
+		<StochasticSampleSharedDataNames class_id="4" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</StochasticSampleSharedDataNames>
@@ -73,7 +69,7 @@
 			<item>1.00000000000000000e+00</item>
 			<item>1.00000000000000000e+00</item>
 		</UpperBoundValues>
-		<ConstraintNormalizedTargetValues class_id="7" tracking_level="0" version="0">
+		<ConstraintNormalizedTargetValues class_id="6" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</ConstraintNormalizedTargetValues>
@@ -85,7 +81,7 @@
 			<count>0</count>
 			<item_version>0</item_version>
 		</ConstraintReferenceValues>
-		<ControlNames>
+		<ControlNames class_id="7" tracking_level="0" version="0">
 			<count>0</count>
 			<item_version>0</item_version>
 		</ControlNames>
