@@ -33,8 +33,8 @@
   </Output>
 </Operation>
 <Operation>
-  <Function>ComputeCriterionGradient</Function>
-  <Name>Compute Objective Gradient</Name>
+  <Function>ComputeCriterion</Function>
+  <Name>Compute Objective</Name>
   <Criterion>My Objective</Criterion>
   <Parameter>
     <ArgumentName>TestStochastic_1_1</ArgumentName>
@@ -49,6 +49,10 @@
   <Input>
     <ArgumentName>Topology</ArgumentName>
   </Input>
+  <Output>
+    <Argument>Value</Argument>
+    <ArgumentName>Objective Value</ArgumentName>
+  </Output>
   <Output>
     <Argument>Gradient</Argument>
     <ArgumentName>Objective Gradient</ArgumentName>

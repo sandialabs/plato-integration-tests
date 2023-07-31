@@ -40,6 +40,7 @@ set(APP_FILE plato_analyze_3_operations.xml)
 set(INPUT_FILE --input-config=plato_analyze_2_input_deck.xml)
 Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
+
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )

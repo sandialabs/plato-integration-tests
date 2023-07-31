@@ -34,6 +34,12 @@ set(APP_FILE plato_analyze_3_operations.xml)
 set(INPUT_FILE --input-config=plato_analyze_2_input_deck.xml)
 Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
+# Define/add a performer
+set( LOCAL_COMM_ID 3 )
+set(APP_FILE plato_analyze_4_operations.xml)
+set(INPUT_FILE --input-config=plato_analyze_2_input_deck.xml)
+Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
+
 # Files and tolerances
 set( OUT_FILE "ROL_output.txt")
 set( GOLD_FILE "ROL_output.txt.gold")

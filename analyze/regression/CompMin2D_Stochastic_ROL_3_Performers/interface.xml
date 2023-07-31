@@ -397,7 +397,7 @@
       <For var="J" in="Parameters">
       <Parameter>
         <ArgumentName>TestStochastic_{I}_{J}</ArgumentName>
-        <ArgumentValue>100.0</ArgumentValue>
+        <ArgumentValue>42.0</ArgumentValue>
       </Parameter>
       </For>
       <Input>
@@ -438,7 +438,7 @@
   <Operation>
     <For var="I" in="Comms">
     <Operation>
-      <Name>Compute Objective Gradient</Name>
+      <Name>Compute Objective</Name>
       <PerformerName>plato_analyze_{I+1}</PerformerName>
       <For var="J" in="Parameters">
       <Parameter>
@@ -453,6 +453,10 @@
       <Output>
         <ArgumentName>Objective Gradient</ArgumentName>
         <SharedDataName>Criterion Gradient {I}</SharedDataName>
+      </Output>
+      <Output>
+        <ArgumentName>Objective Value</ArgumentName>
+        <SharedDataName>Criterion Value {I}</SharedDataName>
       </Output>
     </Operation>
     </For>
