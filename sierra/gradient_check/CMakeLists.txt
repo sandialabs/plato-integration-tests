@@ -1,0 +1,13 @@
+file(COPY common DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+
+add_subdirectory(Volume)
+add_subdirectory(Mass)
+add_subdirectory(CGX)
+add_subdirectory(CGY)
+add_subdirectory(CGZ)
+add_subdirectory(IXX)
+add_subdirectory(IYY)
+add_subdirectory(IZZ)
+add_subdirectory(IXY)
+add_subdirectory(IYZ)
+add_subdirectory(IZX)
