@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ESP>
+  <ModelFileName>single_hole_opt.csm</ModelFileName>
+  <TessFileName>single_hole.eto</TessFileName>
+  <ParameterIndex>0</ParameterIndex>
+</ESP>
