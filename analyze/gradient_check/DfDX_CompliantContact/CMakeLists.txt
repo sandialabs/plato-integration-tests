@@ -8,10 +8,6 @@ set( testFiles "plato_analyze_input_deck.xml;plato_analyze_operations.xml")
 Plato_add_test_files("${testFiles}")
 Plato_analyze_copy_test_data("two_block_tensile_hole.exo")
 
-# Create dummy input 
-set( NUM_PROCS 1 )
-set( IO_COMM_INDEX 0 )
-
 # Set input file names for running finite difference computations through python
 set( INITIAL_FINITE_DIFFERENCE_STEP 1e-1 )
 set( FINITE_DIFFERENCE_STEPS 10 )
@@ -28,5 +24,5 @@ SET(TEST_COMMAND "python ${GRADIENT_CHECK_PYTHON_SCRIPT} ${INITIAL_FINITE_DIFFER
 SET(CUSTOM_COMMAND "echo test has run")
 
 # Add the test
-Plato_add_custom_command_test(${TEST_COMMAND} ${TEST_NAME} ${NUM_PROCS} ${IO_COMM_INDEX} ${CUSTOM_COMMAND})
+Plato_add_custom_command_test(${TEST_COMMAND} ${TEST_NAME} ${CUSTOM_COMMAND})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")

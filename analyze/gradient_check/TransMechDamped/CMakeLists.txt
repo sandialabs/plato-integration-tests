@@ -14,12 +14,6 @@ set( PLATOMAIN_NP 1 )
 # Set number of processors for Performer comms
 set( ANALYZE_NP 1 )
 
-# Create list of comm sizes 
-set( NUM_PROCS "${PLATOMAIN_NP} ${ANALYZE_NP}" )
-
-# Specify which comm will provide the output for comparison
-set( IO_COMM_INDEX 0 )
-
 # Set the name of the interface file
 set( INTERFACE_FILE interface.xml )
 
@@ -44,5 +38,5 @@ set( LAST_ROW 5 )
 SET(CUSTOM_COMMAND "python ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_ROWS} ${INFNORM_RELATIVE_TOLERANCE} ${OUT_FILE} ${GOLD_FILE} ${LAST_ROW}")
 
 # Add the test
-Plato_add_custom_command_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUM_PROCS} ${IO_COMM_INDEX} ${CUSTOM_COMMAND})
+Plato_add_custom_command_test(${PLATO_NEW_TEST} ${TEST_NAME} ${CUSTOM_COMMAND})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "medium")

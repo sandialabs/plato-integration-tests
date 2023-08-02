@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<include filename="defines.xml" />
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Initialize Values</Name>
+  <Output>
+    <ArgumentName>Values</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>single_hole.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Compute Lower Bounds</Name>
+  <Output>
+    <ArgumentName>Lower Bounds</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>single_hole.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Compute Upper Bounds</Name>
+  <Output>
+    <ArgumentName>Upper Bounds</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>single_hole.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>CopyField</Function>
+  <Name>Copy Field</Name>
+  <Input>
+    <ArgumentName>InputField</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputField</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>CopyValue</Function>
+  <Name>Copy Value</Name>
+  <Input>
+    <ArgumentName>InputValue</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputValue</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Name>Aggregate Data</Name>
+  <Function>Aggregator</Function>
+  <Aggregate>
+    <Layout>Value</Layout>
+    <Input>
+      <ArgumentName>Value 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Value</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Aggregate>
+    <Layout>Nodal Field</Layout>
+    <Input>
+      <ArgumentName>Field 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Field</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Weighting>
+    <Weight>
+      <Value>1</Value>
+    </Weight>
+  </Weighting>
+</Operation>
+<Operation>
+  <Function>CSMMeshOutput</Function>
+  <Name>CSMMeshOutput</Name>
+  <BaseMeshName>single_hole.exo</BaseMeshName>
+  <OutputFrequency>1</OutputFrequency>
+  <MaxIterations>25</MaxIterations>
+</Operation>
+<Operation>
+  <Function>SystemCall</Function>
+  <Name>Initialize Geometry</Name>
+  <Command>plato-cli geometry esp</Command>
+  <Argument>--input single_hole.csm</Argument>
+  <Argument>--output-model single_hole_opt.csm</Argument>
+  <Argument>--output-mesh single_hole.exo</Argument>
+  <Argument>--tesselation single_hole.eto</Argument>
+  <Argument>--workflow aflr2</Argument>
+</Operation>
+<Operation>
+  <Function>SystemCall</Function>
+  <Name>Update Geometry on Change</Name>
+  <Command>plato-cli geometry esp</Command>
+  <OnChange>true</OnChange>
+  <Argument>--input single_hole.csm</Argument>
+  <Argument>--output-model single_hole_opt.csm</Argument>
+  <Argument>--output-mesh single_hole.exo</Argument>
+  <Argument>--tesselation single_hole.eto</Argument>
+  <Argument>--morph true</Argument>
+  <Argument>--precision 16</Argument>
+  <Argument>--workflow aflr2</Argument>
+  <Argument>--parameters</Argument>
+  <AppendInput>true</AppendInput>
+  <Input>
+    <ArgumentName>Parameters</ArgumentName>
+    <Layout>scalar</Layout>
+    <Size>{NumParameters}</Size>
+  </Input>
+</Operation>
+<Operation>
+  <Name>Chain Rule</Name>
+  <Function>ChainRule</Function>
+  <Dimensions>2</Dimensions>
+  <For var="I" in="Parameters">
+    <Input>
+      <ArgumentName>Parameter Sensitivity {I}</ArgumentName>
+    </Input>
+  </For>
+  <Input>
+    <ArgumentName>DFDX</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Full Gradient</ArgumentName>
+  </Output>
+</Operation>
