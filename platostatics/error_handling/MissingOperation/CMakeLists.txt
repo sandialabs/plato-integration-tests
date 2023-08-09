@@ -23,19 +23,19 @@ set( INTERFACE_FILE interface.xml )
 # Create the test and define the PlatoMain performer
 set(APP_FILE platoApp.xml)
 set(INPUT_FILE platomain.xml)
-Plato_create_test(PLATO_NEW_TEST ${PLATOMAIN_BINARY} ${PLATOMAIN_NP} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
+Plato_create_test(PLATO_NEW_TEST $<TARGET_FILE:PlatoMain> ${PLATOMAIN_NP} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
 # Define/add a performer
 set( LOCAL_COMM_ID 1 )
 set(APP_FILE localApp1.xml)
 set(INPUT_FILE lightmp1.xml)
-Plato_add_performer(PLATO_NEW_TEST ${PLATOSTATICS_BINARY} ${PLATOSTATICS_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
+Plato_add_performer(PLATO_NEW_TEST $<TARGET_FILE:PlatoStatics> ${PLATOSTATICS_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
 # Define/add a performer
 set( LOCAL_COMM_ID 2 )
 set(APP_FILE localApp2.xml)
 set(INPUT_FILE lightmp2.xml)
-Plato_add_performer(PLATO_NEW_TEST ${PLATOSTATICS_BINARY} ${PLATOSTATICS_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
+Plato_add_performer(PLATO_NEW_TEST $<TARGET_FILE:PlatoStatics> ${PLATOSTATICS_NP} ${LOCAL_COMM_ID} ${INTERFACE_FILE} ${APP_FILE} ${INPUT_FILE})
 
 # Add the test
 set(INPUT_MESH unsmesh.gen)
