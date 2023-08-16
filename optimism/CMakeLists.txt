@@ -13,9 +13,5 @@ Copy_utility_file_to_dir(
   ${BINARY_PYTHON_DIR} 
   GRADIENT_CHECK_PYTHON_SCRIPT)
 
-# Identify path to suite-sparse used in OptimiSM
-set( OPTIMISM_DIR $ENV{OPTIMISM_DIR} )
-set( SUITE_SPARSE_LIB "$(find ${OPTIMISM_DIR}/spack/opt/spack/ \\( -name \".spack\" -prune \\) -o \\( -type d -name \"suite-sparse*\" -print -quit \\))/lib" )
-
 add_subdirectory(gradient_check)
 add_subdirectory(regression)
