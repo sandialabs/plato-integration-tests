@@ -43,4 +43,5 @@ Plato_add_numdiff_test(${PLATO_NEW_TEST} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDI
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
 
 # Test if final_design.stl exists
+Requires_features( ENABLE_ISO )
 Plato_add_output_exists_test( ${TEST_NAME} "final_design.stl" )

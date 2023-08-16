@@ -1,4 +1,4 @@
-Requires_features()
+Requires_features(EXPY)
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

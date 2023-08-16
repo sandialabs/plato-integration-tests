@@ -2,7 +2,8 @@ from jax import grad
 from jax import jit
 from jax import value_and_grad
 from optimism import EquationSolver
-from optimism import ExodusWriter
+from plato_optimism import exodus_writer as ExodusWriter
+from plato_optimism import adjoint_problem_function_space as AdjointFunctionSpace
 from optimism import FunctionSpace
 from optimism import Mechanics
 from optimism import Mesh
@@ -28,10 +29,10 @@ class NodalCoordinateOptimization:
         self.quad_rule = QuadratureRule.create_quadrature_rule_on_triangle(degree=2)
 
         self.ebcs = [
-            EssentialBC(nodeSet='yminus_nodeset', component=0),
-            EssentialBC(nodeSet='yminus_nodeset', component=1),
-            EssentialBC(nodeSet='yplus_nodeset', component=0),
-            EssentialBC(nodeSet='yplus_nodeset', component=1)
+            EssentialBC(nodeSet='yminus_sideset', component=0),
+            EssentialBC(nodeSet='yminus_sideset', component=1),
+            EssentialBC(nodeSet='yplus_sideset', component=0),
+            EssentialBC(nodeSet='yplus_sideset', component=1)
         ]
 
         props = {
@@ -56,7 +57,9 @@ class NodalCoordinateOptimization:
         self.maxDisp = 0.25
 
     def reload_mesh(self):
-        self.mesh = ReadExodusMesh.read_exodus_mesh(self.input_mesh)
+        origMesh = ReadExodusMesh.read_exodus_mesh(self.input_mesh)
+        nodeSets = Mesh.create_nodesets_from_sidesets(origMesh)
+        self.mesh = Mesh.mesh_with_nodesets(origMesh, nodeSets)
         self.stateNotStored = True
 
     def run_simulation(self):
@@ -64,7 +67,7 @@ class NodalCoordinateOptimization:
         coords = self.mesh.coords
 
         # setup
-        func_space = FunctionSpace.construct_function_space_for_adjoint(coords, self.mesh, self.quad_rule)
+        func_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, self.mesh, self.quad_rule)
         mech_funcs = Mechanics.create_mechanics_functions(func_space, mode2D='plane strain', materialModel=self.mat_model)
         dof_manager = DofManager(func_space, 2, self.ebcs)
 
@@ -72,7 +75,7 @@ class NodalCoordinateOptimization:
         def get_ubcs(p):
             disp = p[0]
             V = np.zeros(coords.shape)
-            index = (self.mesh.nodeSets['yplus_nodeset'], 1)
+            index = (self.mesh.nodeSets['yplus_sideset'], 1)
             V = V.at[index].set(disp)
             return dof_manager.get_bc_values(V)
 
@@ -101,7 +104,7 @@ class NodalCoordinateOptimization:
             U = create_field(Uu, p)
             f = nodal_forces(U, p)
 
-            index = (self.mesh.nodeSets['yplus_nodeset'], 1)
+            index = (self.mesh.nodeSets['yplus_sideset'], 1)
             force.append( onp.abs(onp.sum(onp.array(f.at[index].get()))) )
 
             disp.append( onp.abs(dispval) )
@@ -153,14 +156,14 @@ class NodalCoordinateOptimization:
         self.stateNotStored = False
 
     def objective_function(self, coords):
-        f_space = FunctionSpace.construct_function_space_for_adjoint(coords, self.mesh, self.quad_rule)
+        f_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, self.mesh, self.quad_rule)
         m_funcs = Mechanics.create_mechanics_functions(f_space, mode2D='plane strain', materialModel=self.mat_model)
 
         dof_manager = DofManager(f_space, 2, self.ebcs)
         def get_ubcs(p):
             disp = p[0]
             V = np.zeros(coords.shape)
-            index = (self.mesh.nodeSets['yplus_nodeset'], 1)
+            index = (self.mesh.nodeSets['yplus_sideset'], 1)
             V = V.at[index].set(disp)
             return dof_manager.get_bc_values(V)
 
@@ -183,3 +186,10 @@ class NodalCoordinateOptimization:
 
         gradient = -grad(self.objective_function, argnums=0)(self.mesh.coords)
         return onp.array(gradient).flatten().tolist()
+
+if __name__ == '__main__':
+    nco = NodalCoordinateOptimization()
+    nco.reload_mesh()
+    val = nco.get_objective()
+    print("\n objective value")
+    print(val)
