@@ -309,7 +309,7 @@ function( Plato_add_custom_command_test_given_mpirun RUN_COMMAND TEST_NAME CUSTO
            -DCUSTOM_COMMAND=${CUSTOM_COMMAND}
            -P ${BINARY_CMAKE_UTILITIES_DIR}/runcustomcommandtest.cmake )
 
-endfunction( Plato_add_custom_command_test )
+endfunction( Plato_add_custom_command_test_given_mpirun )
 
 
 ###############################################################################
