@@ -21,7 +21,6 @@ begin criterion 1
   eigen_solver_shift -5e8
   camp_solver_tol 1e-4
   camp_max_iter 5000
-  shape_sideset 3
   ref_data_file gold_brick-out.exo
   match_nodesets 4 5 6 7 8 9
 end criterion
@@ -68,7 +67,7 @@ begin material 1
 end material
 
 begin optimization_parameters
-   esp_workflow egads_tetgen
+   esp_workflow aflr4_aflr3
    max_iterations 15
    output_frequency 1
    optimization_algorithm rol_bound_constrained

@@ -1,16 +1,13 @@
+attribute capsAIM $aflr4AIM;aflr3AIM;platoAIM
+attribute capsMeshLength 10.0
+
 # ejoin2.csm written by ocsmSave (v1.17)
 
 # Constant, Design, and Output Parameters:
-despmtr length 17.5 lbound 15 ubound 25 initial 20.0
+despmtr length 17.539057 lbound 15 ubound 25 initial 20.0
 
 # Global Attributes:
-dimension egadsFaceMeshSizes 1 1
-dimension egadsMeshMaxCurvatureDistances 1 1
-dimension egadsMeshMaxDihedralAngles 1 1
-cfgpmtr egadsFaceMeshSizes .75
-cfgpmtr egadsMeshMaxCurvatureDistances .1
-cfgpmtr egadsMeshMaxDihedralAngles 20
-cfgpmtr egadsMaxTetEdgeSize 2.25
+set MeshLength 10.0
 
 # Branches:
 skbeg     0   0   0   1
@@ -38,8 +35,8 @@ subtract  none   1   0
 
 select    BODY
 attribute _name   $block_1
-attribute capsAIM   $egadsTessAIM;tetgenAIM;platoAIM
-attribute capsMeshLength  1
+attribute capsAIM   $aflr4AIM;aflr3AIM;platoAIM
+attribute capsMeshLength  2
 select    face
 attribute capsGroup   $dummy_att
 
@@ -50,15 +47,19 @@ attribute capsMesh $FaceSize1
 
 select    body   13
 select    face   12   3   1
-attribute capsGroup   $measure_nodeset
+attribute exNodeset   $measure_nodeset
 select    body   13
 select    face   10   3   1
-attribute capsGroup   $measure_nodeset
+attribute exNodeset   $measure_nodeset
 select    body   13
 select    face   8   3   1
-attribute capsGroup   $measure_nodeset
+attribute exNodeset   $measure_nodeset
 select    body   13
 select    face   7   4   1
 attribute capsGroup   $shape_sideset
 
+patbeg i @stack.size
+  select body @stack[i]
+  attribute _name $block_+val2str(i,0)
+patend
 end
