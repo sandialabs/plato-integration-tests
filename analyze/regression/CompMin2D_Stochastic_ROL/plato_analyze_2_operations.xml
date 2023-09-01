@@ -22,9 +22,6 @@
   <Input>
     <ArgumentName>Topology</ArgumentName>
   </Input>
-  <Input>
-    <ArgumentName>StochasticParameters</ArgumentName>
-  </Input>
   <Output>
     <Argument>Value</Argument>
     <ArgumentName>Objective Value</ArgumentName>

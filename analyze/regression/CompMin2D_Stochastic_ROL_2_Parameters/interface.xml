@@ -452,6 +452,26 @@
     </Output>
   </Operation>
   <Operation>
+    <Name>Compute Objective Value</Name>
+    <PerformerName>plato_analyze_2</PerformerName>
+    <Parameter>
+      <ArgumentName>TestStochastic0</ArgumentName>
+      <ArgumentValue>42.0</ArgumentValue>
+    </Parameter>
+    <Parameter>
+      <ArgumentName>TestStochastic1</ArgumentName>
+      <ArgumentValue>42.0</ArgumentValue>
+    </Parameter>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Objective Value</ArgumentName>
+      <SharedDataName>Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
     <Name>Compute Objective Gradient</Name>
     <PerformerName>plato_analyze_2</PerformerName>
     <Parameter>
@@ -531,16 +551,24 @@
     <UpperBoundVectorName>Upper Bound Vector</UpperBoundVectorName>
     <SetLowerBoundsStage>Set Lower Bounds</SetLowerBoundsStage>
     <SetUpperBoundsStage>Set Upper Bounds</SetUpperBoundsStage>
-    <StochasticParameterName>TestStochastic0</StochasticParameterName>
-    <StochasticParameterName>TestStochastic1</StochasticParameterName>
+    <StochasticSample>
+      <OutputValueSharedDataName>Objective Value</OutputValueSharedDataName>
+      <OutputGradientSharedDataName>Objective Gradient</OutputGradientSharedDataName>
+      <StochasticParameter>
+        <SharedDataName>TestStochastic0</SharedDataName>
+        <DistributionName>TestStochastic0</DistributionName>
+      </StochasticParameter>
+      <StochasticParameter>
+        <SharedDataName>TestStochastic1</SharedDataName>
+        <DistributionName>TestStochastic1</DistributionName>
+      </StochasticParameter>
+    </StochasticSample>
   </OptimizationVariables>
   <Objective>
     <GradientName>Objective Gradient</GradientName>
     <GradientStageName>Compute Objective Gradient</GradientStageName>
-    <GradientParametersOperationName>Compute Objective Gradient</GradientParametersOperationName>
     <ValueName>Objective Value</ValueName>
     <ValueStageName>Compute Objective Value</ValueStageName>
-    <ValueParametersOperationName>Compute Objective Value</ValueParametersOperationName>
   </Objective>
   <Constraint>
     <GradientName>Constraint Gradient 1</GradientName>

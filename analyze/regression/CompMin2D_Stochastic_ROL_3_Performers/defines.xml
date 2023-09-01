@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Define name="NumComms" type="int" value="3" />
+<Array  name="Comms" type="int" from="1" to="{NumComms}" />
+
+<Define name="NumParameters" type="int" value="2" />
+<Array  name="Parameters" type="int" from="1" to="{NumParameters}" />

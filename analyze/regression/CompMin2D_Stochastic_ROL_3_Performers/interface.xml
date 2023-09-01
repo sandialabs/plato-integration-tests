@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
+
+<include filename="defines.xml"/>
+
 <Console>
   <Enabled>true</Enabled>
   <Verbose>false</Verbose>
@@ -8,11 +11,15 @@
   <Code>platomain</Code>
   <PerformerID>0</PerformerID>
 </Performer>
+
+<For var="I" in="Comms">
 <Performer>
-  <Name>plato_analyze_2</Name>
+  <Name>plato_analyze_{I+1}</Name>
   <Code>plato_analyze</Code>
-  <PerformerID>1</PerformerID>
+  <PerformerID>{I}</PerformerID>
 </Performer>
+</For>
+
 <SharedData>
   <Name>Control</Name>
   <Type>Scalar</Type>
@@ -58,21 +65,32 @@
   <OwnerName>platomain_1</OwnerName>
   <UserName>platomain_1</UserName>
 </SharedData>
+
+<For var="I" in="Comms">
 <SharedData>
-  <Name>Criterion Value - criterion_1_service_2_scenario_1</Name>
+  <Name>Criterion Value {I}</Name>
   <Type>Scalar</Type>
   <Layout>Global</Layout>
   <Size>1</Size>
-  <OwnerName>plato_analyze_2</OwnerName>
+  <OwnerName>plato_analyze_{I+1}</OwnerName>
   <UserName>platomain_1</UserName>
 </SharedData>
 <SharedData>
-  <Name>Criterion Gradient - criterion_1_service_2_scenario_1</Name>
+  <Name>Criterion Gradient {I}</Name>
   <Type>Scalar</Type>
   <Layout>Nodal Field</Layout>
-  <OwnerName>plato_analyze_2</OwnerName>
+  <OwnerName>plato_analyze_{I+1}</OwnerName>
   <UserName>platomain_1</UserName>
 </SharedData>
+<SharedData>
+  <Name>Filtered Gradient {I}</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>platomain_1</OwnerName>
+  <UserName>platomain_1</UserName>
+</SharedData>
+</For>
+
 <SharedData>
   <Name>Criterion Value - criterion_2_service_1_scenario_</Name>
   <Type>Scalar</Type>
@@ -104,28 +122,6 @@
   <UserName>platomain_1</UserName>
 </SharedData>
 <SharedData>
-  <Name>Objective Value</Name>
-  <Type>Scalar</Type>
-  <Layout>Global</Layout>
-  <Size>1</Size>
-  <OwnerName>platomain_1</OwnerName>
-  <UserName>platomain_1</UserName>
-</SharedData>
-<SharedData>
-  <Name>Objective Gradient</Name>
-  <Type>Scalar</Type>
-  <Layout>Nodal Field</Layout>
-  <OwnerName>platomain_1</OwnerName>
-  <UserName>platomain_1</UserName>
-</SharedData>
-<SharedData>
-  <Name>Aggregate Gradient</Name>
-  <Type>Scalar</Type>
-  <Layout>Nodal Field</Layout>
-  <OwnerName>platomain_1</OwnerName>
-  <UserName>platomain_1</UserName>
-</SharedData>
-<SharedData>
   <Name>dispx_plato_analyze_2</Name>
   <Type>Scalar</Type>
   <Layout>Nodal Field</Layout>
@@ -145,25 +141,24 @@
   <Layout>Nodal Field</Layout>
   <OwnerName>platomain_1</OwnerName>
   <UserName>platomain_1</UserName>
-  <UserName>plato_analyze_2</UserName>
+  <For var="I" in="Comms">
+  <UserName>plato_analyze_{I+1}</UserName>
+  </For>
 </SharedData>
 
+<!--Stochastic parameters-->
+<For var="I" in="Comms">
+<For var="J" in="Parameters">
 <SharedData>
-  <Name>TestStochastic0</Name>
+  <Name>TestStochastic_{I}_{J}</Name>
   <Type>Scalar</Type>
   <Layout>Parameter</Layout>
   <Size>1</Size>
   <OwnerName>platomain_1</OwnerName>
-  <UserName>plato_analyze_2</UserName>
+  <UserName>plato_analyze_{I+1}</UserName>
 </SharedData>
-<SharedData>
-  <Name>TestStochastic1</Name>
-  <Type>Scalar</Type>
-  <Layout>Parameter</Layout>
-  <Size>1</Size>
-  <OwnerName>platomain_1</OwnerName>
-  <UserName>plato_analyze_2</UserName>
-</SharedData>
+</For>
+</For>
 
 <Stage>
   <Name>Design Volume</Name>
@@ -259,10 +254,6 @@
     <Input>
       <ArgumentName>control</ArgumentName>
       <SharedDataName>Control</SharedDataName>
-    </Input>
-    <Input>
-      <ArgumentName>objective gradient</ArgumentName>
-      <SharedDataName>Objective Gradient</SharedDataName>
     </Input>
     <Input>
       <ArgumentName>constraint gradient 1</ArgumentName>
@@ -380,6 +371,7 @@
     <SharedDataName>Constraint Gradient 1</SharedDataName>
   </Output>
 </Stage>
+
 <Stage>
   <Name>Compute Objective Value</Name>
   <Input>
@@ -398,41 +390,34 @@
     </Output>
   </Operation>
   <Operation>
-    <Name>Compute Objective Value</Name>
-    <PerformerName>plato_analyze_2</PerformerName>
-    <Parameter>
-      <ArgumentName>TestStochastic0</ArgumentName>
-      <ArgumentValue>0.0</ArgumentValue>
-    </Parameter>
-    <Parameter>
-      <ArgumentName>TestStochastic1</ArgumentName>
-      <ArgumentValue>0.0</ArgumentValue>
-    </Parameter>
-    <Input>
-      <ArgumentName>Topology</ArgumentName>
-      <SharedDataName>Topology</SharedDataName>
-    </Input>
-    <Output>
-      <ArgumentName>Objective Value</ArgumentName>
-      <SharedDataName>Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
-    </Output>
+    <For var="I" in="Comms">
+    <Operation>
+      <Name>Compute Objective Value</Name>
+      <PerformerName>plato_analyze_{I+1}</PerformerName>
+      <For var="J" in="Parameters">
+      <Parameter>
+        <ArgumentName>TestStochastic_{I}_{J}</ArgumentName>
+        <ArgumentValue>42.0</ArgumentValue>
+      </Parameter>
+      </For>
+      <Input>
+        <ArgumentName>Topology</ArgumentName>
+        <SharedDataName>Topology</SharedDataName>
+      </Input>
+      <Output>
+        <ArgumentName>Objective Value</ArgumentName>
+        <SharedDataName>Criterion Value {I}</SharedDataName>
+      </Output>
+    </Operation>
+    </For>
   </Operation>
-  <Operation>
-    <Name>Aggregate Data</Name>
-    <PerformerName>platomain_1</PerformerName>
-    <Input>
-      <ArgumentName>Value 1</ArgumentName>
-      <SharedDataName>Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
-    </Input>
-    <Output>
-      <ArgumentName>Value</ArgumentName>
-      <SharedDataName>Objective Value</SharedDataName>
-    </Output>
-  </Operation>
+  <For var="I" in="Comms">
   <Output>
-    <SharedDataName>Objective Value</SharedDataName>
+    <SharedDataName>Criterion Value {I}</SharedDataName>
   </Output>
+  </For>
 </Stage>
+
 <Stage>
   <Name>Compute Objective Gradient</Name>
   <Input>
@@ -451,57 +436,32 @@
     </Output>
   </Operation>
   <Operation>
-    <Name>Compute Objective Value</Name>
-    <PerformerName>plato_analyze_2</PerformerName>
-    <Parameter>
-      <ArgumentName>TestStochastic0</ArgumentName>
-      <ArgumentValue>0.0</ArgumentValue>
-    </Parameter>
-    <Parameter>
-      <ArgumentName>TestStochastic1</ArgumentName>
-      <ArgumentValue>0.0</ArgumentValue>
-    </Parameter>
-    <Input>
-      <ArgumentName>Topology</ArgumentName>
-      <SharedDataName>Topology</SharedDataName>
-    </Input>
-    <Output>
-      <ArgumentName>Objective Value</ArgumentName>
-      <SharedDataName>Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
-    </Output>
+    <For var="I" in="Comms">
+    <Operation>
+      <Name>Compute Objective</Name>
+      <PerformerName>plato_analyze_{I+1}</PerformerName>
+      <For var="J" in="Parameters">
+      <Parameter>
+        <ArgumentName>TestStochastic_{I}_{J}</ArgumentName>
+        <ArgumentValue>42.0</ArgumentValue>
+      </Parameter>
+      </For>
+      <Input>
+        <ArgumentName>Topology</ArgumentName>
+        <SharedDataName>Topology</SharedDataName>
+      </Input>
+      <Output>
+        <ArgumentName>Objective Gradient</ArgumentName>
+        <SharedDataName>Criterion Gradient {I}</SharedDataName>
+      </Output>
+      <Output>
+        <ArgumentName>Objective Value</ArgumentName>
+        <SharedDataName>Criterion Value {I}</SharedDataName>
+      </Output>
+    </Operation>
+    </For>
   </Operation>
-  <Operation>
-    <Name>Compute Objective Gradient</Name>
-    <PerformerName>plato_analyze_2</PerformerName>
-    <Parameter>
-      <ArgumentName>TestStochastic0</ArgumentName>
-      <ArgumentValue>42.0</ArgumentValue>
-    </Parameter>
-    <Parameter>
-      <ArgumentName>TestStochastic1</ArgumentName>
-      <ArgumentValue>-42.0</ArgumentValue>
-    </Parameter>
-    <Input>
-      <ArgumentName>Topology</ArgumentName>
-      <SharedDataName>Topology</SharedDataName>
-    </Input>
-    <Output>
-      <ArgumentName>Objective Gradient</ArgumentName>
-      <SharedDataName>Criterion Gradient - criterion_1_service_2_scenario_1</SharedDataName>
-    </Output>
-  </Operation>
-  <Operation>
-    <Name>Aggregate Data</Name>
-    <PerformerName>platomain_1</PerformerName>
-    <Input>
-      <ArgumentName>Field 1</ArgumentName>
-      <SharedDataName>Criterion Gradient - criterion_1_service_2_scenario_1</SharedDataName>
-    </Input>
-    <Output>
-      <ArgumentName>Field</ArgumentName>
-      <SharedDataName>Aggregate Gradient</SharedDataName>
-    </Output>
-  </Operation>
+  <For var="I" in="Comms">
   <Operation>
     <Name>Filter Gradient</Name>
     <PerformerName>platomain_1</PerformerName>
@@ -511,29 +471,32 @@
     </Input>
     <Input>
       <ArgumentName>Gradient</ArgumentName>
-      <SharedDataName>Aggregate Gradient</SharedDataName>
+      <SharedDataName>Criterion Gradient {I}</SharedDataName>
     </Input>
     <Output>
       <ArgumentName>Filtered Gradient</ArgumentName>
-      <SharedDataName>Objective Gradient</SharedDataName>
+      <SharedDataName>Filtered Gradient {I}</SharedDataName>
     </Output>
   </Operation>
+  </For>
+  <For var="I" in="Comms">
   <Output>
-    <SharedDataName>Objective Gradient</SharedDataName>
+    <SharedDataName>Filtered Gradient {I}</SharedDataName>
   </Output>
+  </For>
 </Stage>
+
 <Optimizer>
   <Package>ROL Stochastic</Package>
-  <CheckGradient>true</CheckGradient>
   <Options>
+    <MaxNumOuterIterations>300</MaxNumOuterIterations>
     <HessianType>zero</HessianType>
+    <ProblemUpdateFrequency>5</ProblemUpdateFrequency>
+    <ResetAlgorithmOnUpdate>false</ResetAlgorithmOnUpdate>
     <InputFileName>rol_inputs.xml</InputFileName>
     <ROLStochasticDistributionsFile>distributions.xml</ROLStochasticDistributionsFile>
     <ROLStochasticNumberOfSamples>8</ROLStochasticNumberOfSamples>
     <ROLStochasticSamplerSeed>123454321</ROLStochasticSamplerSeed>
-    <ROLGradientCheckPerturbationScale>0.1</ROLGradientCheckPerturbationScale>
-    <ROLGradientCheckSteps>15</ROLGradientCheckSteps>
-    <ROLGradientCheckSeed>123</ROLGradientCheckSeed>
   </Options>
   <Convergence>
     <MaxIterations>300</MaxIterations>
@@ -551,18 +514,18 @@
     <UpperBoundVectorName>Upper Bound Vector</UpperBoundVectorName>
     <SetLowerBoundsStage>Set Lower Bounds</SetLowerBoundsStage>
     <SetUpperBoundsStage>Set Upper Bounds</SetUpperBoundsStage>
+    <For var="I" in="Comms">
     <StochasticSample>
-      <OutputValueSharedDataName>Objective Value</OutputValueSharedDataName>
-      <OutputGradientSharedDataName>Objective Gradient</OutputGradientSharedDataName>
+      <OutputValueSharedDataName>Criterion Value {I}</OutputValueSharedDataName>
+      <OutputGradientSharedDataName>Filtered Gradient {I}</OutputGradientSharedDataName>
+      <For var="J" in="Parameters">
       <StochasticParameter>
-        <SharedDataName>TestStochastic0</SharedDataName>
-        <DistributionName>TestStochastic0</DistributionName>
+        <SharedDataName>TestStochastic_{I}_{J}</SharedDataName>
+        <DistributionName>TestStochastic{J}</DistributionName>
       </StochasticParameter>
-      <StochasticParameter>
-        <SharedDataName>TestStochastic1</SharedDataName>
-        <DistributionName>TestStochastic1</DistributionName>
-      </StochasticParameter>
+      </For>
     </StochasticSample>
+    </For>
   </OptimizationVariables>
   <Objective>
     <GradientName>Objective Gradient</GradientName>
