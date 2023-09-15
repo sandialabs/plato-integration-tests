@@ -6,13 +6,13 @@ end service
 
 begin service 2
   code sierra_sd
-  number_processors 4
+  number_processors 1
   number_ranks 1
 end service
 
 begin service 3
   code sierra_sd
-  number_processors 4
+  number_processors 1
   number_ranks 1
 end service
 
@@ -31,7 +31,6 @@ begin scenario 1
   loads 1 2
   boundary_conditions 1
   material aluminum
-  convert_to_tet10 true
 end scenario
 
 begin scenario 2
@@ -40,7 +39,6 @@ begin scenario 2
   loads 3 4
   boundary_conditions 1 
   material aluminum
-  convert_to_tet10 true
 end scenario
 
 begin objective
@@ -94,13 +92,11 @@ end load
       
 begin block 1
    material 1
-   element_type tet10
    sub_block -1.2 -1.5 -1.0 1.2 1.5 1.0
 end block
 
 begin block 2
    material 1
-   element_type tet10
 end block
 
 begin material 1
