@@ -28,6 +28,9 @@ skend     0
 subtract
 
 select body
+select edge
+attribute capsGroup $remaining_surface_sideset
+
 select    body   13
 select    edge   1
 attribute capsGroup   $yminus_sideset
