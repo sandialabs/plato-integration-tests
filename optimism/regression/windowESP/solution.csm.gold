@@ -1,3 +1,5 @@
+attribute capsAIM $aflr2AIM;platoAIM
+attribute capsMeshLength 1.0 
 # v2.csm written by ocsmSave (v1.16)
 
 # Constant, Design, and Output Parameters:
@@ -28,25 +30,15 @@ skend     0
 subtract
 
 select body
-select    body   13
-select    edge   1
-attribute capsGroup   $yminus_sideset
-
-select    body   13
-select    edge   3
-attribute capsGroup   $yplus_sideset
-
-select body
-attribute capsAIM $aflr2AIM;platoAIM
-attribute capsMeshLength 1.0 
-attribute capsGroup $solid_group
-attribute capsMesh $solid_group
 select edge
 attribute capsGroup $remaining_surface_sideset
+
 select    body   13
 select    edge   1
 attribute capsGroup   $yminus_sideset
+
 select    body   13
 select    edge   3
 attribute capsGroup   $yplus_sideset
+
 end
