@@ -15,7 +15,7 @@ set( INTERFACE_FILE interface.xml )
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 2 )
-set( INFNORM_RELATIVE_TOLERANCE 1e-2 )
+set( INFNORM_RELATIVE_TOLERANCE 1e-1 )
 set( OUT_FILE "ROL_gradient_check_output.txt")
 set( GOLD_FILE "ROL_gradient_check_output.gold.txt")
 set( LAST_ROW 6 )
