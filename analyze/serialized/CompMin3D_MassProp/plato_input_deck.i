@@ -27,8 +27,8 @@ end criterion
 
 begin criterion 3
   type mass_properties
-  cgx 1.8 weight 1
-  cgy 0.5 weight 1
+  cgx 1.8 weight 0.16
+  cgy 0.5 weight 2.777777777777778e-02
 end criterion
 
 begin scenario 1
