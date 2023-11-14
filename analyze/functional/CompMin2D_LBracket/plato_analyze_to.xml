@@ -18,17 +18,6 @@
                   <Parameter name="Minimum Value" type="double" value="1.0e-9"/>
               </ParameterList>
           </ParameterList>
-
-          <ParameterList name="Volume">
-              <Parameter name='Linear' type='bool' value='true'/>
-              <Parameter name='Type' type='string' value='Scalar Function'/>
-              <Parameter name='Scalar Function Type' type='string' value='Volume'/>
-              <ParameterList name="Penalty Function">
-                  <Parameter name="Type" type="string" value="SIMP"/>
-                  <Parameter name="Exponent" type="double" value="1.0"/>
-                  <Parameter name="Minimum Value" type="double" value="0.0"/>
-              </ParameterList>
-          </ParameterList>
       </ParameterList>
       
       <ParameterList name="Elliptic">
