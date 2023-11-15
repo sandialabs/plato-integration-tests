@@ -68,6 +68,7 @@ end constraint
 
 begin block 1
    material 1
+   name block_1_tet
 end block
 
 begin material 1
