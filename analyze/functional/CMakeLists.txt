@@ -1,0 +1,1 @@
+add_subdirectory(CompMin2D_LBracket)
