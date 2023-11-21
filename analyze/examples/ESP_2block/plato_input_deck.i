@@ -60,10 +60,12 @@ end output
 
 begin block 1
    material 1
+   name block_1_tet
 end block
 
 begin block 2
    material 1
+   name block_2_tet
 end block
 
 begin material 1

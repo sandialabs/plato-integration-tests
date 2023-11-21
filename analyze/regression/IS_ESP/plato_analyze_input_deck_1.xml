@@ -43,7 +43,7 @@
     <ParameterList name="Spatial Model">
       <ParameterList name="Domains">
         <ParameterList name="Design Volume">
-          <Parameter name="Element Block" type="string" value="block_1"/>
+          <Parameter name="Element Block" type="string" value="block_1_tet"/>
           <Parameter name="Material Model" type="string" value="316 Stainless Steel"/>
         </ParameterList>
       </ParameterList>

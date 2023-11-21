@@ -28,7 +28,7 @@
     <ParameterList name="Spatial Model">
       <ParameterList name="Domains">
         <ParameterList name="Block 1">
-          <Parameter name="Element Block" type="string" value="block_1" />
+          <Parameter name="Element Block" type="string" value="block_1_tet" />
           <Parameter name="Material Model" type="string" value="material_1" />
         </ParameterList>
       </ParameterList>
