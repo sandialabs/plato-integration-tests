@@ -29,8 +29,10 @@ end criterion
 begin scenario 1
   physics modal_response
   dimensions 3
+  boundary_conditions 1 2 3
   material 1
   tolerance 1e-8
+  convert_to_tet10 true
 end scenario
 
 begin objective
@@ -50,6 +52,7 @@ end output
 
 begin block 1
    material 1
+   element_type tet10
 end block
 
 begin material 1
@@ -76,3 +79,27 @@ end optimization_parameters
 begin mesh
    name brick.exo
 end mesh
+
+begin boundary_condition 1
+    type fixed_value
+    location_type sideset
+    location_id 1
+    degree_of_freedom dispx
+    value 0
+end boundary_condition
+
+begin boundary_condition 2
+    type fixed_value
+    location_type sideset
+    location_id 2
+    degree_of_freedom dispy
+    value 0
+end boundary_condition
+
+begin boundary_condition 3
+    type fixed_value
+    location_type sideset
+    location_id 3
+    degree_of_freedom dispz
+    value 0
+end boundary_condition

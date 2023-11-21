@@ -16,6 +16,7 @@ MATERIAL 1
 END
 BLOCK 1
   material 1
+  cutet10
 END
 FILE
   geometry_file 'gold_brick.exo'

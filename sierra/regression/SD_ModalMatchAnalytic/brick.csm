@@ -30,30 +30,30 @@ attribute capsMesh $FaceSize1
 
 SELECT    body   7
 SELECT    face   6   6   1
-ATTRIBUTE exNodeset   $z_constraint
+ATTRIBUTE capsGroup   $z_constraint
 SELECT    body   7
 SELECT    face   1   5   1
-ATTRIBUTE exNodeset   $z_constraint
+ATTRIBUTE capsGroup   $z_constraint
 SELECT    body   7
 SELECT    face   1   6   1
-ATTRIBUTE exNodeset   $z_constraint
+ATTRIBUTE capsGroup   $z_constraint
 SELECT    body   7
 SELECT    face   4   4   1
-ATTRIBUTE exNodeset   $y_constraint
+ATTRIBUTE capsGroup   $y_constraint
 SELECT    body   7
 SELECT    face   1   3   1
-ATTRIBUTE exNodeset   $y_constraint
+ATTRIBUTE capsGroup   $y_constraint
 SELECT    body   7
 SELECT    face   1   4   1
-ATTRIBUTE exNodeset   $y_constraint
+ATTRIBUTE capsGroup   $y_constraint
 SELECT    body   7
 SELECT    face   2   2   1
-ATTRIBUTE exNodeset   $x_constraint
+ATTRIBUTE capsGroup   $x_constraint
 SELECT    body   7
 SELECT    face   1   1   1
-ATTRIBUTE exNodeset   $x_constraint
+ATTRIBUTE capsGroup   $x_constraint
 SELECT    body   7
 SELECT    face   1   2   1
-ATTRIBUTE exNodeset   $x_constraint
+ATTRIBUTE capsGroup   $x_constraint
 
 END
