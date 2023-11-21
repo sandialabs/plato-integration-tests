@@ -24,10 +24,10 @@ END
 LOADS
 END
 BOUNDARY
-  nodeset x_constraint
+  sideset x_constraint
     x=0
-  nodeset y_constraint
+  sideset y_constraint
     y=0
-  nodeset z_constraint
+  sideset z_constraint
     z=0
 END
