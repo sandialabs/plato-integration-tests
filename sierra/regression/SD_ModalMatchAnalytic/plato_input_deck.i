@@ -5,7 +5,7 @@ end service
 
 begin service 2
   code sierra_sd
-  number_processors 1
+  number_processors 4
   cache_state true
 end service
 
@@ -19,7 +19,7 @@ begin criterion 1
   num_modes_compute 30
   modes_to_exclude 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
   ref_data_file gold_brick-out.exo
-  match_nodesets 4 5 6 7 8 9
+  match_nodesets 1 2 3 4 5 6
 end criterion
 
 begin criterion 2
