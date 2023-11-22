@@ -64,7 +64,7 @@ end material
 
 begin optimization_parameters
    esp_workflow aflr4_aflr3
-   max_iterations 15
+   max_iterations 22
    output_frequency 1
    optimization_algorithm rol_bound_constrained 
    rol_subproblem_model lin_more
