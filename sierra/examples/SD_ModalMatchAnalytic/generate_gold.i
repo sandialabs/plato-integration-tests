@@ -1,6 +1,6 @@
 SOLUTION
   eigen
-  nmodes 30
+  nmodes 12
   solver gdsw
 END
 OUTPUTS
