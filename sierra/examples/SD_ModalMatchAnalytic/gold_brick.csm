@@ -1,0 +1,59 @@
+# box.csm written by ocsmSave (v1.23)
+
+# Constant, Design, and Output Parameters:
+despmtr   x       5.0
+despmtr   y       6.0
+despmtr   z       7.0
+
+# Global Attributes:
+set MeshLength 10.0
+
+# Branches:
+BOX       0   0   0   x   y   z
+BOX       -1   .8   1.7   1   .8   1.6
+SUBTRACT  none   1   0
+BOX       .3   -1   .5   2   1   2.3
+SUBTRACT  none   1   0
+BOX       .2   .5   -1   1.4   2.4   1
+SUBTRACT  none   1   0
+
+select    BODY
+attribute _name   $block_1
+attribute capsAIM   $aflr4AIM;aflr3AIM;platoAIM
+attribute capsMeshLength  2
+select    face
+attribute capsGroup   $dummy_att
+
+select    BODY
+select    face
+attribute capsMesh $FaceSize1
+
+SELECT    body   7
+SELECT    face   6   6   1
+ATTRIBUTE capsGroup   $z_constraint
+SELECT    body   7
+SELECT    face   1   5   1
+ATTRIBUTE capsGroup   $z_constraint
+SELECT    body   7
+SELECT    face   1   6   1
+ATTRIBUTE capsGroup   $z_constraint
+SELECT    body   7
+SELECT    face   4   4   1
+ATTRIBUTE capsGroup   $y_constraint
+SELECT    body   7
+SELECT    face   1   3   1
+ATTRIBUTE capsGroup   $y_constraint
+SELECT    body   7
+SELECT    face   1   4   1
+ATTRIBUTE capsGroup   $y_constraint
+SELECT    body   7
+SELECT    face   2   2   1
+ATTRIBUTE capsGroup   $x_constraint
+SELECT    body   7
+SELECT    face   1   1   1
+ATTRIBUTE capsGroup   $x_constraint
+SELECT    body   7
+SELECT    face   1   2   1
+ATTRIBUTE capsGroup   $x_constraint
+
+END
