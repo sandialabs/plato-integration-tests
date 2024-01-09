@@ -1,0 +1,14 @@
+<MassPro class_id="0" tracking_level="0" version="0">
+	<Volume>280</Volume>
+	<Mass>560</Mass>
+	<CenterOfGravity_X>4</CenterOfGravity_X>
+	<CenterOfGravity_Y>3.5</CenterOfGravity_Y>
+	<CenterOfGravity_Z>2.5</CenterOfGravity_Z>
+	<Inertia_XX>13813.3</Inertia_XX>
+	<Inertia_YY>16613.3</Inertia_YY>
+	<Inertia_ZZ>21093.3</Inertia_ZZ>
+	<Inertia_XY>-7840</Inertia_XY>
+	<Inertia_YZ>-4900</Inertia_YZ>
+	<Inertia_ZX>-5600</Inertia_ZX>
+</MassPro>
+

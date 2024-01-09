@@ -1,0 +1,164 @@
+Application: not specified
+  Executable:  version 5.11.5-76-gc9b6d07e built on 2023-01-09 23:48:57Z
+  Build Options: linux gcc-10.2.0 release
+
+Number of mpi ranks: 1
+OPENMP is on, Number of threads per mpi rank: 16
+
+Input file: sierra_sd_2_input_deck
+	Title: 
+Current date, time: Wed Jan 11, 2023, 15:51:24
+
+
+************************************************************************************************************************
+**  WARNING: 
+**  You have over-subscribed cores on your machine.
+**  This configuration can degrade performance.
+**  No coreIds should be repeated in the 'PARALLEL THREADING INFORMATION' table in the rslt file.
+**  The 'PARALLEL THREADING INFORMATION' is output with the threading_summary, timing, or timing_summary echo options.
+**  To avoid over-prescribing, try running with fewer mpi processors or fewer threads with the -nt command line
+**  argument.
+**  If you are running with threads, and are having trouble setting up your environment variables and MPI options,
+**  we have some guidance in our HowTo manual that might be useful, and feel free to give us a call for help.
+************************************************************************************************************************
+================================== INPUT FILE ==================================
+SOLUTION
+  case '1'
+  topology_optimization
+  nmodes 30
+  modalAdjointSolver = camp
+  shift -5e8
+  solver gdsw
+END
+PARAMETERS
+  swapModes no
+END
+CAMP
+  solver_tol 1e-4
+  preconditioner gdsw
+  max_iter 5000
+END
+INVERSE-PROBLEM
+  data_truth_table dummy_eigen_ttable_1.txt
+  data_file dummy_eigen_data_1.txt
+  modal_data_file dummy_modal_data_1.txt
+  modal_weight_table dummy_modal_weight_1.txt
+  shape_sideset 4
+  shape_bounds 1.0
+  eigen_objective mpe
+  design_variable shape
+END
+OPTIMIZATION
+  optimization_package ROL_lib
+  ROLmethod linesearch
+  LSstep Newton-Krylov
+  LS_curvature_condition null
+  Max_iter_Krylov 50
+  Use_FD_hessvec false
+  Use_inexact_hessvec false
+END
+GDSW
+  solver_tol = 1e-8
+  SC_option 0
+END
+OUTPUTS
+END
+ECHO
+END
+MATERIAL 1
+  isotropic
+  E = 2.274e9
+  nu = .42
+  density = 2.59e-4
+END
+BLOCK 1
+  material 1
+END
+BLOCK 2
+  material 1
+END
+TOPOLOGY-OPTIMIZATION
+  algorithm = plato_engine
+  case = inverse_methods
+  inverse_method_objective = eigen-inverse
+  ref_data_file gold-1.exo
+  match_nodesets 1 2 3 4 5 6
+  modes_to_exclude 1 2 3 4 5 6 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+  volume_fraction = .314
+  objective_normalization false
+END
+FILE
+  geometry_file 'two_block_modal.exo'
+END
+LOADS
+END
+BOUNDARY
+END
+=================================== END INPUT ==================================
+************************************************************************************************************************
+**  WARNING: 
+**  You have over-subscribed cores on your machine.
+**  This configuration can degrade performance.
+**  No coreIds should be repeated in the 'PARALLEL THREADING INFORMATION' table in the rslt file.
+**  The 'PARALLEL THREADING INFORMATION' is output with the threading_summary, timing, or timing_summary echo options.
+**  To avoid over-prescribing, try running with fewer mpi processors or fewer threads with the -nt command line
+**  argument.
+**  If you are running with threads, and are having trouble setting up your environment variables and MPI options,
+**  we have some guidance in our HowTo manual that might be useful, and feel free to give us a call for help.
+************************************************************************************************************************
+Solver 'undefined' selected by user input for analysis of case 'default'.
+Solver 'GDSW' selected by user input for analysis of case '1'.
+NOTE: ****** PLATO - Using parallel_write method for concatenating results. ******
+
+================================== MESH PROPERTIES =====================================
+Input mesh: 
+  two_block_modal.exo
+
+  Assembly ID   Assembly Name   Number of Members   
+  -----------   -------------   -----------------   
+
+  Block ID   Block Name     Topology      Num Elem   Type   Material   Worst Quality   
+  --------   ----------   -------------   --------   ----   --------   -------------   
+  1          block_1      TETRAHEDRON_4   84028      Tet4   1          26.8034         
+  2          block_2      TETRAHEDRON_4   121931     Tet4   1          27.7735         
+
+  Nodeset ID   Nodeset Name   Num Node   
+  ----------   ------------   --------   
+
+  Sideset ID   Sideset Name    Num Face   
+  ----------   -------------   --------   
+  1            dummy_att       17120      
+  4            shape_sideset   128        
+=======================================================================================
+we found 0 local rigid link constraint equations.
+************************************************************************************************************************
+**  WARNING: 
+**  Setting default inverse problem data type to displacements
+**  
+************************************************************************************************************************
+NOTE: Default shift value is -1e+06. Using -5e+08
+
+===========================================DETAILED TIMER SUMMARY========================================
+              Timer Name                 Count   Runtime (parallel max)     Cumulative Time      
+--------------------------------------   -----   ----------------------   --------------------   
+ROOT TIMER                                   0   0.0000e+00 (  0.00%)     7.9868e+00 (100.00%)   
+  Total Initialization Time                  1   4.1529e-01 (  5.20%)     7.9865e+00 (100.00%)   
+    Assemble Subdomain Matrices: Total       1   3.4039e-02 (  0.43%)     6.0419e+00 ( 75.65%)   
+      Assembly: Initialize MPCs              1   3.1146e-01 (  3.90%)     3.1146e-01 (  3.90%)   
+      Mass Matrix                            1   2.9952e+00 ( 37.50%)     2.9952e+00 ( 37.50%)   
+      Stiffness Matrix                       1   4.8709e-04 (  0.01%)     2.6973e+00 ( 33.77%)   
+        Input deck functions                 1   3.2902e-05 (  0.00%)     2.6968e+00 ( 33.77%)   
+          Block Stiffness Assembly           2   2.6968e+00 ( 33.77%)     2.6968e+00 ( 33.77%)   
+    Checking syntax                         49   1.9764e-02 (  0.25%)     1.9764e-02 (  0.25%)   
+    Parsing mesh                             1   1.3483e+00 ( 16.88%)     1.3617e+00 ( 17.05%)   
+      Reading Element Ids                    2   1.3357e-02 (  0.17%)     1.3357e-02 (  0.17%)   
+    Reading Blocks                           1   1.3345e-01 (  1.67%)     1.3345e-01 (  1.67%)   
+    Reading Nodes                            1   4.2410e-03 (  0.05%)     4.2410e-03 (  0.05%)   
+    Reading mesh                             1   6.9170e-03 (  0.09%)     6.9170e-03 (  0.09%)   
+=========================================================================================================
+Parallel Memory in use     (MB):  Min: 356.2  Max: 356.2  Avg: 356.2  Sum: 356.2
+Parallel Memory high water (MB):  Min: 387.2  Max: 387.2  Avg: 387.2  Sum: 387.2
+=========================================================================================================
+SD - SIERRA execution successful
+3 Warnings and Elapsed time: 00:00:21
+ Salinas Complete. 3 Warnings. Elapsed time: 00:00:21

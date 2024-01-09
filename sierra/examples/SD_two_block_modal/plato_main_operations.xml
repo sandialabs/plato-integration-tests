@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<include filename="defines.xml" />
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Initialize Values</Name>
+  <Output>
+    <ArgumentName>Values</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>two_block_modal.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Compute Lower Bounds</Name>
+  <Output>
+    <ArgumentName>Lower Bounds</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>two_block_modal.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Compute Upper Bounds</Name>
+  <Output>
+    <ArgumentName>Upper Bounds</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>two_block_modal.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>CopyField</Function>
+  <Name>Copy Field</Name>
+  <Input>
+    <ArgumentName>InputField</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputField</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>CopyValue</Function>
+  <Name>Copy Value</Name>
+  <Input>
+    <ArgumentName>InputValue</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputValue</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Name>Aggregate Data</Name>
+  <Function>Aggregator</Function>
+  <Aggregate>
+    <Layout>Value</Layout>
+    <Input>
+      <ArgumentName>Value 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Value</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Aggregate>
+    <Layout>Nodal Field</Layout>
+    <Input>
+      <ArgumentName>Field 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Field</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Weighting>
+    <Weight>
+      <Value>1</Value>
+    </Weight>
+  </Weighting>
+</Operation>
+<Operation>
+  <Function>CSMMeshOutput</Function>
+  <Name>CSMMeshOutput</Name>
+  <BaseMeshName>two_block_modal.exo</BaseMeshName>
+  <OutputFrequency>100</OutputFrequency>
+  <MaxIterations>50</MaxIterations>
+</Operation>
+<Operation>
+  <Function>SystemCall</Function>
+  <Name>Initialize Geometry</Name>
+  <Command>plato-cli geometry esp</Command>
+  <Argument>--input two_block_modal.csm</Argument>
+  <Argument>--output-model two_block_modal_opt.csm</Argument>
+  <Argument>--output-mesh two_block_modal.exo</Argument>
+  <Argument>--tesselation two_block_modal.eto</Argument>
+  <Argument>--workflow egads_tetgen</Argument>
+</Operation>
+<Operation>
+  <Function>SystemCall</Function>
+  <Name>Update Geometry on Change</Name>
+  <Command>plato-cli geometry esp</Command>
+  <OnChange>true</OnChange>
+  <Argument>--input two_block_modal.csm</Argument>
+  <Argument>--output-model two_block_modal_opt.csm</Argument>
+  <Argument>--output-mesh two_block_modal.exo</Argument>
+  <Argument>--tesselation two_block_modal.eto</Argument>
+  <Argument>--workflow egads_tetgen</Argument>
+  <Argument>--parameters</Argument>
+  <AppendInput>true</AppendInput>
+  <Input>
+    <ArgumentName>Parameters</ArgumentName>
+    <Layout>scalar</Layout>
+    <Size>1</Size>
+  </Input>
+</Operation>
+<Operation>
+  <Name>Chain Rule</Name>
+  <Function>ChainRule</Function>
+  <For var="I" in="Parameters">
+    <Input>
+      <ArgumentName>Parameter Sensitivity {I}</ArgumentName>
+    </Input>
+  </For>
+  <Input>
+    <ArgumentName>DFDX</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Full Gradient</ArgumentName>
+  </Output>
+</Operation>

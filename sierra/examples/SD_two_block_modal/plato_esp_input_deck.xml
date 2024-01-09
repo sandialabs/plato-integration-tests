@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ESP>
+  <ModelFileName>two_block_modal_opt.csm</ModelFileName>
+  <TessFileName>two_block_modal.eto</TessFileName>
+  <ParameterIndex>0</ParameterIndex>
+</ESP>

@@ -1,0 +1,14 @@
+<MassPro class_id="0" tracking_level="0" version="0">
+	<Volume>.1</Volume>
+	<Mass>.1</Mass>
+	<CenterOfGravity_X>.5</CenterOfGravity_X>
+	<CenterOfGravity_Y>.5</CenterOfGravity_Y>
+	<CenterOfGravity_Z>.5</CenterOfGravity_Z>
+	<Inertia_XX>1</Inertia_XX>
+	<Inertia_YY>1</Inertia_YY>
+	<Inertia_ZZ>1</Inertia_ZZ>
+	<Inertia_XY>1</Inertia_XY>
+	<Inertia_YZ>1</Inertia_YZ>
+	<Inertia_ZX>1</Inertia_ZX>
+</MassPro>
+

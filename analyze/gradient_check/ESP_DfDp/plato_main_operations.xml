@@ -1,0 +1,19 @@
+<Operation>
+  <Name>Chain Rule</Name>
+  <Function>ChainRule</Function>
+  <Input>
+    <ArgumentName>Parameter Sensitivity 0</ArgumentName>
+  </Input>
+  <Input>
+    <ArgumentName>Parameter Sensitivity 1</ArgumentName>
+  </Input>
+  <Input>
+    <ArgumentName>Parameter Sensitivity 2</ArgumentName>
+  </Input>
+  <Input>
+    <ArgumentName>DFDX</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Full Gradient</ArgumentName>
+  </Output>
+</Operation>

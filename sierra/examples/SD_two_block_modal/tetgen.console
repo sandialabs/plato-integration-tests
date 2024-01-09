@@ -1,0 +1,108 @@
+--> enter ocsmLoad(filename=/ceeGPFS/fgs/bwclark/pa_esp_multibody_cpu/platoengine/examples/SD_two_block_modal/two_block_modal_opt.csm)
+    nextline ( 0:   1)[   1]: # two_block_modal.csm written by ocsmSave (v1.20)
+    nextline ( 0:   2)[   1]: 
+    nextline ( 0:   3)[   1]: # Constant, Design, and Output Parameters:
+    nextline ( 0:   4)[   1]: despmtr length 17.500156 lbound 15 ubound 25 initial 15
+    nextline ( 0:   5)[   1]: dimension egadsFaceMeshSizes 1 1
+    nextline ( 0:   6)[   2]: dimension egadsMeshMaxCurvatureDistances 1 1
+    nextline ( 0:   7)[   3]: dimension egadsMeshMaxDihedralAngles 1 1
+    nextline ( 0:   8)[   4]: cfgpmtr egadsFaceMeshSizes .15
+    nextline ( 0:   9)[   4]: cfgpmtr egadsMeshMaxCurvatureDistances .01
+    nextline ( 0:  10)[   4]: cfgpmtr egadsMeshMaxDihedralAngles 20
+    nextline ( 0:  11)[   4]: ##### parameters for volume mesh sizes
+    nextline ( 0:  12)[   4]: # This will automatically be applied to all volumes
+    nextline ( 0:  13)[   4]: cfgpmtr egadsMaxTetEdgeSize .15
+    nextline ( 0:  14)[   4]: 
+    nextline ( 0:  15)[   4]: # Global Attributes:
+    nextline ( 0:  16)[   4]: 
+    nextline ( 0:  17)[   4]: # Branches:
+    nextline ( 0:  18)[   4]: box       -10   0   0   10   1   1
+    nextline ( 0:  19)[   5]: select    BODY
+    nextline ( 0:  20)[   6]: attribute _name   $block_1
+    nextline ( 0:  21)[   6]: attribute capsAIM   $egadsTessAIM;tetgenAIM;platoAIM
+    nextline ( 0:  22)[   6]: attribute capsMeshLength 1
+    nextline ( 0:  23)[   6]: select    face
+    nextline ( 0:  24)[   7]: attribute capsGroup   $dummy_att
+    nextline ( 0:  25)[   7]: attribute capsMesh $FaceSize1
+    nextline ( 0:  26)[   7]: box       0   0   0   length   1   1
+    nextline ( 0:  27)[   8]: box       0   0   1   2   1   1
+    nextline ( 0:  28)[   9]: subtract  none   1   0
+    nextline ( 0:  29)[  10]: box       6   0   1   2   1   1
+    nextline ( 0:  30)[  11]: subtract  none   1   0
+    nextline ( 0:  31)[  12]: box       10   0   1   2   1   1
+    nextline ( 0:  32)[  13]: subtract  none   1   0
+    nextline ( 0:  33)[  14]: box       12   0   1   2   1   1
+    nextline ( 0:  34)[  15]: subtract  none   1   0
+    nextline ( 0:  35)[  16]: select    BODY
+    nextline ( 0:  36)[  17]: attribute _name   $block_2
+    nextline ( 0:  37)[  17]: attribute capsAIM   $egadsTessAIM;tetgenAIM;platoAIM
+    nextline ( 0:  38)[  17]: attribute capsMeshLength 1
+    nextline ( 0:  39)[  17]: select    face
+    nextline ( 0:  40)[  18]: attribute capsGroup   $dummy_att
+    nextline ( 0:  41)[  18]: attribute capsMesh $FaceSize1
+    nextline ( 0:  42)[  18]: select    BODY 10
+    nextline ( 0:  43)[  19]: select    face 2 2 1
+    nextline ( 0:  44)[  20]: attribute capsGroup $shape_sideset
+    nextline ( 0:  45)[  20]: 
+    nextline ( 0:  46)[  20]: 
+    nextline ( 0:  47)[  20]: end
+--> enter ocsmCheck()
+--> checks passed
+--> enter ocsmSave(filename=/ceeGPFS/fgs/bwclark/pa_esp_multibody_cpu/platoengine/examples/SD_two_block_modal/ESP_Mesh/Scratch/capsRestart.cpc)
+--> enter ocsmCheck()
+--> checks passed
+--> enter ocsmBuild(buildTo=0)
+
+    Interim EGADS version  1.23 (with  OpenCASCADE 7.6.0)
+
+    executing [   1] dimension:     egadsFaceMeshSizes      1.00000      1.00000
+    executing [   2] dimension:     egadsMeshMaxCurvatureDistances      1.00000      1.00000
+    executing [   3] dimension:     egadsMeshMaxDihedralAngles      1.00000      1.00000
+    executing [   4] box:          -10.00000      0.00000      0.00000     10.00000      1.00000      1.00000
+                          Body      1 created  (toler= 1.0000e-07, nnode=   8, nedge=  12, nface=   6)
+    executing [   5] select:   body
+                    putting Branch Attributes on Body
+    executing [   6] select:   face
+                     putting Branch Attributes on Face 1
+                     putting Branch Attributes on Face 2
+                     putting Branch Attributes on Face 3
+                     putting Branch Attributes on Face 4
+                     putting Branch Attributes on Face 5
+                     putting Branch Attributes on Face 6
+    executing [   7] box:            0.00000      0.00000      0.00000     17.50016      1.00000      1.00000
+                          Body      2 created  (toler= 1.0000e-07, nnode=   8, nedge=  12, nface=   6)
+    executing [   8] box:            0.00000      0.00000      1.00000      2.00000      1.00000      1.00000
+                          Body      3 created  (toler= 1.0000e-07, nnode=   8, nedge=  12, nface=   6)
+    executing [   9] subtract:   none      1.00000   0.0000e+00
+                          Body      4 created  (toler= 1.0000e-07, nnode=  10, nedge=  15, nface=   7)
+    executing [  10] box:            6.00000      0.00000      1.00000      2.00000      1.00000      1.00000
+                          Body      5 created  (toler= 1.0000e-07, nnode=   8, nedge=  12, nface=   6)
+    executing [  11] subtract:   none      1.00000   0.0000e+00
+                          Body      6 created  (toler= 1.0000e-07, nnode=  14, nedge=  21, nface=   9)
+    executing [  12] box:           10.00000      0.00000      1.00000      2.00000      1.00000      1.00000
+                          Body      7 created  (toler= 1.0000e-07, nnode=   8, nedge=  12, nface=   6)
+    executing [  13] subtract:   none      1.00000   0.0000e+00
+                          Body      8 created  (toler= 1.0000e-07, nnode=  18, nedge=  27, nface=  11)
+    executing [  14] box:           12.00000      0.00000      1.00000      2.00000      1.00000      1.00000
+                          Body      9 created  (toler= 1.0000e-07, nnode=   8, nedge=  12, nface=   6)
+    executing [  15] subtract:   none      1.00000   0.0000e+00
+                          Body     10 created  (toler= 1.0000e-07, nnode=  20, nedge=  30, nface=  12)
+    executing [  16] select:   body
+                    putting Branch Attributes on Body
+    executing [  17] select:   face
+                     putting Branch Attributes on Face 1
+                     putting Branch Attributes on Face 2
+                     putting Branch Attributes on Face 3
+                     putting Branch Attributes on Face 4
+                     putting Branch Attributes on Face 5
+                     putting Branch Attributes on Face 6
+                     putting Branch Attributes on Face 7
+                     putting Branch Attributes on Face 8
+                     putting Branch Attributes on Face 9
+                     putting Branch Attributes on Face 10
+                     putting Branch Attributes on Face 11
+                     putting Branch Attributes on Face 12
+    executing [  18] select:   body  10
+    executing [  19] select:   face  2  2  1
+                     putting Branch Attributes on Face 2
+    finalizing:

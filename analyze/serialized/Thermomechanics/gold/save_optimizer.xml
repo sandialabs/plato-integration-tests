@@ -1,0 +1,136 @@
+<Optimizer class_id="0" tracking_level="0" version="0">
+	<OptimizerName></OptimizerName>
+	<OptimizerIndex>
+		<count>1</count>
+		<item_version>0</item_version>
+		<item>0</item>
+	</OptimizerIndex>
+	<LastOptimizer>1</LastOptimizer>
+	<HasInnerLoop>0</HasInnerLoop>
+	<InputData class_id="2" tracking_level="0" version="0">
+		<InputData class_id="3" tracking_level="0" version="0">
+			<Name>Input Data</Name>
+		</InputData>
+		<MeanNorm>0</MeanNorm>
+		<CheckGradient>0</CheckGradient>
+		<CheckHessian>0</CheckHessian>
+		<UserInitialGuess>0</UserInitialGuess>
+		<OutputControlToFile>0</OutputControlToFile>
+		<OutputDiagnosticsToFile>1</OutputDiagnosticsToFile>
+		<ResetAlgorithmOnUpdate>0</ResetAlgorithmOnUpdate>
+		<MaxNumIterations>500</MaxNumIterations>
+		<ProblemUpdateFrequency>0</ProblemUpdateFrequency>
+		<ROLCheckGradientSteps>12</ROLCheckGradientSteps>
+		<ROLCheckGradientSeed>0</ROLCheckGradientSeed>
+		<ROLPerturbationScale>1.00000000000000000e+00</ROLPerturbationScale>
+		<StateName></StateName>
+		<HessianType>disabled</HessianType>
+		<InputFileName></InputFileName>
+		<CacheStageName></CacheStageName>
+		<OutputStageName></OutputStageName>
+		<ObjectiveValueOutputName></ObjectiveValueOutputName>
+		<ObjectiveGradientOutputName></ObjectiveGradientOutputName>
+		<ObjectiveHessianOutputName></ObjectiveHessianOutputName>
+		<InitializationStageName></InitializationStageName>
+		<InitialControlDataName></InitialControlDataName>
+		<FinalizationStageName></FinalizationStageName>
+		<SetLowerBoundsStageName></SetLowerBoundsStageName>
+		<SetUpperBoundsStageName></SetUpperBoundsStageName>
+		<LowerBoundValueName></LowerBoundValueName>
+		<LowerBoundVectorName></LowerBoundVectorName>
+		<UpperBoundValueName></UpperBoundValueName>
+		<UpperBoundVectorName></UpperBoundVectorName>
+		<ObjectiveValueStageName></ObjectiveValueStageName>
+		<ObjectiveGradientStageName></ObjectiveGradientStageName>
+		<ObjectiveHessianStageName></ObjectiveHessianStageName>
+		<InitialGuess>
+			<count>1</count>
+			<item_version>0</item_version>
+			<item>5.00000000000000000e-01</item>
+		</InitialGuess>
+		<LowerBoundValues>
+			<count>1</count>
+			<item_version>0</item_version>
+			<item>0.00000000000000000e+00</item>
+		</LowerBoundValues>
+		<UpperBoundValues>
+			<count>1</count>
+			<item_version>0</item_version>
+			<item>1.00000000000000000e+00</item>
+		</UpperBoundValues>
+		<ConstraintNormalizedTargetValues class_id="5" tracking_level="0" version="0">
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintNormalizedTargetValues>
+		<ConstraintAbsoluteTargetValues>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintAbsoluteTargetValues>
+		<ConstraintReferenceValues>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintReferenceValues>
+		<ControlNames class_id="6" tracking_level="0" version="0">
+			<count>0</count>
+			<item_version>0</item_version>
+		</ControlNames>
+		<FilteredControlNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</FilteredControlNames>
+		<ConstraintValueNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintValueNames>
+		<DescentDirectionNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</DescentDirectionNames>
+		<ConstraintValueStageNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintValueStageNames>
+		<ConstraintGradientStageNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintGradientStageNames>
+		<ConstraintHessianStageNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintHessianStageNames>
+		<UpdateProblemStageNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</UpdateProblemStageNames>
+		<ConstraintGradientNames class_id="7" tracking_level="0" version="0">
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintGradientNames>
+		<ConstraintHessianNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintHessianNames>
+		<ConstraintReferenceValueNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</ConstraintReferenceValueNames>
+	</InputData>
+	<StageDataMng class_id="8" tracking_level="0" version="0">
+		<InputData>
+			<Name>Input Data</Name>
+		</InputData>
+		<StageNames>
+			<count>0</count>
+			<item_version>0</item_version>
+		</StageNames>
+		<OperationInputs class_id="9" tracking_level="0" version="0">
+			<count>0</count>
+			<item_version>0</item_version>
+		</OperationInputs>
+		<SharedDataMap class_id="10" tracking_level="0" version="0">
+			<count>0</count>
+			<item_version>0</item_version>
+		</SharedDataMap>
+	</StageDataMng>
+</Optimizer>
+

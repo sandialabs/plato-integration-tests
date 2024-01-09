@@ -1,0 +1,7 @@
+6
+point 6 1 1 1 1 1
+point 2 1 1 1 1 1
+point 10 1 1 1 1 1
+point 8 1 1 1 1 1
+point 12 1 1 1 1 1
+point 14 1 1 1 1 1

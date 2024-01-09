@@ -1,0 +1,48 @@
+reset
+version
+
+bri x 2.5 y 1 z 1
+create cylinder height 1 radius 0.25
+webcut volume 1 with tool volume 2
+delete vol 2 3
+vol 1 size 0.25
+vol 1 scheme tetmesh
+mesh vol 1
+
+bri x 2.5 y 1 z 1
+vol 4 move x 2.5
+vol 4 size 0.1
+vol 4 scheme tetmesh
+mesh vol 4
+
+block 1 vol 1
+block 1 element type tetra
+block 1 name "block_1"
+
+block 2 vol 4
+block 2 element type tetra
+block 2 name "block_2"
+
+sideset 1 surf 21
+sideset 1 name "ss_x1"
+
+nodeset 1 surf 4
+nodeset 1 name "ns_x0"
+
+sideset 2 surf 6
+sideset 2 name "block1_child"
+
+sideset 3 surf 19
+sideset 3 name "block2_child"
+
+nodeset 2 surf 6
+nodeset 2 name "block1_child"
+
+nodeset 3 surf 19
+nodeset 3 name "block2_child"
+
+nodeset 4 surf 10
+nodeset 4 name "cylinder"
+
+export mesh "two_block_tensile_hole.exo" overwrite
+

@@ -1,0 +1,29 @@
+#csm 
+
+#xdim
+despmtr length 9 lbound 1 ubound 10 initial 9 
+
+#ydim
+despmtr height 8 lbound 1 ubound 10 initial 8
+
+#zdim
+despmtr depth 6  lbound 1 ubound 10 initial 6
+
+attribute capsAIM $aflr4AIM;aflr3AIM;platoAIM
+attribute capsMeshLength 10
+
+# Global Attributes
+set MeshLength 10
+
+# create box with corner at the origin
+# starting points xyz, then dims in xyz
+BOX        0  0  0   length     height     depth
+
+select    body   1
+select face
+attribute capsGroup $solid_group
+
+END #endbox
+
+
+
