@@ -15,26 +15,37 @@ Lin-More Trust-Region Method (Type B, Bound Constraints)
   4     6.273167e-01   1.090703e-01   7.511489e+00   1.500000e+01   5         5         9         25        0         
   5     6.273167e-01   1.090703e-01   1.155661e+01   8.667456e+00   6         5         10        28        0         
 Optimization Terminated with Status: Iteration Limit Exceeded
-Delta: 8.66746
+
+  ROL::Problem::finalize
+    Problem Summary:
+      Has Bound Constraint? .............. yes
+      Has Equality Constraint? ........... no
+      Has Inequality Constraint? ......... no
+
 
 Lin-More Trust-Region Method (Type B, Bound Constraints)
   iter  value          gnorm          snorm          delta          #fval     #grad     #hess     #proj     tr_flag   
-  0     6.653159e-01   1.656923e-01   ---            8.667456e+00   1         1         0         2         ---       
-  1     6.078889e-01   1.804105e-02   2.484581e+00   8.667456e+00   2         2         2         7         0         
-  2     5.775073e-01   1.399794e-02   5.850328e+00   8.667456e+00   3         3         5         13        0         
-  3     5.528791e-01   1.441377e-02   5.149028e+00   8.667456e+00   4         4         6         17        0         
-  4     5.326202e-01   1.513680e-02   4.649869e+00   8.667456e+00   5         5         7         21        0         
-  5     5.312084e-01   9.584953e-02   5.162784e+00   8.667456e+00   6         6         8         25        0         
+  0     6.273167e-01   1.090703e-01   ---            8.667456e+00   1         1         0         2         ---       
+  1     6.077034e-01   1.214318e-02   7.520770e+00   8.667456e+00   2         2         3         8         0         
+  2     5.654726e-01   2.699479e-02   4.518441e+00   8.667456e+00   3         3         5         13        0         
+  3     5.654726e-01   2.699479e-02   7.887419e+00   5.915564e+00   4         3         6         16        2         
+  4     5.543899e-01   1.250328e-02   4.951865e+00   5.915564e+00   5         4         7         19        0         
+  5     5.381371e-01   2.319167e-02   2.231250e+00   5.915564e+00   6         5         8         23        0         
 Optimization Terminated with Status: Iteration Limit Exceeded
-Delta: 8.66746
+
+  ROL::Problem::finalize
+    Problem Summary:
+      Has Bound Constraint? .............. yes
+      Has Equality Constraint? ........... no
+      Has Inequality Constraint? ......... no
+
 
 Lin-More Trust-Region Method (Type B, Bound Constraints)
   iter  value          gnorm          snorm          delta          #fval     #grad     #hess     #proj     tr_flag   
-  0     5.878439e-01   9.584953e-02   ---            8.667456e+00   1         1         0         2         ---       
-  1     5.570921e-01   1.193731e-02   7.006676e+00   8.667456e+00   2         2         3         8         0         
-  2     5.325294e-01   1.367466e-02   4.419247e+00   8.667456e+00   3         3         5         13        0         
-  3     5.183721e-01   1.438768e-02   4.708275e+00   8.667456e+00   4         4         6         17        0         
-  4     5.127066e-01   2.168903e-02   5.271122e+00   8.667456e+00   5         5         7         21        0         
-  5     5.127066e-01   2.168903e-02   6.404522e+00   4.803392e+00   6         5         8         24        2         
+  0     5.675397e-01   2.319167e-02   ---            5.915564e+00   1         1         0         2         ---       
+  1     5.515991e-01   8.809660e-03   1.666176e+00   5.915564e+00   2         2         3         8         0         
+  2     5.319326e-01   1.347885e-02   3.176261e+00   5.915564e+00   3         3         5         13        0         
+  3     5.307411e-01   9.745021e-03   4.997641e+00   5.915564e+00   4         4         6         17        0         
+  4     5.115553e-01   1.606908e-02   3.526645e+00   5.915564e+00   5         5         7         21        0         
+  5     5.115553e-01   1.606908e-02   5.899263e+00   4.424447e+00   6         5         8         24        2         
 Optimization Terminated with Status: Iteration Limit Exceeded
-Delta: 4.80339
