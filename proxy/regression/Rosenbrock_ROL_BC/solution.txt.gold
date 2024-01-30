@@ -5012,4 +5012,3 @@ Cauchy point: The interpolation limit was met without producing sufficient decre
   4999  8.878041e-05   4.083259e-02   8.513222e-05   1.000000e+08   5000      4999      11140     20721     0         
   5000  8.848237e-05   3.636432e-02   7.573122e-05   1.000000e+08   5001      5000      11142     20725     0         
 Optimization Terminated with Status: Iteration Limit Exceeded
-Delta: 1e+08
