@@ -6,8 +6,11 @@ Plato_new_test(TEST_NAME)
 # Copy Input files from source to binary dir
 set( BASE_TEST_FILE_PATH "../CompMin2D_LBracket" )
 file( GLOB TEST_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${BASE_TEST_FILE_PATH}/*.xml ${BASE_TEST_FILE_PATH}/*.gold )
+Plato_direct_copy_test_files("${TEST_FILES}")
+
 set( TWO_LOAD_TEST_FILES "input-2-load.i" )
-Plato_add_test_files("${TWO_LOAD_TEST_FILES};${TEST_FILES}")
+Plato_add_test_files("${TWO_LOAD_TEST_FILES}")
+
 Plato_analyze_copy_test_data("lbracket.exo")
 
 set( NUM_RANKS 2 )

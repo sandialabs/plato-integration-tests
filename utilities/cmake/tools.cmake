@@ -83,13 +83,31 @@ endmacro( Copy_cmake_utilities_to_binary_dir )
 
 ###############################################################################
 ## Plato_add_test_files( 
-##    FILE_LIST    == List of files to copy into build. File names/paths are 
-##                    assumed relative to CMAKE_CURRENT_SOURCE_DIR and copied to
-##                    CMAKE_CURRENT_BINARY_DIR.
+##    FILE_LIST    == List of files to copy into build.
 ## )
 ###############################################################################
 
 function( Plato_add_test_files FILE_LIST )
+  
+  foreach( testFile ${FILE_LIST} )
+  
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${testFile} 
+                   ${CMAKE_CURRENT_BINARY_DIR}/${testFile} COPYONLY)
+
+  endforeach(testFile)
+
+endfunction(Plato_add_test_files )
+
+###############################################################################
+## Plato_direct_copy_test_files( 
+##    FILE_LIST    == List of files to copy into build. File names/paths are 
+##                    assumed relative to CMAKE_CURRENT_SOURCE_DIR and directly 
+##                    copied to CMAKE_CURRENT_BINARY_DIR, removing any directory 
+##                    structure.
+## )
+###############################################################################
+
+function( Plato_direct_copy_test_files FILE_LIST )
   
   foreach( testFile ${FILE_LIST} )
     set( FULL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/${testFile} )
@@ -98,7 +116,7 @@ function( Plato_add_test_files FILE_LIST )
                    ${CMAKE_CURRENT_BINARY_DIR}/${filename} COPYONLY)
   endforeach(testFile)
     
-endfunction(Plato_add_test_files)
+endfunction(Plato_direct_copy_test_files)
 
 ###############################################################################
 ## Plato_create_test
