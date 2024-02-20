@@ -17,3 +17,4 @@ Copy_utility_file_to_dir(
 
 add_subdirectory(examples)
 add_subdirectory(gradient_check)
+add_subdirectory(functional)
