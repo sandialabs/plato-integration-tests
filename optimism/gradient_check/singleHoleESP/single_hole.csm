@@ -21,6 +21,10 @@ extrude 0 0 cyl_len
 subtract
 
 # circular hole (superellipse) attributes
+select body
+select edge
+attribute capsGroup $remaining_surface_sideset
+
 select    body   4
 select    edge   2
 attribute capsGroup   $yminus_sideset

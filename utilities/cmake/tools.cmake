@@ -93,10 +93,30 @@ function( Plato_add_test_files FILE_LIST )
   
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${testFile} 
                    ${CMAKE_CURRENT_BINARY_DIR}/${testFile} COPYONLY)
-    
+
+  endforeach(testFile)
+
+endfunction(Plato_add_test_files )
+
+###############################################################################
+## Plato_direct_copy_test_files( 
+##    FILE_LIST    == List of files to copy into build. File names/paths are 
+##                    assumed relative to CMAKE_CURRENT_SOURCE_DIR and directly 
+##                    copied to CMAKE_CURRENT_BINARY_DIR, removing any directory 
+##                    structure.
+## )
+###############################################################################
+
+function( Plato_direct_copy_test_files FILE_LIST )
+  
+  foreach( testFile ${FILE_LIST} )
+    set( FULL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/${testFile} )
+    cmake_path( GET FULL_PATH FILENAME filename )
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${testFile} 
+                   ${CMAKE_CURRENT_BINARY_DIR}/${filename} COPYONLY)
   endforeach(testFile)
     
-endfunction(Plato_add_test_files)
+endfunction(Plato_direct_copy_test_files)
 
 ###############################################################################
 ## Plato_create_test
@@ -111,7 +131,7 @@ endfunction(Plato_add_test_files)
 function( Plato_create_test RUN_COMMAND PLATOMAIN_BINARY PLATOMAIN_NPROCS INTERFACE_FILE APPFILE INPUTFILE )
 
   set( ${RUN_COMMAND} 
-       "mpirun -np ${PLATOMAIN_NPROCS} --oversubscribe -x PLATO_PERFORMER_ID=0 -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} -x PLATO_APP_FILE=${APPFILE} ${PLATOMAIN_BINARY} ${INPUTFILE}" PARENT_SCOPE )
+       "mpirun -np ${PLATOMAIN_NPROCS} --oversubscribe --bind-to none -x PLATO_PERFORMER_ID=0 -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} -x PLATO_APP_FILE=${APPFILE} ${PLATOMAIN_BINARY} ${INPUTFILE}" PARENT_SCOPE )
 
 endfunction( Plato_create_test )
 
@@ -126,7 +146,7 @@ endfunction( Plato_create_test )
 function( Plato_create_simple_test RUN_COMMAND PLATOMAIN_BINARY PLATOMAIN_NPROCS INTERFACE_FILE )
 
   set( ${RUN_COMMAND} 
-       "mpirun -np ${PLATOMAIN_NPROCS} --oversubscribe -x PLATO_PERFORMER_ID=0 -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} ${PLATOMAIN_BINARY}" PARENT_SCOPE )
+       "mpirun -np ${PLATOMAIN_NPROCS} --oversubscribe --bind-to none -x PLATO_PERFORMER_ID=0 -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} ${PLATOMAIN_BINARY}" PARENT_SCOPE )
 
 endfunction( Plato_create_simple_test )
 
@@ -143,7 +163,7 @@ endfunction( Plato_create_simple_test )
 
 function( Plato_add_performer RUN_COMMAND PERFORMER_BINARY PERFORMER_NPROCS LOCAL_PERFORMER_ID INTERFACE_FILE APPFILE INPUTFILE )
 
-  set( ${RUN_COMMAND} "${${RUN_COMMAND}} : -np ${PERFORMER_NPROCS} --oversubscribe -x PLATO_PERFORMER_ID=${LOCAL_PERFORMER_ID} -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} -x PLATO_APP_FILE=${APPFILE} ${PERFORMER_BINARY} ${INPUTFILE}" PARENT_SCOPE )
+  set( ${RUN_COMMAND} "${${RUN_COMMAND}} : -np ${PERFORMER_NPROCS} --oversubscribe --bind-to none -x PLATO_PERFORMER_ID=${LOCAL_PERFORMER_ID} -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} -x PLATO_APP_FILE=${APPFILE} ${PERFORMER_BINARY} ${INPUTFILE}" PARENT_SCOPE )
 
 endfunction( Plato_add_performer )
 
@@ -158,7 +178,7 @@ endfunction( Plato_add_performer )
 
 function( Plato_add_simple_performer RUN_COMMAND PERFORMER_BINARY PERFORMER_NPROCS LOCAL_PERFORMER_ID INTERFACE_FILE )
 
-  set( ${RUN_COMMAND} "${${RUN_COMMAND}} : -np ${PERFORMER_NPROCS} --oversubscribe -x PLATO_PERFORMER_ID=${LOCAL_PERFORMER_ID} -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} ${PERFORMER_BINARY}" PARENT_SCOPE )
+  set( ${RUN_COMMAND} "${${RUN_COMMAND}} : -np ${PERFORMER_NPROCS} --oversubscribe --bind-to none -x PLATO_PERFORMER_ID=${LOCAL_PERFORMER_ID} -x PLATO_INTERFACE_FILE=${INTERFACE_FILE} ${PERFORMER_BINARY}" PARENT_SCOPE )
 
 endfunction( Plato_add_simple_performer )
 

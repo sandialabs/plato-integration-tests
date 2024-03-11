@@ -36,6 +36,7 @@
 		<ObjectiveGradientOutputName></ObjectiveGradientOutputName>
 		<ObjectiveHessianOutputName></ObjectiveHessianOutputName>
 		<InitializationStageName></InitializationStageName>
+		<ControlResetStageName></ControlResetStageName>
 		<InitialControlDataName></InitialControlDataName>
 		<FinalizationStageName></FinalizationStageName>
 		<SetLowerBoundsStageName></SetLowerBoundsStageName>

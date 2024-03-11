@@ -424,8 +424,9 @@
   <CheckHessian>false</CheckHessian>
   <CheckGradient>true</CheckGradient>
   <Options>
-    <ROLGradientCheckPerturbationScale>1</ROLGradientCheckPerturbationScale>
+    <ROLGradientCheckPerturbationScale>.75</ROLGradientCheckPerturbationScale>
     <ROLGradientCheckSteps>12</ROLGradientCheckSteps>
+    <ROLGradientCheckStepSize>10</ROLGradientCheckStepSize>
   </Options>
 
   <Output>

@@ -30,10 +30,10 @@ Plato_add_performer(PLATO_NEW_TEST ${ANALYZE_BINARY} ${ANALYZE_NP} ${LOCAL_COMM_
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )
-set( INFNORM_RELATIVE_TOLERANCE 1e-2 )
+set( INFNORM_RELATIVE_TOLERANCE 5e-4 )
 set( OUT_FILE "ROL_gradient_check_output.txt")
 set( GOLD_FILE "ROL_gradient_check_output.gold.txt")
-set( LAST_ROW 6 )
+set( LAST_ROW 5 )
 
 SET(CUSTOM_COMMAND "python ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_ROWS} ${INFNORM_RELATIVE_TOLERANCE} ${OUT_FILE} ${GOLD_FILE} ${LAST_ROW}")
 

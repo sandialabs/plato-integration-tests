@@ -25,4 +25,3 @@ Lin-More Trust-Region Method (Type B, Bound Constraints)
   14    1.224217e-03   6.719522e-02   9.090023e-04   1.925878e+02   15        15        47        73        0         
   15    1.101932e-03   3.691029e-01   6.007720e-03   2.311053e+02   16        16        51        79        0         
 Optimization Terminated with Status: Iteration Limit Exceeded
-Delta: 231.105
