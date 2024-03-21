@@ -1,3 +1,4 @@
+Disable_test_on_any_flag(BUILD_WITH_SANITIZER_FLAGS)
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
