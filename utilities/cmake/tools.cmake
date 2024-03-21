@@ -70,6 +70,31 @@ macro( Requires_features )
   endif()
 endmacro( Requires_features )
 
+
+###############################################################################
+## Use this macro to exit file processing early if ANY of the flags exist.
+## Disable_test_on_any_flag( 
+##    FLAGS == Variable list of feature flags to check 
+## )
+###############################################################################
+macro(Disable_test_on_any_flag)
+  set(arg_list "${ARGN}")
+  set(have_any_features "false")
+  set(set_flags "")
+  foreach(flag IN LISTS arg_list)
+    if( ${flag})
+      set(have_any_features "true")
+      set(set_flags "${flag}\n${set_flags}")
+    endif()
+  endforeach()
+  if(have_any_features)
+    set(CUR_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+    cmake_path(GET CUR_PATH FILENAME TEST_DIR)
+    message(STATUS "${TEST_DIR} test not included because following flags are on:\n${set_flags}")
+    return()
+  endif()
+endmacro(Disable_test_on_any_flag)
+
 ###############################################################################
 ## Copy_cmake_utilities_to_binary_dir 
 ###############################################################################
