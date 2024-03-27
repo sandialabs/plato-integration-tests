@@ -23,7 +23,7 @@ begin objective compliance
     objective_type minimize
 end
 
-begin optimization_parameters
+begin rol_optimization
     input_file_name rol_inputs.xml
     step_tolerance 1e-10
     gradient_tolerance 1e-5
