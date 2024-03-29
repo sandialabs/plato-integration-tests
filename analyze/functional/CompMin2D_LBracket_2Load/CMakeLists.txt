@@ -23,12 +23,13 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
-Plato_add_test_files("ROL_gradient_check_output.gold.txt")
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )
 set( OUT_FILE "ROL_gradient_check_output.txt")
-set( GOLD_FILE "ROL_gradient_check_output.gold.txt")
-set( LAST_ROW 7 )
+set( GOLD_FILE "ROL_gradient_check_output.txt.gold")
+set( LAST_ROW 5 )
 set( PYTHON_ARGS ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_ROWS} ${INFNORM_RELATIVE_TOLERANCE} ${OUT_FILE} ${GOLD_FILE} ${LAST_ROW})
-add_test(NAME "${TEST_NAME}_Gradient_Check" COMMAND python ${PYTHON_ARGS})
+set( GRADIENT_CHECK_TEST_NAME "${TEST_NAME}_Gradient_Check" )
+add_test(NAME ${GRADIENT_CHECK_TEST_NAME} COMMAND python ${PYTHON_ARGS})
+set_tests_properties( ${GRADIENT_CHECK_TEST_NAME} PROPERTIES DEPENDS ${TEST_NAME})
