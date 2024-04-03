@@ -10,7 +10,7 @@ begin objective mass_properties
     aggregation_weight 1.0
 end
 
-begin optimization_parameters
+begin rol_optimization 
     input_file_name rol_inputs.xml
     step_tolerance 1e-10
     gradient_tolerance 1e-5
