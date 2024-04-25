@@ -37,3 +37,13 @@ begin gradient_check
     step_size_reduction_factor 0.1
     random_direction_seed 1
 end
+
+begin check_constraint
+    linearity_check_output_file_name ROL_constraint_linearity_check_output.txt
+    jacobian_check_output_file_name ROL_constraint_jacobian_check_output.txt
+    jacobian_adjoint_consistency_output_file_name ROL_constraint_jacobian_adjoint_consistency_check_output.txt
+    number_of_steps 10
+    initial_direction_magnitude 1
+    step_size_reduction_factor 0.1
+    random_direction_seed 123
+end
