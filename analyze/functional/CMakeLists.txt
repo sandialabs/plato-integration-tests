@@ -1,2 +1,3 @@
 add_subdirectory(CompMin2D_LBracket)
 add_subdirectory(CompMin2D_LBracket_2Load)
+add_subdirectory(CompMin2D_LBracket_PNorm_ConstraintCheck)
