@@ -8,6 +8,7 @@ set(testFiles "input.i;plato_analyze_to.xml;plato_analyze_vol.xml;rol_inputs.xml
 Plato_add_test_files("${testFiles}")
 Plato_analyze_copy_test_data("lbracket.exo")
 
+# Add test to run problem and check ROL optimization output
 set( PLATO_TEST_COMMAND "plato input.i")
 set( OUT_FILE "ROL_Optimizer.txt")
 set( GOLD_FILE "ROL_Optimizer.txt.gold")
@@ -15,7 +16,7 @@ set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
-# Set input file names for custom command
+# Add test check ROL gradient check output
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )
 set( OUT_FILE "ROL_gradient_check_output.txt")
@@ -26,10 +27,11 @@ set( GRADIENT_CHECK_TEST_NAME "${TEST_NAME}_Gradient_Check" )
 add_test(NAME ${GRADIENT_CHECK_TEST_NAME} COMMAND python ${PYTHON_ARGS})
 set_tests_properties( ${GRADIENT_CHECK_TEST_NAME} PROPERTIES DEPENDS ${TEST_NAME})
 
+# Add test check ROL constraint linearity check output
 set( CONSTRAINT_CHECK_TEST_NAME "${TEST_NAME}_Constraint_Linearity_Check" )
-set( PLATO_TEST_COMMAND "pwd")
+set( PLATO_TEST_COMMAND ":")
 set( OUT_FILE "ROL_constraint_linearity_check_output.txt")
 set( GOLD_FILE "ROL_constraint_linearity_check_output.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
-set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
+set( NUMDIFF_RELATIVE_TOLERANCE 1e-8 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${CONSTRAINT_CHECK_TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
