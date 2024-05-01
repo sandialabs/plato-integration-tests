@@ -23,7 +23,7 @@ begin objective compliance
     objective_type minimize
 end
 
-begin check_constraint
+begin constraint_check
     linearity_check_output_file_name ROL_constraint_linearity_check_output.txt
     jacobian_check_output_file_name ROL_constraint_jacobian_check_output.txt
     jacobian_adjoint_consistency_output_file_name ROL_constraint_jacobian_adjoint_consistency_check_output.txt
