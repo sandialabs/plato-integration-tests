@@ -13,9 +13,9 @@ set( PLATO_TEST_COMMAND "plato input.i")
 set( JACOBIAN_CONSISTENCY_CHECK_TEST_NAME "${TEST_NAME}_Constraint_Jacobian_Consistency_Check" )
 set( OUT_FILE "ROL_constraint_jacobian_adjoint_consistency_check_output.txt")
 set( GOLD_FILE "ROL_constraint_jacobian_adjoint_consistency_check_output.txt.gold")
-set( NUMDIFF_USE_ABSOLUTE FALSE)
-set( NUMDIFF_RELATIVE_TOLERANCE 1e-6 )
-Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${JACOBIAN_CONSISTENCY_CHECK_TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+set( NUMDIFF_USE_ABSOLUTE TRUE)
+set( NUMDIFF_ABSOLUTE_TOLERANCE 1e-10 )
+Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${JACOBIAN_CONSISTENCY_CHECK_TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_ABSOLUTE_TOLERANCE})
 
 # Add test check ROL constraint jacobian check output
 set( JACOBIAN_CHECK_TEST_NAME "${TEST_NAME}_Constraint_Jacobian_Check" )

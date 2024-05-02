@@ -1,5 +1,4 @@
-
 Test Consistency of Jacobian and its adjoint: 
-  |<w,Jv> - <adj(J)w,v>| = 0.00000000e+00
-  |<w,Jv>|               = 9.81612769e+01
-  Relative Error         = 0.00000000e+00
+Absolute Error Computed As: |<w,Jv> - <adj(J)w,v>| 
+Relative Error Normalized By: |<w,Jv>| 
+Relative Error = 0
