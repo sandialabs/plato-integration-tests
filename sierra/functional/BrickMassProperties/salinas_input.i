@@ -22,9 +22,6 @@ BLOCK 1
   Hex8f
 END
 
-FILE
-  geometry_file 'brick.exo'
-END
 LOADS
 END
 BOUNDARY
