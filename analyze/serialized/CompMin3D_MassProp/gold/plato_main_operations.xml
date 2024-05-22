@@ -87,7 +87,7 @@
   <FixedBlocks>
     <Index>2</Index>
     <DomainValue>1.0</DomainValue>
-    <BoundaryValue>0.5001</BoundaryValue>
+    <BoundaryValue>1.0</BoundaryValue>
     <MaterialState>solid</MaterialState>
   </FixedBlocks>
 </Operation>
