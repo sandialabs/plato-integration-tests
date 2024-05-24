@@ -155,6 +155,9 @@
   </Output>
   <FixedBlocks>
     <Index>2</Index>
+    <DomainValue>1.0</DomainValue>
+    <BoundaryValue>0.5001</BoundaryValue>
+    <MaterialState>solid</MaterialState>
   </FixedBlocks>
   <Discretization>density</Discretization>
 </Operation>
@@ -169,6 +172,9 @@
   </Output>
   <FixedBlocks>
     <Index>2</Index>
+    <DomainValue>1.0</DomainValue>
+    <BoundaryValue>1.0</BoundaryValue>
+    <MaterialState>solid</MaterialState>
   </FixedBlocks>
   <Discretization>density</Discretization>
 </Operation>
