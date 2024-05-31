@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Operation>
+  <Name>Compute Criterion</Name>
+  <OutputValue>
+    <Name>Criterion</Name>
+  </OutputValue>
+</Operation>
+<Operation>
+  <Name>Compute Criterion Gradient</Name>
+  <Output>
+    <ArgumentName>DFDX</ArgumentName>
+  </Output>
+</Operation>
