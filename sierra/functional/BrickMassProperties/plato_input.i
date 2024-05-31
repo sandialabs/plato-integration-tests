@@ -4,8 +4,7 @@ end
 
 begin objective mass_properties
     active true
-    app custom_app
-    shared_library_path libplato_sd_mass_lib.so
+    app sd_mass_app
     input_files salinas_input.i, targets.xml, weights.xml
     aggregation_weight 1.0
 end
