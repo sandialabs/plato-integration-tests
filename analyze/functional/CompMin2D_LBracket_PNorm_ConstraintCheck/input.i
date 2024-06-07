@@ -8,6 +8,7 @@ end
 begin constraint p_norm
     active true
     app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_p_norm.xml
     is_linear false
     equal_to 4.3e+03
@@ -16,6 +17,7 @@ end
 begin objective compliance
     active true
     app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 1.0
     objective_type minimize

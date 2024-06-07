@@ -3,8 +3,8 @@ begin brick_shape_geometry
 end
 
 begin objective mass_properties
-    active true
     app sd_mass_app
+    criterion mass-properties
     input_files salinas_input.i, targets.xml, weights.xml
     aggregation_weight 1.0
 end

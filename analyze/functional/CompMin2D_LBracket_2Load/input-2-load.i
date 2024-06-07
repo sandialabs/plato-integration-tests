@@ -8,6 +8,7 @@ end
 begin constraint volume
     active true
     app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_vol.xml
     is_linear true
     equal_to 0.32
@@ -16,6 +17,7 @@ end
 begin objective compliance-1
     active true
     app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 0.5
     objective_type minimize
@@ -24,6 +26,7 @@ end
 begin objective compliance-2
     active true
     app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 0.5
     objective_type minimize
