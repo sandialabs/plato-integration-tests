@@ -1,0 +1,52 @@
+ Reading input File: plato_analyze_4_input_deck.xml
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+Criterion with name 'my_volume_criterion_id_2' has a value of '1'.
+Criterion my_volume_criterion_id_2 target: 0
+Criterion value minus target:  1
+ -----------------------------------------------------------------------------
+  Terminate signal received on Performer 'plato_analyze_4': 
+    Message: 
+
+ INFO: Interface::broadcastStageIndex: Terminate stage requested.  Exiting.
+
+
+ -----------------------------------------------------------------------------
+

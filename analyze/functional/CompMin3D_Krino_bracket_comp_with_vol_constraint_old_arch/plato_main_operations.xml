@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<Operation>
+  <Function>InitializeValues</Function>
+  <Name>Initialize Values</Name>
+  <Output>
+    <ArgumentName>Values</ArgumentName>
+  </Output>
+  <Method>ReadFromCSMFile</Method>
+  <CSMFileName>bg.csm</CSMFileName>
+</Operation>
+<Operation>
+  <Function>SetLowerBounds</Function>
+  <Name>Compute Lower Bounds</Name>
+  <UseCase>solid</UseCase>
+  <Discretization>density</Discretization>
+  <Input>
+    <ArgumentName>Lower Bound Value</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Lower Bound Vector</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>SetUpperBounds</Function>
+  <Name>Compute Upper Bounds</Name>
+  <UseCase>solid</UseCase>
+  <Discretization>density</Discretization>
+  <Input>
+    <ArgumentName>Upper Bound Value</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Upper Bound Vector</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Name>GetGlobalNodeIDMap</Name>
+  <Function>GetGlobalNodeIDMap</Function>
+  <MeshFilename>bg.exo</MeshFilename>
+  <Output>
+    <ArgumentName>GlobalNodeIDMap</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>CopyField</Function>
+  <Name>Copy Field</Name>
+  <Input>
+    <ArgumentName>InputField</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputField</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>CopyValue</Function>
+  <Name>Copy Value</Name>
+  <Input>
+    <ArgumentName>InputValue</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputValue</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Name>Aggregate Objective Data</Name>
+  <Function>Aggregator</Function>
+  <Aggregate>
+    <Layout>Value</Layout>
+    <Input>
+      <ArgumentName>Value 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Value</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Aggregate>
+    <Layout>Nodal Field</Layout>
+    <Input>
+      <ArgumentName>Field 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Field</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Weighting>
+    <Weight>
+      <Value>1</Value>
+    </Weight>
+  </Weighting>
+</Operation>
+<Operation>
+  <Name>Aggregate Constraint Data</Name>
+  <Function>Aggregator</Function>
+  <Aggregate>
+    <Layout>Value</Layout>
+    <Input>
+      <ArgumentName>Value 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Value</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Aggregate>
+    <Layout>Nodal Field</Layout>
+    <Input>
+      <ArgumentName>Field 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Field</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Weighting>
+    <Weight>
+      <Value>1</Value>
+    </Weight>
+  </Weighting>
+</Operation>
+<Operation>
+  <Function>PlatoMainOutput</Function>
+  <Name>PlatoMainOutput</Name>
+  <WriteRestart>false</WriteRestart>
+  <OutputFrequency>1</OutputFrequency>
+  <MaxIterations>100</MaxIterations>
+  <Input>
+    <ArgumentName>control</ArgumentName>
+    <Layout>Nodal Field</Layout>
+  </Input>
+</Operation>
+<Operation>
+  <Name>WriteControl</Name>
+  <Function>OutputNodalFieldSharedData</Function>
+  <Input>
+    <ArgumentName>Control</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>OutputNodalFieldSharedData</Function>
+  <Name>WriteConstraintGradient</Name>
+  <Input>
+    <ArgumentName>ConstraintGradient</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>OutputNodalFieldSharedData</Function>
+  <Name>WriteObjectiveGradient</Name>
+  <Input>
+    <ArgumentName>ObjectiveGradient</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>OutputNodalFieldSharedData</Function>
+  <Name>WriteDFDLSConstraintGradient</Name>
+  <Input>
+    <ArgumentName>DFDLSConstraintGradient</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>OutputNodalFieldSharedData</Function>
+  <Name>WriteDFDLSObjectiveGradient</Name>
+  <Input>
+    <ArgumentName>DFDLSObjectiveGradient</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>WriteGlobalValue</Function>
+  <Name>WriteDFDXConstraintGradient</Name>
+  <Input>
+    <ArgumentName>DFDXConstraintGradient</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>WriteGlobalValue</Function>
+  <Name>WriteDFDXObjectiveGradient</Name>
+  <Input>
+    <ArgumentName>DFDXObjectiveGradient</ArgumentName>
+  </Input>
+</Operation>
+
+

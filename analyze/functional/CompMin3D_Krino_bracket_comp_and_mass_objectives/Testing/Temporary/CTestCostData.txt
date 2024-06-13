@@ -1,0 +1,5 @@
+analyze_functional_CompMin3D_Krino_bracket 0 0
+analyze_functional_CompMin3D_Krino_bracket_Gradient_Check 0 0
+---
+analyze_functional_CompMin3D_Krino_bracket
+analyze_functional_CompMin3D_Krino_bracket_Gradient_Check

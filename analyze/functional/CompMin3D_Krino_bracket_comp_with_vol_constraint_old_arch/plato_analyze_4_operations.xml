@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+<include filename="defines.xml" />
+-->
+<Operation>
+  <Name>Reinitialize on Change</Name>
+  <Function>Reinitialize</Function>
+  <OnChange>true</OnChange>
+  <Input>
+    <ArgumentName>Parameters</ArgumentName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>ComputeCriterionValue</Function>
+  <Name>Compute Constraint Value 1</Name>
+  <Criterion>my_volume_criterion_id_2</Criterion>
+  <Output>
+    <Argument>Value</Argument>
+    <ArgumentName>Constraint Value 1</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>ComputeCriterionGradientX</Function>
+  <Name>Compute Constraint Gradient 1</Name>
+  <Criterion>my_volume_criterion_id_2</Criterion>
+  <Output>
+    <ArgumentName>DGDX</ArgumentName>
+    <Argument>Gradient</Argument>
+  </Output>
+</Operation>
+<!--
+<Operation>
+  <Name>Compute Constraint Sensitivity</Name>
+  <Function>MapCriterionGradientX</Function>
+  <Criterion>my_volume_criterion_id_2</Criterion>
+  <For var="I" in="Parameters">
+    <Input>
+      <ArgumentName>Parameter Sensitivity {I}</ArgumentName>
+    </Input>
+  </For>
+  <Output>
+    <ArgumentName>Criterion Sensitivity</ArgumentName>
+  </Output>
+</Operation>
+-->

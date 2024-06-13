@@ -1,0 +1,7 @@
+//begin constraint mass
+//    app custom_app
+//    shared_library_path libAnalyzeFunctionalInterface.so
+//    input_files plato_analyze_mass.xml
+//    is_linear false
+//    equal_to 0.7
+//end
