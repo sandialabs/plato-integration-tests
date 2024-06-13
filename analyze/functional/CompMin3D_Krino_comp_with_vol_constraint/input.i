@@ -14,8 +14,8 @@ begin levelset_topology
     sphere_pattern_num_y 1
     sphere_pattern_num_z 1
     sphere_pattern_overlap_bbox false
-    levelset_lower_bound -.1
-    levelset_upper_bound .1
+    levelset_lower_bound -.2
+    levelset_upper_bound .2
 end
 
 begin constraint volume
@@ -23,7 +23,7 @@ begin constraint volume
     shared_library_path libAnalyzeFunctionalInterface.so
     input_files plato_analyze_vol.xml
     is_linear false
-    equal_to 0.7
+    equal_to 0.9
 end
 
 begin objective compliance
@@ -38,13 +38,13 @@ begin rol_optimization
     input_file_name rol_inputs.xml
     step_tolerance 1e-10
     gradient_tolerance 1e-5
-    max_iterations 10
+    max_iterations 2
 end
 
 begin gradient_check
     output_file_name ROL_gradient_check_output.txt
-    number_of_steps 10
-    initial_direction_magnitude .1
+    number_of_steps 15
+    initial_direction_magnitude 1 
     step_size_reduction_factor 0.1
     random_direction_seed 1
 end

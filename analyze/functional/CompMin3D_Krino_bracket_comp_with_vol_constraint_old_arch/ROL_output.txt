@@ -1,9 +1,0 @@
-
-  ROL::Problem::finalize
-    Problem Summary:
-      Has Bound Constraint? .............. yes
-      Has Equality Constraint? ........... yes
-        Names: ........................... Equality Constraint 0
-        Total: ........................... 1
-      Has Inequality Constraint? ......... no
-

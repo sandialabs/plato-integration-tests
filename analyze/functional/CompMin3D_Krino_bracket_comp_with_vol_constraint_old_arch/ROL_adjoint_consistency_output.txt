@@ -1,5 +1,0 @@
-
-Test Consistency of Jacobian and its adjoint: 
-  |<w,Jv> - <adj(J)w,v>| = 0.00000000e+00
-  |<w,Jv>|               = 0.00000000e+00
-  Relative Error         = 0.00000000e+00
