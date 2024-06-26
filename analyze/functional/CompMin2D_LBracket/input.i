@@ -7,8 +7,8 @@ end
 
 begin constraint volume
     active true
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_vol.xml
     is_linear true
     equal_to 0.32
@@ -16,8 +16,8 @@ end
 
 begin objective compliance
     active true
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 1.0
     objective_type minimize
