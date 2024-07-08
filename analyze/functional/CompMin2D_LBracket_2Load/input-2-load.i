@@ -1,7 +1,9 @@
 begin density_topology
     mesh_name lbracket.exo
     output_name to-result-2-load.exo
-    filter_type helmholtz
+end
+
+begin helmholtz_filter
     filter_radius 2.5e-2
 end
 
