@@ -1,14 +1,16 @@
 begin density_topology
     mesh_name lbracket.exo
     output_name to-result.exo
-    filter_type helmholtz
+end
+
+begin helmholtz_filter
     filter_radius 2.5e-2
 end
 
 begin constraint p_norm
     active true
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_p_norm.xml
     is_linear false
     equal_to 4.3e+03
@@ -16,8 +18,8 @@ end
 
 begin objective compliance
     active true
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 1.0
     objective_type minimize

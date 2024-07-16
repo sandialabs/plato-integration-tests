@@ -7,7 +7,6 @@ begin service 2
   code sierra_sd
   number_processors 1
   cache_state true
-  //path /fgs/bwclark/sierra_master/bin/linux-gcc-10.2.0-openmpi-4.0.5/release/plato_sd_main
 end service
 
 begin service 3
