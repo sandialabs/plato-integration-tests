@@ -1,11 +1,9 @@
 begin density_topology
     mesh_name lbracket.exo
     output_name to-result.exo
-    initial_density_value 0.5
 end
 
-begin helmholtz_filter
-    filter_radius 2.5e-2
+begin identity_filter
 end
 
 begin constraint volume
@@ -18,6 +16,27 @@ begin constraint volume
     constraint_type equal_to
 end
 
+
+begin constraint cgx
+    active true
+    app platoanalyze
+    criterion platoanalyze
+    input_files plato_analyze_cgx.xml
+    is_linear true
+    constraint_value 0.
+    constraint_type less_than
+end
+
+begin constraint cgy
+    active true
+    app platoanalyze
+    criterion platoanalyze
+    input_files plato_analyze_cgy.xml
+    is_linear true
+    constraint_value 0.
+    constraint_type greater_than
+end
+
 begin objective compliance
     active true
     app platoanalyze
@@ -27,9 +46,12 @@ begin objective compliance
     objective_type minimize
 end
 
-begin rol_optimization
-    max_iterations 5
-end
+#begin rol_optimization
+#    input_file_name rol_inputs.xml
+#    step_tolerance 1e-10
+#    gradient_tolerance 1e-5
+#    max_iterations 10
+#end
 
 begin gradient_check
     output_file_name ROL_gradient_check_output.txt

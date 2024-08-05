@@ -14,7 +14,8 @@ begin constraint p_norm
     criterion platoanalyze
     input_files plato_analyze_p_norm.xml
     is_linear false
-    equal_to 4.3e+03
+    constraint_value 4.3e+03
+    constraint_type equal_to
 end
 
 begin objective compliance
