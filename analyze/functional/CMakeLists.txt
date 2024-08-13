@@ -1,4 +1,6 @@
 add_subdirectory(CompMin2D_LBracket)
+add_subdirectory(CompMin2D_LBracket_FixedBlock)
 add_subdirectory(CompMin2D_LBracket_KernelFilter)
+add_subdirectory(CompMin2D_LBracket_2Block)
 add_subdirectory(CompMin2D_LBracket_2Load)
 add_subdirectory(CompMin2D_LBracket_PNorm_ConstraintCheck)
