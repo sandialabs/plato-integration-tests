@@ -2,9 +2,9 @@ from jax import grad
 from jax import jit
 from jax import value_and_grad
 from optimism import EquationSolver
-from plato_optimism import exodus_writer as ExodusWriter
-from plato_optimism import adjoint_problem_function_space as AdjointFunctionSpace
+from optimism.inverse import AdjointFunctionSpace
 from optimism import FunctionSpace
+from optimism import Interpolants
 from optimism import Mechanics
 from optimism import Mesh
 from optimism import Objective
@@ -14,9 +14,10 @@ from optimism import SparseMatrixAssembler
 from optimism.FunctionSpace import DofManager
 from optimism.FunctionSpace import EssentialBC
 from optimism.material import Neohookean
-from typing import Optional
+from collections import namedtuple
 
-import matplotlib.pyplot as plt
+EnergyFunctions = namedtuple('EnergyFunctions',
+                            ['energy_function_coords'])
 
 import jax.numpy as np
 import numpy as onp
@@ -24,15 +25,8 @@ import numpy as onp
 class NodalCoordinateOptimization:
 
     def __init__(self):
-        self.writeOutput = False
-
-        # Target forces for strains of [1.5, 3.0, 4.5, 6.0]
-        self.targetSteps = [5, 10, 15, 20] 
-        # self.targetForces = [0.03140434, 0.05769101, 0.07248617, 0.07583194] # actual forces
-        self.targetForces = [0.035, 0.045, 0.075, 0.076] # artificially perturbed
-
+        self.scaleObjective = -1.0 # -1.0 to maximize
         self.stateNotStored = True
-        self.state = []
 
         self.quad_rule = QuadratureRule.create_quadrature_rule_on_triangle(degree=2)
 
@@ -59,59 +53,54 @@ class NodalCoordinateOptimization:
         )
 
         self.input_mesh = './single_hole.exo'
-        if self.writeOutput:
-          self.output_file = 'output.exo'
-
         self.plot_file = 'disp_control_response.npz'
         self.steps = 20
         self.maxDisp = 1.5
+
+    def create_field(self, Uu, disp):
+        def get_ubcs(disp):
+            V = np.zeros(self.mesh.coords.shape)
+            index = (self.mesh.nodeSets['yplus_sideset'], 1)
+            V = V.at[index].set(disp)
+            return self.dof_manager.get_bc_values(V)
+
+        return self.dof_manager.create_field(Uu, get_ubcs(disp))
 
     def reload_mesh(self):
         origMesh = ReadExodusMesh.read_exodus_mesh(self.input_mesh)
         nodeSets = Mesh.create_nodesets_from_sidesets(origMesh)
         self.mesh = Mesh.mesh_with_nodesets(origMesh, nodeSets)
+
+        func_space = FunctionSpace.construct_function_space(self.mesh, self.quad_rule)
+        self.dof_manager = DofManager(func_space, 2, self.ebcs)
+
         self.stateNotStored = True
+        self.state = []
 
     def run_simulation(self):
-
-        coords = self.mesh.coords
-
         # setup
-        func_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, self.mesh, self.quad_rule)
+        func_space = FunctionSpace.construct_function_space(self.mesh, self.quad_rule)
         mech_funcs = Mechanics.create_mechanics_functions(func_space, mode2D='plane strain', materialModel=self.mat_model)
-        dof_manager = DofManager(func_space, 2, self.ebcs)
 
-        # methods defined on the fly
-        def get_ubcs(p):
-            disp = p[0]
-            V = np.zeros(coords.shape)
-            index = (self.mesh.nodeSets['yplus_sideset'], 1)
-            V = V.at[index].set(disp)
-            return dof_manager.get_bc_values(V)
-
-        def create_field(Uu, p):
-            return dof_manager.create_field(Uu, get_ubcs(p))
+        def energy_function_all_dofs(U, p):
+            internal_variables = p[1]
+            return mech_funcs.compute_strain_energy(U, internal_variables)
 
         def energy_function(Uu, p):
-            U = create_field(Uu, p)
-            internal_variables = p[1]
-            return mech_funcs.compute_strain_energy(U, internal_variables)
-        
-        def energy_function_alt(U, p):
-            internal_variables = p[1]
-            return mech_funcs.compute_strain_energy(U, internal_variables)
+            U = self.create_field(Uu, p.bc_data)
+            return energy_function_all_dofs(U, p)
 
-        nodal_forces = jit(grad(energy_function_alt, argnums=0))
+        nodal_forces = jit(grad(energy_function_all_dofs, argnums=0))
 
         def assemble_sparse(Uu, p):
-            U = create_field(Uu, p)
+            U = self.create_field(Uu, p.bc_data)
             internal_variables = p[1]
             element_stiffnesses = mech_funcs.compute_element_stiffnesses(U, internal_variables)
             return SparseMatrixAssembler.\
-                assemble_sparse_stiffness_matrix(element_stiffnesses, func_space.mesh.conns, dof_manager)
+                assemble_sparse_stiffness_matrix(element_stiffnesses, func_space.mesh.conns, self.dof_manager)
     
         def store_force_displacement(Uu, dispval, force, disp):
-            U = create_field(Uu, p)
+            U = self.create_field(Uu, p.bc_data)
             f = nodal_forces(U, p)
 
             index = (self.mesh.nodeSets['yplus_sideset'], 1)
@@ -122,29 +111,12 @@ class NodalCoordinateOptimization:
             with open(self.plot_file,'wb') as f:
                 np.savez(f, force=force, displacement=disp)
 
-        # only call after calculations are finished
-        def save_displacement(Uu, exo, step):
-            exo.put_time(step, step)
-            U = create_field(Uu, p)
-            ExodusWriter.write_exodus_nodal_outputs(
-                exo,
-                ['disp_x', 'disp_y'], [U[:, 0], U[:, 1]], time_step=step)
-
         # problem set up
-        Uu = dof_manager.get_unknown_values(np.zeros(coords.shape))
+        Uu = self.dof_manager.get_unknown_values(np.zeros(self.mesh.coords.shape))
         ivs = mech_funcs.compute_initial_state()
         p = Objective.Params(0., ivs)
         precond_strategy = Objective.PrecondStrategy(assemble_sparse)
         objective = Objective.Objective(energy_function, Uu, p, precond_strategy)
-
-        # set up output mesh
-        if self.writeOutput:
-          ExodusWriter.copy_exodus_mesh(self.input_mesh, self.output_file)
-          exo = ExodusWriter.setup_exodus_database(
-              self.output_file,
-              2, 0, ['disp_x', 'disp_y'], []
-          )
-          save_displacement(Uu, exo, 1)
 
         # loop over load steps
         disp = 0.
@@ -160,52 +132,56 @@ class NodalCoordinateOptimization:
             print('LOAD STEP ', step)
             disp = disp - self.maxDisp / self.steps
             p = Objective.param_index_update(p, 0, disp)
-            Uu = EquationSolver.nonlinear_equation_solve(objective, Uu, p, self.eq_settings)
+            Uu, solverSuccess = EquationSolver.nonlinear_equation_solve(objective, Uu, p, self.eq_settings)
 
             store_force_displacement(Uu, disp, fd_force, fd_disp)
             self.state.append((Uu, p))
 
-            if self.writeOutput:
-              save_displacement(Uu, exo, step + 1)
-
         self.stateNotStored = False
 
-    def objective_function(self, coords):
-        f_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, self.mesh, self.quad_rule)
-        m_funcs = Mechanics.create_mechanics_functions(f_space, mode2D='plane strain', materialModel=self.mat_model)
+    def setup_energy_functions(self):
+        shapeOnRef = Interpolants.compute_shapes(self.mesh.parentElement, self.quad_rule.xigauss)
 
-        dof_manager = DofManager(f_space, 2, self.ebcs)
-        def get_ubcs(p):
-            disp = p[0]
-            V = np.zeros(coords.shape)
-            index = (self.mesh.nodeSets['yplus_sideset'], 1)
-            V = V.at[index].set(disp)
-            return dof_manager.get_bc_values(V)
+        def energy_function_all_dofs(U, p, coords):
+            adjoint_func_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, shapeOnRef, self.mesh, self.quad_rule)
+            mech_funcs = Mechanics.create_mechanics_functions(adjoint_func_space, mode2D='plane strain', materialModel=self.mat_model)
+            ivs = p.state_data
+            return mech_funcs.compute_strain_energy(U, ivs)
 
+        def energy_function_coords(Uu, p, coords):
+            U = self.create_field(Uu, p.bc_data)
+            return energy_function_all_dofs(U, p, coords)
+
+        return EnergyFunctions(energy_function_coords)
+
+    def objective_function(self, coordinates, energy_function_coords):
         endState = self.state[-1]
-        U = dof_manager.create_field(endState[0], get_ubcs(endState[1]))
-
-        return m_funcs.compute_strain_energy(U, endState[1][1])
+        return energy_function_coords(endState[0], endState[1], coordinates)
     
     def get_objective(self):
         if self.stateNotStored:
             self.run_simulation()
 
-        value = -self.objective_function(self.mesh.coords) 
-        return onp.array(value).item()        
+        parameters = self.mesh.coords
+        energyFuncs = self.setup_energy_functions()
 
+        val = self.objective_function(parameters, jit(energyFuncs.energy_function_coords)) 
+        return onp.array(self.scaleObjective * val).item()      
 
     def get_gradient(self):
         if self.stateNotStored:
             self.run_simulation()
+        
+        parameters = self.mesh.coords
+        energyFuncs = self.setup_energy_functions()
 
-        gradient = -grad(self.objective_function, argnums=0)(self.mesh.coords)
-        return onp.array(gradient).flatten().tolist()
-
+        gradient = grad(self.objective_function, argnums=0)(parameters, jit(energyFuncs.energy_function_coords))
+        return onp.array(self.scaleObjective * gradient, copy=False).flatten().tolist()
 
 if __name__ == '__main__':
     nco = NodalCoordinateOptimization()
     nco.reload_mesh()
     val = nco.get_objective()
-    print("\n Objective is: ")
+    print("\n objective value")
     print(val)
+    grad = nco.get_gradient()
