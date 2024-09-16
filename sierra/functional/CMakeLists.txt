@@ -1,1 +1,2 @@
 add_subdirectory(BrickMassProperties)
+add_subdirectory(Compliance)

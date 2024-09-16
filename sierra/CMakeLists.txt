@@ -1,4 +1,5 @@
 include( ${CMAKE_CURRENT_SOURCE_DIR}/../utilities/cmake/tools.cmake )
+include( ${CMAKE_CURRENT_SOURCE_DIR}/utilities/common_data.cmake )
 
 set(SIERRA_INTEGRATION_TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
