@@ -19,16 +19,16 @@ begin levelset_topology
 end
 
 begin objective compliance
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_lsto.xml
     aggregation_weight 1 
     objective_type minimize
 end
 
 begin objective mass
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_mass.xml
     aggregation_weight 1 
     objective_type minimize

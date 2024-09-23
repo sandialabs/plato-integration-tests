@@ -66,9 +66,6 @@ END
 BLOCK 2
   material 1
 END
-BLOCK 10
-  material 2
-END
 TOPOLOGY-OPTIMIZATION
   algorithm = plato_engine
   case = inverse_methods

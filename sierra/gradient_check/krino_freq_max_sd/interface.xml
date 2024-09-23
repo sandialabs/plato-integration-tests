@@ -505,6 +505,8 @@
   <CheckGradient>true</CheckGradient>
   <CheckHessian>False</CheckHessian>
   <Options>
+    <ROLGradientCheckStepSize>5</ROLGradientCheckStepSize>
+    <ROLGradientCheckPerturbationScale>1</ROLGradientCheckPerturbationScale>
     <MaxNumOuterIterations>3</MaxNumOuterIterations>
     <HessianType>zero</HessianType>
     <ProblemUpdateFrequency>3</ProblemUpdateFrequency>

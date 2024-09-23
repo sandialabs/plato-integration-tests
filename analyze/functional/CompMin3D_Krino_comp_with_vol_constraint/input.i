@@ -19,16 +19,16 @@ begin levelset_topology
 end
 
 begin constraint volume
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_vol.xml
     is_linear false
     equal_to 0.9
 end
 
 begin objective compliance
-    app custom_app
-    shared_library_path libAnalyzeFunctionalInterface.so
+    app platoanalyze
+    criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 1.0
     objective_type minimize

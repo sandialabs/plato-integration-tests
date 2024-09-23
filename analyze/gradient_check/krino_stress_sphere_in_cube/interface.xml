@@ -270,23 +270,22 @@
     </Output>
   </Operation>
   <Operation>
-    <Operation>
-      <Name>Apply Chain Rule</Name>
-      <PerformerName>krino</PerformerName>
-      <Input>
-        <ArgumentName>DFDX</ArgumentName>
-        <SharedDataName>Criterion GradientX - criterion_1_service_2_scenario_1</SharedDataName>
-      </Input>
-      <Input>
-        <ArgumentName>CutMeshGlobalNodeIDMap</ArgumentName>
-        <SharedDataName>Global Node ID Map</SharedDataName>
-      </Input>
-      <Output>
-        <ArgumentName>DFDLS</ArgumentName>
-        <SharedDataName>DFDLS</SharedDataName>
-      </Output>
-    </Operation>
+    <Name>Apply Chain Rule 1 to N Format</Name>
+    <PerformerName>krino</PerformerName>
+    <Input>
+      <ArgumentName>DFDX</ArgumentName>
+      <SharedDataName>Criterion GradientX - criterion_1_service_2_scenario_1</SharedDataName>
+    </Input>
+    <Input>
+      <ArgumentName>CutMeshGlobalNodeIDMap</ArgumentName>
+      <SharedDataName>Global Node ID Map</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>DFDLS</ArgumentName>
+      <SharedDataName>DFDLS</SharedDataName>
+    </Output>
   </Operation>
+
   <Operation>
     <Name>Aggregate Data</Name>
     <PerformerName>platomain_1</PerformerName>

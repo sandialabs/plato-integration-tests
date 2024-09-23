@@ -32,10 +32,6 @@
           <Parameter name="Element Block" type="string" value="block_2" />
           <Parameter name="Material Model" type="string" value="material_1" />
         </ParameterList>
-        <ParameterList name="Block 3">
-          <Parameter name="Element Block" type="string" value="block_2_void" />
-          <Parameter name="Material Model" type="string" value="material_2" />
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="Material Models">
