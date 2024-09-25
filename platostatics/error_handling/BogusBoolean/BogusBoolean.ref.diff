@@ -1,5 +1,0 @@
- -- Fatal Error --------------------------------------------------------------
-  Parsing exception on Performer 'PlatoMain': 
-    Error message: Plato::Parser: expected a boolean ('True','False'), not 'BOGUSTRUE'.
- -----------------------------------------------------------------------------
-
