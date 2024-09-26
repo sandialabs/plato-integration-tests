@@ -1,21 +1,28 @@
 Requires_features( STK_ENABLED )
 Disable_test_on_any_flag(BUILD_WITH_SANITIZER_FLAGS)
+
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set(testFiles "plato_input.i;salinas_input.i;ROL_Optimizer.txt.gold;ROL_gradient_check.txt.gold;rol_inputs.xml;")
-Plato_add_test_files("${testFiles}")
+set( BASE_TEST_FILE_PATH "../Compliance" )
+file( GLOB TEST_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${BASE_TEST_FILE_PATH}/*.xml ${BASE_TEST_FILE_PATH}/*.gold )
+Plato_direct_copy_test_files("${TEST_FILES};${BASE_TEST_FILE_PATH}/salinas_input.i")
+
+set( TWO_LOAD_TEST_FILES "input-2-load.i" )
+Plato_add_test_files("${TWO_LOAD_TEST_FILES}")
 
 Plato_sierra_copy_test_data("multiblock_Lbracket.exo")
 
-set( PLATO_TEST_COMMAND "plato plato_input.i")
+set( NUM_RANKS 4 )
+set( ADDITIONAL_MPI_FLAGS "--bind-to none" )
+set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load.i" )
 set( OUT_FILE "ROL_Optimizer.txt")
 set( GOLD_FILE "ROL_Optimizer.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
-set( NUMDIFF_RELATIVE_TOLERANCE 1e-5 )
+set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 
-Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "large")
 
 # Set input file names for custom command

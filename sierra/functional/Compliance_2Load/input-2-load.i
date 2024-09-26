@@ -18,9 +18,17 @@ end
 begin objective compliance
     app sierra_sd
     criterion compliance
-    number_of_processors 1
+    number_of_processors 2
     input_files salinas_input.i
-    aggregation_weight 1.0
+    aggregation_weight 0.5
+end
+
+begin objective compliance
+    app sierra_sd
+    criterion compliance
+    number_of_processors 2
+    input_files salinas_input.i
+    aggregation_weight 0.5
 end
 
 begin rol_optimization 
