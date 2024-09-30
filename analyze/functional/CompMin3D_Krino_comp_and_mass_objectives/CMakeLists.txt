@@ -4,9 +4,10 @@ Requires_features( PLATOANALYZE_STK_ENABLED )
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set(testFiles "input.i;plato_analyze_compliance.xml;plato_analyze_mass.xml;rol_inputs.xml;ROL_Optimizer.txt.gold;ROL_gradient_check_output.txt.gold")
+set(testFiles "input.i;plato_analyze_compliance.xml;plato_analyze_mass.xml;ROL_Optimizer.txt.gold;ROL_gradient_check_output.txt.gold")
 Plato_add_test_files("${testFiles}")
 Plato_analyze_copy_test_data("bg.exo")
+Plato_analyze_copy_test_data("rol_inputs_CompMin3D_Krino.xml")
 
 # Add test to run problem and check ROL optimization output
 set( PLATO_TEST_COMMAND "plato input.i")
