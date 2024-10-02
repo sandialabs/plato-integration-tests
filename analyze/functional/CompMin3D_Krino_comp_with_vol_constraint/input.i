@@ -10,10 +10,7 @@ begin levelset_topology
     sphere_pattern_bbox_max_y 1
     sphere_pattern_bbox_max_z 1
     sphere_pattern_radius .25
-    sphere_pattern_num_x 1
-    sphere_pattern_num_y 1
-    sphere_pattern_num_z 1
-    sphere_pattern_overlap_bbox false
+    sphere_pattern_spacing 2
     levelset_lower_bound -.2
     levelset_upper_bound .2
 end
