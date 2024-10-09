@@ -2,6 +2,7 @@ begin density_topology
     mesh_name multiblock_Lbracket.exo
     output_name output.exo
     fixed_blocks block_1, block_4
+    initial_density_value 0.5
 end
 
 begin kernel_filter
