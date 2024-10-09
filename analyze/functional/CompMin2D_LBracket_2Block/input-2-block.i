@@ -4,6 +4,7 @@
 begin density_topology
     mesh_name lbracket-two-block.exo
     output_name to-result.exo
+    initial_density_value 0.5
 end
 
 begin helmholtz_filter
