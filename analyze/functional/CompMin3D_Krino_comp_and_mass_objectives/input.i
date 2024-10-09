@@ -32,7 +32,7 @@ begin objective mass
 end
 
 begin rol_optimization
-    input_file_name rol_inputs_CompMin3D_Krino.xml
+    input_file_name rol_inputs_BC.xml
     step_tolerance 1e-10
     gradient_tolerance 1e-5
     max_iterations 2
