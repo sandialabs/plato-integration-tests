@@ -1,0 +1,26 @@
+---------------------------------------------------
+Executable Name   = Krino
+Executable Version= 5.17.2-50-g4b7f6d0c
+Executable Date   = Nov  6 2023 15:33:29
+Executable File   = /fgs/bwclark/sierra_master/bin/linux-gcc-10.2.0-openmpi-4.0.5/release/plato_krino_main
+Run Start Date    = Nov 17 2023 07:08:08
+
+Working Directory = /ceeGPFS/fgs/bwclark/lsto_problem/lsto_stiffness_with_vol_const/
+Parsed Input File = 
+---------------------------------------------------
+
+[time:     0.000 s, hwm: 18.64 M] Begin Mesh Decomposition.
+Decomposing mesh for region into phase conformal elements.
+After cutting quality is 3.78694e-06
+Volume for part block_1 = 0.160523
+Volume for part block_1_void = 0.0394766
+Sum of Volume for all parts (which may overlap) = 0.2
+Surface Area for part surface_block_1__void = 0.555311
+Surface Area for part surface_block_1_void_ = 0.555311
+Sum of Surface Area for all parts (which may overlap) = 1.11062
+[time:     0.267 s, hwm: 42.96 M] End Mesh Decomposition.
+Skipping output of empty part block_1_void
+Skipping output of empty part fixed_void
+Skipping output of empty part load_void
+Skipping output of empty part fixed_void_tetra4_tri3
+Skipping output of empty part load_void_tetra4_tri3

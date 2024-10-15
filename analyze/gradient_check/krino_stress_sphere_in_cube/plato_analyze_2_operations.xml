@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<Operation>
+  <Name>Reinitialize on Change</Name>
+  <Function>Reinitialize</Function>
+  <OnChange>true</OnChange>
+  <Input>
+    <ArgumentName>Parameters</ArgumentName>
+    <SharedDataName>Design Parameters</SharedDataName>
+  </Input>
+</Operation>
+<Operation>
+  <Function>ComputeCriterionValue</Function>
+  <Name>Compute Objective Value</Name>
+  <Criterion>Stress P-Norm</Criterion>
+  <Target>0.0</Target>
+  <Output>
+    <Argument>Value</Argument>
+    <ArgumentName>Objective Value</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>ComputeCriterionGradientX</Function>
+  <Name>Compute Objective Gradient</Name>
+  <Criterion>Stress P-Norm</Criterion>
+  <Output>
+    <ArgumentName>DFDX</ArgumentName>
+    <Argument>Gradient</Argument>
+  </Output>
+</Operation>
+<Operation>
+  <Function>WriteOutput</Function>
+  <Name>Write Output</Name>
+  <Output>
+    <ArgumentName>Solution X</ArgumentName>
+  </Output>
+  <Output>
+    <ArgumentName>Solution Y</ArgumentName>
+  </Output>
+  <Output>
+    <ArgumentName>Solution Z</ArgumentName>
+  </Output>
+</Operation>
+<!--
+<Operation>
+  <Name>Compute Objective Value</Name>
+  <Function>ComputeCriterionValue</Function>
+  <Criterion>Stress P-Norm</Criterion>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Output>
+    <Argument>Value</Argument>
+    <ArgumentName>Objective Value</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Name>Compute Objective Gradient</Name>
+  <Function>ComputeCriterionGradient</Function>
+  <Criterion>Stress P-Norm</Criterion>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Output>
+    <Argument>Gradient</Argument>
+    <ArgumentName>Objective Gradient</ArgumentName>
+  </Output>
+</Operation>
+-->
+
+

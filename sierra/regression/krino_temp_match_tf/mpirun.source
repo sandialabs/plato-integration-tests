@@ -1,0 +1,16 @@
+PlatoKrino --bg_mesh=aria1_orig.exo --cut_mesh=aria1.exo --execute_initial_mesh 
+
+mpiexec -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=plato_main_operations.xml \
+PlatoMain plato_main_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=sierra_tf_2_operations.xml \
+plato_tf_main -i aria1_opt.i -opt inverseInput.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=plato_krino_operations.xml \
+PlatoKrino --bg_mesh=aria1_orig.exo --cut_mesh=aria1.exo 
+
+
