@@ -58,7 +58,7 @@
       <Parameter name="Subproblem Solver" type="string" value="Truncated CG" />
       <Parameter name="Subproblem Model" type="string" value="Lin-More" />
       <Parameter name="Initial Radius" type="double" value="1" />
-      <Parameter name="Maximum Radius" type="double" value="10" />
+      <Parameter name="Maximum Radius" type="double" value="1.0e8" />
       <Parameter name="Step Acceptance Threshold" type="double" value="1e-2" />
       <Parameter name="Radius Shrinking Threshold" type="double" value="0.05" />
       <Parameter name="Radius Growing Threshold" type="double" value="0.9" />
@@ -85,12 +85,12 @@
         <Parameter name="Initial Post-Smoothing Step Size" type="double" value="1.0" />
       </ParameterList>
       <ParameterList name="Lin-More">
-        <Parameter name="Maximum Number of Minor Iterations" type="int" value="2" />
+        <Parameter name="Maximum Number of Minor Iterations" type="int" value="0" />
         <Parameter name="Sufficient Decrease Parameter" type="double" value="1e-2" />
         <ParameterList name="Cauchy Point">
           <Parameter name="Maximum Number of Reduction Steps" type="int" value="10" />
           <Parameter name="Maximum Number of Expansion Steps" type="int" value="10" />
-          <Parameter name="Initial Step Size" type="double" value="20" />
+          <Parameter name="Initial Step Size" type="double" value="3.1" />
           <Parameter name="Normalize Initial Step Size" type="bool" value="false" />
           <Parameter name="Reduction Rate" type="double" value="0.5" />
           <Parameter name="Expansion Rate" type="double" value="5.0" />
@@ -144,7 +144,7 @@
       <Parameter name="Feasibility Tolerance Decrease Exponent" type="double" value="0.9" />
       <Parameter name="Print Intermediate Optimization History" type="bool" value="false" />
       <Parameter name="Subproblem Step Type" type="string" value="Trust Region" />
-      <Parameter name="Subproblem Iteration Limit" type="int" value="2" />
+      <Parameter name="Subproblem Iteration Limit" type="int" value="10" />
     </ParameterList>
     <ParameterList name="Moreau-Yosida Penalty">
       <Parameter name="Initial Penalty Parameter" type="double" value="1e2" />
