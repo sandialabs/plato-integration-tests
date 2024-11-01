@@ -59,7 +59,8 @@ class MaterialPropertiesOptimization:
 
         self.input_mesh = './window.exo'
         origMesh = ReadExodusMesh.read_exodus_mesh(self.input_mesh)
-        self.mesh = Mesh.create_higher_order_mesh_from_simplex_mesh(origMesh, order=2, createNodeSetsFromSideSets=True)
+        nodeSets = Mesh.create_nodesets_from_sidesets(origMesh)
+        self.mesh = Mesh.mesh_with_nodesets(origMesh, nodeSets)
 
         self.func_space = FunctionSpace.construct_function_space(self.mesh, self.quad_rule)
         self.dof_manager = DofManager(self.func_space, 2, self.ebcs)
