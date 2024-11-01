@@ -1,0 +1,11 @@
+
+  ROL::Problem::finalize
+    Problem Summary:
+      Has Bound Constraint? .............. yes
+      Has Equality Constraint? ........... no
+      Has Inequality Constraint? ......... no
+
+
+Kelley-Sachs Trust-Region Method (Type B, Bound Constraints)
+  iter  value          gnorm          snorm          delta          #fval     #grad     #hess     tr_flag   iterCG    flagCG    
+  0     -9.900000e+02  2.224860e+01   ---            1.500000e+01   1         1         0         ---       ---       ---       
