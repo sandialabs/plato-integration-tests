@@ -1,14 +1,5 @@
 Requires_features(PLATOANALYZE_STK_ENABLED)
 
-#grab only the xml, input deck, mpirun, and csm files... no cmakelists
-#file(GLOB COMMON_TEST_FILES
-#  "${CMAKE_CURRENT_BINARY_DIR}/../common/*.xml"
-#  "${CMAKE_CURRENT_BINARY_DIR}/../common/*.i"
-#  "${CMAKE_CURRENT_BINARY_DIR}/../common/*.source"
-#)
-
-#file(COPY ${COMMON_TEST_FILES} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
-
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
@@ -26,9 +17,7 @@ set( OUT_FILE "ROL_gradient_check_output.txt")
 set( GOLD_FILE "ROL_gradient_check_output.gold.txt")
 set( LAST_ROW 7 )
 
-
 SET(CUSTOM_COMMAND "python ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_ROWS} ${INFNORM_RELATIVE_TOLERANCE} ${OUT_FILE} ${GOLD_FILE} ${LAST_ROW}")
-
 
 # Add the test
 Plato_add_xmlgen_custom_command_test(${TEST_NAME} ${XMLGEN_COMMAND} ${CUSTOM_COMMAND})

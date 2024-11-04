@@ -61,13 +61,6 @@
       <ParameterList name="Traction Vector Boundary Condition with ID 1">
         <Parameter name="Type" type="string" value="Uniform" />
         <Parameter name="Values" type="Array(string)" value="{2e7,0,0}" />
-<!--
-        <Parameter name="Values" type="Array(string)" value="{0,2e3,0}" />
--->
-<!--
-        <Parameter name="Sides" type="string" value="load_P+" />
-        <Parameter name="Sides" type="string" value="surface__void" />
--->
         <Parameter name="Sides" type="string" value="load" />
       </ParameterList>
     </ParameterList>
@@ -75,27 +68,18 @@
       <ParameterList name="Displacement Boundary Condition with ID 1 applied to Dof with tag DISPX">
         <Parameter name="Type" type="string" value="Fixed Value" />
         <Parameter name="Index" type="int" value="0" />
-<!--
-        <Parameter name="Sides" type="string" value="fixed_P+" />
--->
         <Parameter name="Sides" type="string" value="fixed" />
         <Parameter name="Value" type="double" value="0" />
       </ParameterList>
       <ParameterList name="Displacement Boundary Condition with ID 2 applied to Dof with tag DISPZ">
         <Parameter name="Type" type="string" value="Fixed Value" />
         <Parameter name="Index" type="int" value="2" />
-<!--
-        <Parameter name="Sides" type="string" value="fixed_P+" />
--->
         <Parameter name="Sides" type="string" value="fixed" />
         <Parameter name="Value" type="double" value="0" />
       </ParameterList>
       <ParameterList name="Displacement Boundary Condition with ID 3 applied to Dof with tag DISPY">
         <Parameter name="Type" type="string" value="Fixed Value" />
         <Parameter name="Index" type="int" value="1" />
-<!--
-        <Parameter name="Sides" type="string" value="fixed_P+" />
--->
         <Parameter name="Sides" type="string" value="fixed" />
         <Parameter name="Value" type="double" value="0" />
       </ParameterList>

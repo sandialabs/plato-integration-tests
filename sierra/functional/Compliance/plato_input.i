@@ -13,7 +13,7 @@ end
 begin constraint volume_fraction
     criterion volume_fraction
     is_linear true
-    equal_to 0.3
+    equal_to 0.65
 end
 
 begin objective compliance
@@ -25,10 +25,9 @@ begin objective compliance
 end
 
 begin rol_optimization 
-    input_file_name rol_inputs.xml
-    step_tolerance 1e-10
-    gradient_tolerance 1e-5
     max_iterations 5
+    export_settings_file_name rol_options.xml
+    initial_search_radius 1
 end
 
 begin gradient_check

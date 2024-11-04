@@ -10,8 +10,8 @@ begin objective mass_properties
 end
 
 begin rol_optimization 
-    input_file_name rol_inputs.xml
-    step_tolerance 1e-10
-    gradient_tolerance 1e-5
-    max_iterations 10
+    max_iterations 5
+    export_settings_file_name rol_options.xml
+    approximate_hessian true
+    initial_search_radius 1
 end

@@ -28,8 +28,5 @@ begin objective compliance
 end
 
 begin rol_optimization
-    input_file_name rol_inputs.xml
-    step_tolerance 1e-10
-    gradient_tolerance 1e-5
-    max_iterations 10
+    max_iterations 5
 end

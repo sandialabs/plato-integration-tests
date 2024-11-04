@@ -4,7 +4,7 @@ Requires_features( PLATOANALYZE_STK_ENABLED )
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set(testFiles "input.i;plato_analyze_to.xml;plato_analyze_vol.xml;rol_inputs.xml;ROL_Optimizer.txt.gold;ROL_gradient_check_output.txt.gold;ROL_constraint_linearity_check_output.txt.gold")
+set(testFiles "input.i;plato_analyze_to.xml;plato_analyze_vol.xml;ROL_Optimizer.txt.gold;ROL_gradient_check_output.txt.gold;ROL_constraint_linearity_check_output.txt.gold")
 Plato_add_test_files("${testFiles}")
 Plato_analyze_copy_test_data("lbracket.exo")
 

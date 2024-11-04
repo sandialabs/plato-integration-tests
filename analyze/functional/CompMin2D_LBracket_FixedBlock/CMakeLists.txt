@@ -4,7 +4,6 @@ Requires_features( PLATOANALYZE_STK_ENABLED )
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-Plato_direct_copy_test_files("../CompMin2D_LBracket/rol_inputs.xml")
 Plato_direct_copy_test_files("../CompMin2D_LBracket_2Block/plato_analyze_vol_2_block.xml;../CompMin2D_LBracket_2Block/plato_analyze_to_2_block.xml")
 set( TWO_BLOCK_TEST_FILES "input-2-block.i;ROL_gradient_check.txt.gold;ROL_Optimizer.txt.gold" )
 Plato_add_test_files("${TWO_BLOCK_TEST_FILES}")

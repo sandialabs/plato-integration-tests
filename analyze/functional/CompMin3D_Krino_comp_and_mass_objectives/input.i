@@ -1,7 +1,7 @@
 begin levelset_topology
-    background_mesh_name bg.exo
-    cut_mesh_name cut.exo
-    output_mesh_name to-result.exo
+    background_mesh_name unit_cube_background.exo
+    cut_mesh_name cut_mesh.exo
+    output_mesh_name krino-result.exo
     include_void_region true
     sphere_pattern_bbox_min_x 0
     sphere_pattern_bbox_min_y 0
@@ -33,9 +33,6 @@ end
 
 begin rol_optimization
     input_file_name rol_inputs_BC.xml
-    step_tolerance 1e-10
-    gradient_tolerance 1e-5
-    max_iterations 2
 end
 
 begin gradient_check
@@ -45,4 +42,3 @@ begin gradient_check
     step_size_reduction_factor 0.1
     random_direction_seed 1
 end
-
