@@ -40,26 +40,6 @@
     <ArgumentName>GlobalNodeIDMap</ArgumentName>
   </Output>
 </Operation>
-<!--
-<Operation>
-  <Function>InitializeValues</Function>
-  <Name>Compute Lower Bounds</Name>
-  <Output>
-    <ArgumentName>Lower Bounds</ArgumentName>
-  </Output>
-  <Method>ReadFromCSMFile</Method>
-  <CSMFileName>bg.csm</CSMFileName>
-</Operation>
-<Operation>
-  <Function>InitializeValues</Function>
-  <Name>Compute Upper Bounds</Name>
-  <Output>
-    <ArgumentName>Upper Bounds</ArgumentName>
-  </Output>
-  <Method>ReadFromCSMFile</Method>
-  <CSMFileName>bg.csm</CSMFileName>
-</Operation>
--->
 <Operation>
   <Function>CopyField</Function>
   <Name>Copy Field</Name>
@@ -198,4 +178,3 @@
     <ArgumentName>LSComputeObj</ArgumentName>
   </Input>
 </Operation>
-

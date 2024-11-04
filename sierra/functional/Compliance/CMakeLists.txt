@@ -4,7 +4,7 @@ Disable_test_on_any_flag(BUILD_WITH_SANITIZER_FLAGS)
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set(testFiles "plato_input.i;salinas_input.i;ROL_Optimizer.txt.gold;ROL_gradient_check.txt.gold;rol_inputs.xml;")
+set(testFiles "plato_input.i;salinas_input.i;ROL_Optimizer.txt.gold;ROL_gradient_check.txt.gold")
 Plato_add_test_files("${testFiles}")
 
 Plato_sierra_copy_test_data("multiblock_Lbracket.exo")

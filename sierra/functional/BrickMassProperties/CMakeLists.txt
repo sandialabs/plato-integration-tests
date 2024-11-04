@@ -4,7 +4,7 @@ Disable_test_on_any_flag(BUILD_WITH_SANITIZER_FLAGS)
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set(testFiles "plato_input.i;salinas_input.i;targets.xml;weights.xml;ROL_Optimizer.txt.gold;rol_inputs.xml")
+set(testFiles "plato_input.i;salinas_input.i;targets.xml;weights.xml;ROL_Optimizer.txt.gold")
 Plato_add_test_files("${testFiles}")
 
 set( PLATO_TEST_COMMAND "plato plato_input.i")

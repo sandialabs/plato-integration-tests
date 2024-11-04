@@ -28,7 +28,7 @@ begin objective compliance
 end
 
 begin rol_optimization
-    input_file_name rol_inputs.xml
+    max_iterations 5
 end
 
 begin gradient_check

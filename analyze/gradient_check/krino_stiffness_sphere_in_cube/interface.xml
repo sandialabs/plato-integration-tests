@@ -290,24 +290,6 @@
       <SharedDataName>DFDLS</SharedDataName>
     </Output>
   </Operation>
-  <!--
-    <Operation>
-      <Name>Apply Chain Rule</Name>
-      <PerformerName>krino</PerformerName>
-      <Input>
-        <ArgumentName>DFDX</ArgumentName>
-        <SharedDataName>Criterion GradientX - criterion_1_service_2_scenario_1</SharedDataName>
-      </Input>
-      <Input>
-        <ArgumentName>CutMeshGlobalNodeIDMap</ArgumentName>
-        <SharedDataName>Global Node ID Map</SharedDataName>
-      </Input>
-      <Output>
-        <ArgumentName>DFDLS</ArgumentName>
-        <SharedDataName>DFDLS</SharedDataName>
-      </Output>
-    </Operation>
--->
   <Operation>
     <Name>Aggregate Data</Name>
     <PerformerName>platomain_1</PerformerName>
@@ -329,9 +311,6 @@
   <CheckGradient>true</CheckGradient>
   <CheckHessian>False</CheckHessian>
   <Options>
-<!--
-    <ROLGradientCheckPerturbationScale>0.01</ROLGradientCheckPerturbationScale>
--->
     <ROLGradientCheckStepSize>10</ROLGradientCheckStepSize>
     <ROLGradientCheckPerturbationScale>.3</ROLGradientCheckPerturbationScale>
     <ROLGradientCheckSteps>12</ROLGradientCheckSteps>
@@ -351,9 +330,6 @@
   <OptimizationVariables>
     <ValueName>Control</ValueName>
     <InitializationStage>Initialize Control</InitializationStage>
-<!--
-    <FilteredName>Topology</FilteredName>
--->
     <LowerBoundValueName>Lower Bound Value</LowerBoundValueName>
     <LowerBoundVectorName>Lower Bound Vector</LowerBoundVectorName>
     <UpperBoundValueName>Upper Bound Value</UpperBoundValueName>

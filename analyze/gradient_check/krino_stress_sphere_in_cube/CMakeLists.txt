@@ -1,14 +1,5 @@
 Requires_features(PLATOANALYZE_STK_ENABLED)
 
-#grab only the xml, input deck, mpirun, and csm files... no cmakelists
-#file(GLOB COMMON_TEST_FILES
-#  "${CMAKE_CURRENT_BINARY_DIR}/../common/*.xml"
-#  "${CMAKE_CURRENT_BINARY_DIR}/../common/*.i"
-#  "${CMAKE_CURRENT_BINARY_DIR}/../common/*.source"
-#)
-
-#file(COPY ${COMMON_TEST_FILES} DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
-
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
