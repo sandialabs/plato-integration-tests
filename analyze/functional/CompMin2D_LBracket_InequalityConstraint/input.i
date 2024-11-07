@@ -1,6 +1,7 @@
 begin density_topology
     mesh_name lbracket.exo
     output_name to-result.exo
+    initial_density_value 0.5
 end
 
 begin identity_filter
@@ -45,13 +46,6 @@ begin objective compliance
     aggregation_weight 1.0
     objective_type minimize
 end
-
-#begin rol_optimization
-#    input_file_name rol_inputs.xml
-#    step_tolerance 1e-10
-#    gradient_tolerance 1e-5
-#    max_iterations 10
-#end
 
 begin gradient_check
     output_file_name ROL_gradient_check_output.txt
