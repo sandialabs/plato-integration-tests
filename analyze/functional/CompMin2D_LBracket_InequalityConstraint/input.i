@@ -4,42 +4,20 @@ begin density_topology
     initial_density_value 0.5
 end
 
-begin identity_filter
+begin helmholtz_filter
+    filter_radius 2.5e-2
 end
 
 begin constraint volume
-    active true
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_vol.xml
     is_linear true
     constraint_value 0.32
-    constraint_type equal_to
-end
-
-
-begin constraint cgx
-    active true
-    app platoanalyze
-    criterion platoanalyze
-    input_files plato_analyze_cgx.xml
-    is_linear true
-    constraint_value 0.
-    constraint_type less_than
-end
-
-begin constraint cgy
-    active true
-    app platoanalyze
-    criterion platoanalyze
-    input_files plato_analyze_cgy.xml
-    is_linear true
-    constraint_value 0.
     constraint_type greater_than
 end
 
 begin objective compliance
-    active true
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_to.xml
@@ -47,12 +25,9 @@ begin objective compliance
     objective_type minimize
 end
 
-begin gradient_check
-    output_file_name ROL_gradient_check_output.txt
-    number_of_steps 10
-    initial_direction_magnitude 1
-    step_size_reduction_factor 0.1
-    random_direction_seed 1
+begin rol_optimization
+    max_iterations 5
+    initial_search_radius 1
 end
 
 begin constraint_check
