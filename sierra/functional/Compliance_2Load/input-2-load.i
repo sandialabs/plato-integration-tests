@@ -13,7 +13,8 @@ end
 begin constraint volume_fraction
     criterion volume_fraction
     is_linear true
-    equal_to 0.65
+    constraint_type equal_to
+    constraint_value 0.65
 end
 
 begin objective compliance

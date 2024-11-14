@@ -15,7 +15,8 @@ begin constraint volume
     criterion platoanalyze
     input_files plato_analyze_vol_2_block.xml
     is_linear true
-    equal_to 0.5
+    constraint_value 0.5
+    constraint_type equal_to
 end
 
 begin objective compliance

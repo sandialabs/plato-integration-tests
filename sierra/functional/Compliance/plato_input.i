@@ -13,7 +13,8 @@ end
 begin constraint volume_fraction
     criterion volume_fraction
     is_linear true
-    equal_to 0.65
+    constraint_value 0.65
+    constraint_type equal_to
 end
 
 begin objective compliance
@@ -37,3 +38,4 @@ begin gradient_check
     step_size_reduction_factor 0.5
     random_direction_seed 1
 end
+
