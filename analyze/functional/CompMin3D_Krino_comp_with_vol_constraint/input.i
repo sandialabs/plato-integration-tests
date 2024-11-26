@@ -1,4 +1,4 @@
-begin levelset_topology
+begin level_set_topology
     background_mesh_name unit_cube_background.exo
     cut_mesh_name cut_mesh.exo
     output_mesh_name krino-result.exo
@@ -11,8 +11,8 @@ begin levelset_topology
     sphere_pattern_bbox_max_z 1
     sphere_pattern_radius .25
     sphere_pattern_spacing 2
-    levelset_lower_bound -.2
-    levelset_upper_bound .2
+    level_set_lower_bound -.2
+    level_set_upper_bound .2
 end
 
 begin constraint volume
