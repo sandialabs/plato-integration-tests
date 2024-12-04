@@ -15,6 +15,9 @@ begin level_set_topology
     level_set_upper_bound .2
 end
 
+begin identity_filter
+end
+
 begin objective compliance
     app platoanalyze
     criterion platoanalyze

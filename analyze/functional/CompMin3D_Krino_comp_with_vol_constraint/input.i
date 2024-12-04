@@ -15,6 +15,9 @@ begin level_set_topology
     level_set_upper_bound .2
 end
 
+begin identity_filter
+end
+
 begin constraint volume
     app platoanalyze
     criterion platoanalyze
