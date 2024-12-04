@@ -1,4 +1,4 @@
-begin levelset_topology
+begin level_set_topology
     background_mesh_name unit_cube_background.exo
     cut_mesh_name cut_mesh.exo
     output_mesh_name krino-result.exo
@@ -11,8 +11,8 @@ begin levelset_topology
     sphere_pattern_bbox_max_z 1
     sphere_pattern_radius .25
     sphere_pattern_spacing 2
-    levelset_lower_bound -.2
-    levelset_upper_bound .2
+    level_set_lower_bound -.2
+    level_set_upper_bound .2
 end
 
 begin constraint volume
@@ -42,4 +42,14 @@ begin gradient_check
     initial_direction_magnitude 1 
     step_size_reduction_factor 0.1
     random_direction_seed 1
+end
+
+begin constraint_check
+    linearity_check_output_file_name ROL_constraint_linearity_check_output.txt
+    jacobian_check_output_file_name ROL_constraint_jacobian_check_output.txt
+    jacobian_adjoint_consistency_output_file_name ROL_constraint_jacobian_adjoint_consistency_check_output.txt
+    number_of_steps 9
+    initial_direction_magnitude 0.1
+    step_size_reduction_factor 0.1
+    random_direction_seed 123
 end
