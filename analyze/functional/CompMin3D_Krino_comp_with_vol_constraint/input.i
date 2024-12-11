@@ -15,6 +15,11 @@ begin level_set_topology
     level_set_upper_bound .2
 end
 
+begin kernel_filter
+    filter_radius 0.3
+    centering_type node
+end
+
 begin constraint volume
     app platoanalyze
     criterion platoanalyze
@@ -39,7 +44,7 @@ end
 begin gradient_check
     output_file_name ROL_gradient_check_output.txt
     number_of_steps 12
-    initial_direction_magnitude 1 
+    initial_direction_magnitude 0.1
     step_size_reduction_factor 0.1
     random_direction_seed 1
 end
