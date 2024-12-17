@@ -1,0 +1,7 @@
+
+Lin-More Trust-Region Method (Type B, Bound Constraints)
+  iter  value          gnorm          snorm          delta          #fval     #grad     #hess     #proj     tr_flag   iterCG    flagCG    
+  0     -3.470000e+03  3.025723e+01   ---            1.500000e+01   1         1         0         2         ---       ---       ---       
+  1     -5.207665e+03  1.555250e+01   1.500000e+01   1.800000e+01   2         2         3         13        0         1         2         
+  2     -6.940000e+03  0.000000e+00   1.555250e+01   2.160000e+01   3         3         7         19        0         0         0         
+Optimization Terminated with Status: Converged

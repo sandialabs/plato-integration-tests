@@ -82,10 +82,9 @@ class MaterialPropertiesOptimization:
     def num_mesh_nodes(self):
         return self.mesh.coords.shape[0]
 
-    def import_parameters(self, materialProperties=[]):
+    def import_parameters(self, materialProperties=[], elementMap=[]):
         if not materialProperties:
-            # self.materialProperties = np.zeros(self.mesh.conns.shape[0])
-            self.materialProperties = np.zeros(self.mesh.coords.shape[0])
+            self.materialProperties = np.zeros(self.mesh.conns.shape[0])
         else:
             self.materialProperties = np.asarray(materialProperties)
 
@@ -204,7 +203,7 @@ class MaterialPropertiesOptimization:
         if self.stateNotStored:
             self.run_simulation()
         
-        parameters = self.mesh.coords
+        parameters = self.materialProperties
         energyFuncs = self.setup_energy_functions()
 
         # gradient = grad(self.compute_strain_energy, argnums=0)(parameters, jit(energyFuncs.energy_function_coords))

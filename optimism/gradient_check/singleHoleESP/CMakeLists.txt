@@ -1,5 +1,3 @@
-Requires_features( PYTHON_INTERPRETER_APP )
-
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
