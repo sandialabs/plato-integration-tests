@@ -23,8 +23,7 @@ begin objective compliance
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_to.xml
-    aggregation_weight 1.0
-    objective_type minimize
+    aggregation_weight 1.0  
 end
 
 begin constraint_check

@@ -15,7 +15,6 @@ begin objective strain_energy
     criterion plato-python-app
     input_files plato-python-app-input.xml
     aggregation_weight 1.0
-    objective_type minimize
 end
 
 begin rol_optimization
