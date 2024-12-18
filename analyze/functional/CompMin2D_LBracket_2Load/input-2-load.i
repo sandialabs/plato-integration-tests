@@ -24,7 +24,6 @@ begin objective compliance-1
     criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 0.5
-    objective_type minimize
 end
 
 begin objective compliance-2
@@ -33,7 +32,6 @@ begin objective compliance-2
     criterion platoanalyze
     input_files plato_analyze_to.xml
     aggregation_weight 0.5
-    objective_type minimize
 end
 
 begin rol_optimization
