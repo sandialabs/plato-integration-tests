@@ -1,6 +1,5 @@
 begin level_set_topology
     background_mesh_name unit_cube_background.exo
-    cut_mesh_name cut_mesh.exo
     output_mesh_name krino-result.exo
     include_void_region false
     sphere_pattern_bbox_min_x 0
