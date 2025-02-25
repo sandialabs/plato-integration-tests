@@ -1,4 +1,4 @@
-Requires_features(ESP_ENABLED)
+Requires_features(ESP_ENABLED LEGACY_BUILD)
 
 #grab only the xml, input deck, mpirun, and csm files... no cmakelists
 file(GLOB COMMON_TEST_FILES

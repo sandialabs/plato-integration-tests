@@ -1,4 +1,4 @@
-Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP )
+Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -24,4 +24,3 @@ SET(CUSTOM_COMMAND "python ${PYTHON_FILE} ${INFNORM_IGNORE_ROWS} ${INFNORM_RELAT
 
 # Add the test
 Plato_add_xmlgen_custom_command_test(${TEST_NAME} ${XMLGEN_COMMAND} ${CUSTOM_COMMAND})
-

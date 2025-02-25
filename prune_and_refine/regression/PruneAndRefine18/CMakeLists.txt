@@ -1,3 +1,4 @@
+Requires_features( LEGACY_BUILD )
 set( MESH_WITH_VARIABLE "restart_100.exo" )
 set( MESH_TO_BE_PRUNED "start_mesh4.gen" )
 set( OUTPUT_MESH "pruned.exo" )

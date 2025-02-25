@@ -1,4 +1,4 @@
-Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP )
+Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -23,4 +23,3 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-2 )
 
 # Add the test
 Plato_add_xmlgen_numdiff_test(${TEST_NAME} ${XMLGEN_COMMAND} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
-

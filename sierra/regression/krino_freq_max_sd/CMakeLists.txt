@@ -1,4 +1,4 @@
-Requires_features( STK_ENABLED )
+Requires_features( STK_ENABLED LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -19,6 +19,3 @@ set( TEST_COMMAND "source mpirun.source")
 
 # Add the test
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
-
-
-

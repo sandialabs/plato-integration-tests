@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ENABLE_PYTHON PLATOANALYZE_ENABLE_ESP)
+Requires_features(PLATOANALYZE_ENABLE_PYTHON PLATOANALYZE_ENABLE_ESP LEGACY_BUILD )
 
 set( testFiles "brick.csm;opt.py;plato_analyze_input_deck_1.xml;plato_analyze_operations_1.xml;platomain.xml;plato_operations.xml")
 

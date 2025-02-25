@@ -2,7 +2,7 @@
 # a problem using two constraints. The two constraints are
 # total volume and CG location. See also Analyze_CompMin3D_MassProp
 
-Requires_features(  )
+Requires_features( LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

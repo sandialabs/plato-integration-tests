@@ -1,4 +1,4 @@
-Requires_features( EXPY )
+Requires_features( EXPY LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

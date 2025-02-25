@@ -1,4 +1,4 @@
-Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP ) 
+Requires_features( PLATOANALYZE_PE_SERVICES PLATOANALYZE_ENABLE_ESP LEGACY_BUILD ) 
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -22,4 +22,3 @@ set( RUN_COMMAND "source ${CMAKE_CURRENT_BINARY_DIR}/mpirun.source" )
 
 # Add the test
 Plato_add_numdiff_test(${RUN_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
-

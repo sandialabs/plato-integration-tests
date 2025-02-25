@@ -1,4 +1,4 @@
-Requires_features(HATCHING_GRADIENT)
+Requires_features(HATCHING_GRADIENT LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
