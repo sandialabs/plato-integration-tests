@@ -1,3 +1,4 @@
+Requires_features( LEGACY_BUILD )
 set( INPUT_MESH "lantern.exo" )
 set( OUTPUT_MESH "lantern_pruned.exo" )
 set( FIELD_NAME "Rho_node" )

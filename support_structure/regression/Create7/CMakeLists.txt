@@ -1,4 +1,4 @@
-Requires_features( STK_ENABLED )
+Requires_features( STK_ENABLED LEGACY_BUILD )
 
 Set_exodiff_files(EXODIFF_COMMAND_FILE EXODIFF_REFERENCE)
 set( testFiles "input_mesh.exo" ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE})

@@ -3,7 +3,7 @@
 # variables, the solution is trivial, and is just the intersection 
 # of the two equality constraints.
 
-Requires_features()
+Requires_features( LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

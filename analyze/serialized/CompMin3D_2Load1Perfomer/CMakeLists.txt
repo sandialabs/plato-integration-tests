@@ -1,4 +1,4 @@
-Requires_features( ENABLE_ISO )
+Requires_features( ENABLE_ISO LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ENABLE_PYTHON PLATOANALYZE_ENABLE_ESP)
+Requires_features(PLATOANALYZE_ENABLE_PYTHON PLATOANALYZE_ENABLE_ESP LEGACY_BUILD )
 
 set( testFiles "analyzeApp.xml;analyzeInput.xml;model.csm;opt.py;platoApp.xml;platoInput.xml;points.xyz")
 

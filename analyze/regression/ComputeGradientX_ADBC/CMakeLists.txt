@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ENABLE_PYTHON)
+Requires_features(PLATOANALYZE_ENABLE_PYTHON LEGACY_BUILD )
 
 file( GLOB testFiles RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.py *.xml *.exo *.exodiff_commands)
 Plato_add_test_files( "${testFiles}" )

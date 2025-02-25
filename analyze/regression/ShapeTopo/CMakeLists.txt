@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ENABLE_ESP)
+Requires_features(PLATOANALYZE_ENABLE_ESP LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)

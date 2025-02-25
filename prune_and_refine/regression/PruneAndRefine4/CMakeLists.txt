@@ -1,3 +1,4 @@
+Requires_features( LEGACY_BUILD )
 set( INPUT_MESH "prune3.exo" )
 set( OUTPUT_MESH "prune3_pruned.exo" )
 set( FIELD_NAME "brett" )

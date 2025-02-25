@@ -1,4 +1,4 @@
-Requires_features( STK_ENABLED )
+Requires_features( STK_ENABLED LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -22,4 +22,3 @@ SET(CUSTOM_COMMAND "python ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_RO
 # Add the test
 Plato_add_xmlgen_custom_command_test(${TEST_NAME} ${XMLGEN_COMMAND} ${CUSTOM_COMMAND})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
-

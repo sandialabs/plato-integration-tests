@@ -1,4 +1,4 @@
-Requires_features(PLATOANALYZE_ENABLE_PYTHON)
+Requires_features(PLATOANALYZE_ENABLE_PYTHON LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
