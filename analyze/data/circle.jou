@@ -1,0 +1,26 @@
+reset
+create surface circle radius 10 zplane 
+webcut body 1  with cylinder radius 9.5 axis z 
+webcut body 2  with cylinder radius 1 axis z 
+imprint all
+merge all
+surface all size 0.25
+set trimesher surface gradation 1
+set trimesher volume gradation 1
+surface 2 4 5  scheme trimesh
+mesh surface 5
+mesh surface 4 
+mesh surface 2 
+
+block 1 surface 2 5
+block 1 name "fixed_block"
+block 2 surface 4
+block 2 name "domain_block"
+
+nodeset 1 curve 4
+nodeset 1 name "high_temp"
+
+sideset 2 curve 1
+sideset 2 name "heat_flux"
+
+export mesh "C:/Users/acsokol/Documents/Plato/reworktest/thermal/circle.exo"  dimension 2  overwrite 

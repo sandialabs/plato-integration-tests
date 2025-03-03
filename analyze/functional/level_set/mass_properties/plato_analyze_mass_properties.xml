@@ -1,0 +1,95 @@
+<ParameterList name="Problem">
+  <Parameter name="Physics" type="string" value="Plato Driver" />
+  <Parameter name="Spatial Dimension" type="int" value="3" />
+  <Parameter name="Input Mesh" type="string" value="plate.exo" />
+  <ParameterList name="Plato Problem">
+    <Parameter name="Physics" type="string" value="Mechanical" />
+    <Parameter name="PDE Constraint" type="string" value="Elliptic" />
+    <Parameter name="Self-Adjoint" type="bool" value="false" />
+    <ParameterList name="Criteria">
+      <ParameterList name="Mass Objective">
+        <Parameter name="Linear" type="bool" value="true" />
+        <Parameter name="Type" type="string" value="Mass Properties" />
+        <Parameter name="Properties" type="Array(string)" value="{Mass, CGx,CGy,CGz, Ixx,Iyy,Izz,Ixy,Iyz,Ixz}" />
+        <Parameter name="Gold Values" type="Array(double)" value="{25447, 0,0,0, 127367,127367,254469,0,0,0}" />
+        <Parameter name="Weights" type="Array(double)" value="{1, 1,1,1, 1,1,1,1,1,1}" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Elliptic">
+      <Parameter name="Plottable" type="Array(string)" value="{Vonmises}" />
+      <ParameterList name="Penalty Function">
+        <Parameter name="Type" type="string" value="SIMP" />
+        <Parameter name="Exponent" type="double" value=".50" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Spatial Model">
+    <Parameter name='Ignore Missing Element Blocks' type='bool' value='true'/>
+      <ParameterList name="Domains">
+        <ParameterList name="Fixed Block">
+          <Parameter name="Element Block" type="string" value="fixed_block" />
+          <Parameter name="Material Model" type="string" value="aluminum" />
+        </ParameterList>
+        <ParameterList name="Domain Block">
+          <Parameter name="Element Block" type="string" value="domain_block" />
+          <Parameter name="Material Model" type="string" value="aluminum" />
+        </ParameterList>
+        <ParameterList name="Fixed Block Void">
+          <Parameter name="Element Block" type="string" value="fixed_block_void" />
+          <Parameter name="Material Model" type="string" value="aluminum" />
+        </ParameterList>
+        <ParameterList name="Domain Block Void">
+          <Parameter name="Element Block" type="string" value="domain_block_void" />
+          <Parameter name="Material Model" type="string" value="void_material" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Material Models">
+      <ParameterList name="aluminum">
+        <ParameterList name="Isotropic Linear Elastic">
+          <Parameter name="Poissons Ratio" type="double" value=".3" />
+          <Parameter name="Youngs Modulus" type="double" value="69e9" />
+          <Parameter name="Mass Density" type="double" value="2700" />
+        </ParameterList>
+        <Parameter name="Density" type="double" value="2700" />
+      </ParameterList>
+      <ParameterList name="void_material">
+        <ParameterList name="Isotropic Linear Elastic">
+          <Parameter name="Poissons Ratio" type="double" value=".3" />
+          <Parameter name="Youngs Modulus" type="double" value="69e9" />
+          <Parameter name="Mass Density" type="double" value="2700e-8" />
+        </ParameterList>
+        <Parameter name="Density" type="double" value="2700e-8" />
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="Natural Boundary Conditions">
+      <ParameterList name="Traction Vector Boundary Condition with ID 1">
+        <Parameter name="Type" type="string" value="Uniform" />
+        <Parameter name="Values" type="Array(string)" value="{1e3,0,0}" />
+        <Parameter name="Sides" type="string" value="no_flux" />
+      </ParameterList>
+    </ParameterList>
+    
+    <ParameterList name="Essential Boundary Conditions">
+      <ParameterList name="Displacement Boundary Condition X">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="0" />
+        <Parameter name="Sides" type="string" value="low_temp" />
+        <Parameter name="Value" type="double" value="0" />
+      </ParameterList>
+      <ParameterList name="Displacement Boundary Condition Y">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="1" />
+        <Parameter name="Sides" type="string" value="low_temp" />
+        <Parameter name="Value" type="double" value="0" />
+      </ParameterList>
+      <ParameterList name="Displacement Boundary Condition Z">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="2" />
+        <Parameter name="Sides" type="string" value="low_temp" />
+        <Parameter name="Value" type="double" value="0" />
+      </ParameterList>
+    </ParameterList>
+    
+  </ParameterList>
+</ParameterList>

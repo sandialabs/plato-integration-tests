@@ -1,0 +1,66 @@
+reset
+#{elsize = 0.25}
+create brick x 10 y 10 z {elsize} 
+
+
+volume all size {elsize}
+set trimesher surface gradation 1
+set trimesher volume gradation 1
+
+volume all scheme tetmesh
+mesh volume all
+
+block 1 volume 1
+block 1 name "domain_block"
+
+nodeset 1 surface 4
+nodeset 1 name "low_temp"
+
+sideset 1 surface 4
+sideset 1 name "traction_bc"
+
+sideset 2 surface 1 2 3 5 6
+sideset 2 name "no_flux"
+
+sideset 3 surface 6
+sideset 3 name "fixed_bc"
+
+
+export mesh "C:/Users/acsokol/Documents/Plato/reworktest/thermal/plate.exo"  dimension 3  overwrite 
+
+
+reset
+#{elsize = 0.25}
+create surface rectangle width 10 zplane
+webcut body all with plane xplane offset -4.5 
+webcut body all with plane xplane offset 4.5 
+imprint all
+merge all
+
+volume all size {elsize}
+set trimesher surface gradation 1
+set trimesher volume gradation 1
+
+volume all scheme tetmesh
+surface all  scheme trimesh
+mesh surface all 
+
+block 1 surface 5
+block 1 name "domain_block"
+
+block 2 surface 3 4
+block 2 name "fixed_block"
+
+nodeset 1 curve 2 4
+nodeset 1 name "low_temp"
+
+sideset 1 curve 2
+sideset 1 name "traction_bc"
+
+sideset 2 curve 4
+sideset 2 name "fixed"
+
+sideset 3 curve 15 16
+sideset 3 name "no_flux"
+
+export mesh "C:/Users/acsokol/Documents/Plato/reworktest/thermal/square.exo"  dimension 2  overwrite 

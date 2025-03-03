@@ -1,0 +1,30 @@
+reset
+#{elsize = 0.5}
+create cylinder height {elsize} radius 10
+
+webcut volume all  with cylinder radius 9.5 axis z 
+webcut volume all  with cylinder radius 1 axis z 
+imprint all
+merge all
+surface all size {elsize}
+set trimesher surface gradation 1
+set trimesher volume gradation 1
+
+volume all scheme tetmesh
+mesh surface 15
+mesh surface 12
+mesh surface 6
+mesh volume all
+
+block 1 volume  1 3
+block 1 name "fixed_block"
+block 2 volume 2
+block 2 name "domain_block"
+
+nodeset 1 surface 10
+nodeset 1 name "high_temp"
+
+sideset 2 curve 1
+sideset 2 name "heat_flux"
+
+export mesh "C:/Users/acsokol/Documents/Plato/reworktest/thermal/cylinder.exo"  dimension 3  overwrite 

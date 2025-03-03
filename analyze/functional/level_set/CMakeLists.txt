@@ -1,0 +1,5 @@
+add_subdirectory(mass_and_mechanical_compliance)
+add_subdirectory(mass_properties)
+add_subdirectory(p_norm_stress)
+add_subdirectory(volume_constrained_mechanical_compliance)
+add_subdirectory(volume_and_thermal_compliance)

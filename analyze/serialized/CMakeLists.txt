@@ -1,6 +1,0 @@
-add_subdirectory(VolAvgTensile)
-add_subdirectory(CompMin3D_2Load1Perfomer)
-add_subdirectory(Thermomechanics)
-add_subdirectory(CompMin3D_MassProp)
-add_subdirectory(CompMin3D_MultiBlock)
-add_subdirectory(DisplacementCriterion)
