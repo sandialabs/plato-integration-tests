@@ -1,0 +1,6 @@
+add_subdirectory(mass_property_constrained_mechanical_compliance)
+add_subdirectory(mass_property_and_thermal)
+add_subdirectory(p_norm_stress_constrained)
+add_subdirectory(volume_constrained_mechanical_compliance)
+add_subdirectory(volume_constrained_thermal_compliance)
+add_subdirectory(volume_constrained_displacement_matching)

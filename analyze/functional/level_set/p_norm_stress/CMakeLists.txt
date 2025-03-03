@@ -1,0 +1,27 @@
+Requires_features( PLATOANALYZE_STK_ENABLED )
+
+# Name the test with the directory name
+Plato_new_test(TEST_NAME)
+
+# Copy Input files from source to binary dir
+set(testFiles input.i
+              plato_analyze_p_norm.xml)
+              
+Plato_add_test_files("${testFiles}")
+Plato_analyze_copy_test_data("lbracket3d.exo")
+
+# Add test to run problem and check ROL optimization output
+add_test(NAME ${TEST_NAME} COMMAND plato "input.i")
+Plato_disable_test(${TEST_NAME} "GC is very strange")
+
+# Add test check ROL gradient check output
+set( INFNORM_IGNORE_ROWS 1 )
+set( INFNORM_RELATIVE_TOLERANCE 1e-1 )
+set( OUT_FILE "ROL_gradient_check_output.txt")
+set( GOLD_FILE "ROL_gradient_check_output.txt.gold")
+set( LAST_ROW 7 )
+set( PYTHON_ARGS ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_ROWS} ${INFNORM_RELATIVE_TOLERANCE} ${OUT_FILE} ${GOLD_FILE} ${LAST_ROW})
+set( GRADIENT_CHECK_TEST_NAME "${TEST_NAME}_gradient_check" )
+add_test(NAME ${GRADIENT_CHECK_TEST_NAME} COMMAND python ${PYTHON_ARGS})
+set_tests_properties( ${GRADIENT_CHECK_TEST_NAME} PROPERTIES DEPENDS ${TEST_NAME})
+Plato_disable_test(${GRADIENT_CHECK_TEST_NAME} "GC is very strange")

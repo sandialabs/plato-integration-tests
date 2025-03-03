@@ -1,0 +1,93 @@
+<ParameterList name="Problem">
+  <Parameter name="Physics" type="string" value="Plato Driver" />
+  <Parameter name="Spatial Dimension" type="int" value="3" />
+  <Parameter name="Input Mesh" type="string" value="./cylinder.exo" />
+  <ParameterList name="Plato Problem">
+    <Parameter name="Physics" type="string" value="Thermal" />
+    <Parameter name="PDE Constraint" type="string" value="Elliptic" />
+    <Parameter name="Self-Adjoint" type="bool" value="false" />
+    
+    <ParameterList name="Criteria">
+      <ParameterList name="My Objective">
+        <Parameter name="Type" type="string" value="Scalar Function" />
+        <Parameter name="Scalar Function Type" type="string" value="Internal Thermal Energy" />
+        <ParameterList name="Penalty Function">
+          <Parameter name="Type" type="string" value="SIMP" />
+          <Parameter name="Exponent" type="double" value="3.0" />
+          <Parameter name="Minimum Value" type="double" value="1e-9" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="Elliptic">
+      <Parameter name="Plottable" type="Array(string)" value="{}" />
+      <ParameterList name="Penalty Function">
+        <Parameter name="Type" type="string" value="SIMP" />
+        <Parameter name="Exponent" type="double" value="3.0" />
+        <Parameter name="Minimum Value" type="double" value="1e-9" />
+      </ParameterList>
+    </ParameterList>
+    
+    <ParameterList name="Spatial Model">
+    <Parameter name='Ignore Missing Element Blocks' type='bool' value='true'/>
+      <ParameterList name="Domains">
+      
+        <ParameterList name="Block 1">
+          <Parameter name="Element Block" type="string" value="fixed_block" />
+          <Parameter name="Material Model" type="string" value="aluminum" />
+        </ParameterList>
+        <ParameterList name="Block 1 void but not void">
+          <Parameter name="Element Block" type="string" value="fixed_block_void" />
+          <Parameter name="Material Model" type="string" value="aluminum" />
+        </ParameterList>
+        <ParameterList name="Block 2">
+          <Parameter name="Element Block" type="string" value="domain_block" />
+          <Parameter name="Material Model" type="string" value="aluminum" />
+        </ParameterList>
+        <ParameterList name="Block 2 void">
+          <Parameter name="Element Block" type="string" value="domain_block_void" />
+          <Parameter name="Material Model" type="string" value="void_material" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="Material Models">
+      <ParameterList name="aluminum">
+        <ParameterList name="Thermal Conduction">
+          <Parameter name="Thermal Conductivity" type="double" value="21" />
+        </ParameterList>
+        <ParameterList name="Thermal Mass">
+          <Parameter name="Mass Density" type="double" value="2703" />
+          <Parameter name="Specific Heat" type="double" value="900" />
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="void_material">
+        <ParameterList name="Thermal Conduction">
+          <Parameter name="Thermal Conductivity" type="double" value="21e-6" />
+        </ParameterList>
+        <ParameterList name="Thermal Mass">
+          <Parameter name="Mass Density" type="double" value="2703" />
+          <Parameter name="Specific Heat" type="double" value="900" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="Natural Boundary Conditions">
+      <ParameterList name="Uniform Surface Flux">
+        <Parameter name="Type" type="string" value="Uniform" />
+        <Parameter name="Value" type="string" value="-1.0e2" />
+        <Parameter name="Sides" type="string" value="heat_flux" />
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="Essential Boundary Conditions">
+      <ParameterList name="Temperature Boundary Condition">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="0" />
+        <Parameter name="Sides" type="string" value="high_temp" />
+        <Parameter name="Value" type="double" value="500.0" />
+      </ParameterList>
+    </ParameterList>
+
+  </ParameterList>
+</ParameterList>
