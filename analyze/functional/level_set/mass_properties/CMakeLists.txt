@@ -10,7 +10,7 @@ set(testFiles input.i
               ROL_gradient_check.txt.gold)
               
 Plato_add_test_files("${testFiles}")
-Plato_analyze_copy_test_data("plate.exo")
+Plato_analyze_copy_test_data("lbracket-two-block.exo")
 
 # Add test to run problem and check ROL optimization output
 set( PLATO_TEST_COMMAND "plato input.i")

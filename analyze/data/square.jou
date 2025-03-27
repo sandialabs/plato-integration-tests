@@ -1,32 +1,3 @@
-reset
-#{elsize = 0.25}
-create brick x 10 y 10 z {elsize} 
-
-
-volume all size {elsize}
-set trimesher surface gradation 1
-set trimesher volume gradation 1
-
-volume all scheme tetmesh
-mesh volume all
-
-block 1 volume 1
-block 1 name "domain_block"
-
-nodeset 1 surface 4
-nodeset 1 name "low_temp"
-
-sideset 1 surface 4
-sideset 1 name "traction_bc"
-
-sideset 2 surface 1 2 3 5 6
-sideset 2 name "no_flux"
-
-sideset 3 surface 6
-sideset 3 name "fixed_bc"
-
-
-export mesh "C:/Users/acsokol/Documents/Plato/reworktest/thermal/plate.exo"  dimension 3  overwrite 
 
 
 reset

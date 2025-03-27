@@ -1,6 +1,6 @@
 begin level_set_topology
-    background_mesh_name lbracket3d.exo
-    output_mesh_name level-set-result.exo
+    mesh_name lbracket3d.exo
+    output_name level-set-result.exo
     include_void_region true
     sphere_pattern_bbox_min_x -.25
     sphere_pattern_bbox_min_y -.5

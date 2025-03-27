@@ -1,17 +1,18 @@
 begin level_set_topology
-    background_mesh_name plate.exo
-    output_mesh_name level-set-result.exo
+    mesh_name lbracket-two-block.exo
+    output_name level-set-result.exo
     include_void_region true
-    sphere_pattern_bbox_min_x -4.5
-    sphere_pattern_bbox_min_y -4.5
-    sphere_pattern_bbox_min_z -2
-    sphere_pattern_bbox_max_x 5
-    sphere_pattern_bbox_max_y 5
-    sphere_pattern_bbox_max_z 1
-    sphere_pattern_radius 1.5
-    sphere_pattern_spacing 4
+    sphere_pattern_bbox_min_x 0
+    sphere_pattern_bbox_min_y 0
+    sphere_pattern_bbox_min_z 0
+    sphere_pattern_bbox_max_x 0
+    sphere_pattern_bbox_max_y 0
+    sphere_pattern_bbox_max_z 0
+    sphere_pattern_radius 0.25
+    sphere_pattern_spacing 0.75
     level_set_lower_bound -1
     level_set_upper_bound 1
+    fixed_blocks block_1
 end
 
 begin kernel_filter
@@ -31,13 +32,13 @@ end
 begin rol_optimization
     max_iterations 3
     approximate_hessian true
-    initial_search_radius 200
+    initial_search_radius 20
 end
 
 begin gradient_check
     output_file_name ROL_gradient_check.txt
-    number_of_steps 9
-    initial_direction_magnitude 20
-    step_size_reduction_factor 0.5
-    random_direction_seed 123
+    number_of_steps 18
+    initial_direction_magnitude 1
+    step_size_reduction_factor 0.25
+    random_direction_seed 12
 end
