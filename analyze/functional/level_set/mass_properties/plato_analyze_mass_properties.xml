@@ -1,7 +1,7 @@
 <ParameterList name="Problem">
   <Parameter name="Physics" type="string" value="Plato Driver" />
-  <Parameter name="Spatial Dimension" type="int" value="3" />
-  <Parameter name="Input Mesh" type="string" value="plate.exo" />
+  <Parameter name="Spatial Dimension" type="int" value="2" />
+  <Parameter name="Input Mesh" type="string" value="lbracket-two-block.exo" />
   <ParameterList name="Plato Problem">
     <Parameter name="Physics" type="string" value="Mechanical" />
     <Parameter name="PDE Constraint" type="string" value="Elliptic" />
@@ -10,9 +10,9 @@
       <ParameterList name="Mass Objective">
         <Parameter name="Linear" type="bool" value="true" />
         <Parameter name="Type" type="string" value="Mass Properties" />
-        <Parameter name="Properties" type="Array(string)" value="{Mass, CGx,CGy,CGz, Ixx,Iyy,Izz,Ixy,Iyz,Ixz}" />
-        <Parameter name="Gold Values" type="Array(double)" value="{25447, 0,0,0, 127367,127367,254469,0,0,0}" />
-        <Parameter name="Weights" type="Array(double)" value="{1, 1,1,1, 1,1,1,1,1,1}" />
+        <Parameter name="Properties" type="Array(string)" value="{Mass, CGx,CGy}" />
+        <Parameter name="Gold Values" type="Array(double)" value="{1600, -.15,-.12}" />
+        <Parameter name="Weights" type="Array(double)" value="{1, 1,1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Elliptic">
@@ -26,19 +26,19 @@
     <Parameter name='Ignore Missing Element Blocks' type='bool' value='true'/>
       <ParameterList name="Domains">
         <ParameterList name="Fixed Block">
-          <Parameter name="Element Block" type="string" value="fixed_block" />
+          <Parameter name="Element Block" type="string" value="block_1" />
           <Parameter name="Material Model" type="string" value="aluminum" />
         </ParameterList>
         <ParameterList name="Domain Block">
-          <Parameter name="Element Block" type="string" value="domain_block" />
+          <Parameter name="Element Block" type="string" value="block_2" />
           <Parameter name="Material Model" type="string" value="aluminum" />
         </ParameterList>
         <ParameterList name="Fixed Block Void">
-          <Parameter name="Element Block" type="string" value="fixed_block_void" />
+          <Parameter name="Element Block" type="string" value="block_1_void" />
           <Parameter name="Material Model" type="string" value="aluminum" />
         </ParameterList>
         <ParameterList name="Domain Block Void">
-          <Parameter name="Element Block" type="string" value="domain_block_void" />
+          <Parameter name="Element Block" type="string" value="block_2_void" />
           <Parameter name="Material Model" type="string" value="void_material" />
         </ParameterList>
       </ParameterList>
@@ -65,8 +65,8 @@
     <ParameterList name="Natural Boundary Conditions">
       <ParameterList name="Traction Vector Boundary Condition with ID 1">
         <Parameter name="Type" type="string" value="Uniform" />
-        <Parameter name="Values" type="Array(string)" value="{1e3,0,0}" />
-        <Parameter name="Sides" type="string" value="no_flux" />
+        <Parameter name="Values" type="Array(string)" value="{1e3,0}" />
+        <Parameter name="Sides" type="string" value="load" />
       </ParameterList>
     </ParameterList>
     
@@ -74,21 +74,16 @@
       <ParameterList name="Displacement Boundary Condition X">
         <Parameter name="Type" type="string" value="Fixed Value" />
         <Parameter name="Index" type="int" value="0" />
-        <Parameter name="Sides" type="string" value="low_temp" />
+        <Parameter name="Sides" type="string" value="fix" />
         <Parameter name="Value" type="double" value="0" />
       </ParameterList>
       <ParameterList name="Displacement Boundary Condition Y">
         <Parameter name="Type" type="string" value="Fixed Value" />
         <Parameter name="Index" type="int" value="1" />
-        <Parameter name="Sides" type="string" value="low_temp" />
+        <Parameter name="Sides" type="string" value="fix" />
         <Parameter name="Value" type="double" value="0" />
       </ParameterList>
-      <ParameterList name="Displacement Boundary Condition Z">
-        <Parameter name="Type" type="string" value="Fixed Value" />
-        <Parameter name="Index" type="int" value="2" />
-        <Parameter name="Sides" type="string" value="low_temp" />
-        <Parameter name="Value" type="double" value="0" />
-      </ParameterList>
+     
     </ParameterList>
     
   </ParameterList>
