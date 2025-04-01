@@ -15,3 +15,4 @@ Copy_utility_file_to_dir(
 
 add_subdirectory(gradient_check)
 add_subdirectory(regression)
+add_subdirectory(functional)
