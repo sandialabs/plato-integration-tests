@@ -8,7 +8,7 @@ begin density_topology
 end
 
 begin helmholtz_filter
-    filter_radius 2.5e-2
+    filter_radius 8.660254038e-2
 end
 
 begin constraint volume
