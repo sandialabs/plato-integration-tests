@@ -1,0 +1,7 @@
+<PythonApp>
+  <Module>NodalCoordinateOptimization</Module>
+  <Class>NodalCoordinateOptimization</Class>
+  <Value>get_objective</Value>
+  <Gradient>get_gradient</Gradient>
+  <Reset>reload_mesh</Reset>
+</PythonApp>
