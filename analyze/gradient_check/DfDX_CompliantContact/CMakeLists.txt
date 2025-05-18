@@ -1,4 +1,4 @@
-Requires_features( PLATOANALYZE_ENABLE_AMGX EXPY LEGACY_BUILD )
+Requires_features( PLATOANALYZE_ENABLE_TPETRA EXPY LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -25,4 +25,4 @@ SET(CUSTOM_COMMAND "echo test has run")
 
 # Add the test
 Plato_add_custom_command_test(${TEST_COMMAND} ${TEST_NAME} ${CUSTOM_COMMAND})
-set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
+set_property(TEST ${TEST_NAME} PROPERTY LABELS "small;CPU_only")

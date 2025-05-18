@@ -1,4 +1,4 @@
-Requires_features( PLATOANALYZE_ENABLE_AMGX LEGACY_BUILD )
+Requires_features( PLATOANALYZE_ENABLE_TPETRA LEGACY_BUILD )
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -38,4 +38,4 @@ SET(CUSTOM_COMMAND "python ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_RO
 
 # Add the test
 Plato_add_custom_command_test(${PLATO_NEW_TEST} ${TEST_NAME} ${CUSTOM_COMMAND})
-set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
+set_property(TEST ${TEST_NAME} PROPERTY LABELS "small;CPU_only")

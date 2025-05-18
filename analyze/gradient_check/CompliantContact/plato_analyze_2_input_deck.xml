@@ -40,7 +40,7 @@
     </ParameterList>
 
     <ParameterList  name="Linear Solver">
-      <Parameter  name="Solver Stack" type="string" value="AmgX"/>
+      <Parameter  name="Solver Stack" type="string" value="Tpetra"/>
     </ParameterList>
 
     <ParameterList name="Contact">
