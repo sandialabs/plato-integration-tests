@@ -56,6 +56,9 @@
     <ParameterList  name="Linear Solver">
       <Parameter  name="Solver Stack" type="string" value="Tpetra"/>
       <Parameter  name="Tolerance" type="double" value="1.0e-12"/>
+      <ParameterList name="Preconditioner Options">
+        <Parameter name="tentative: calculate qr" type="bool" value="false"/>
+      </ParameterList>
     </ParameterList>
 
     <ParameterList name="Contact">

@@ -41,6 +41,9 @@
 
     <ParameterList  name="Linear Solver">
       <Parameter  name="Solver Stack" type="string" value="Tpetra"/>
+      <ParameterList name="Preconditioner Options">
+        <Parameter name="tentative: calculate qr" type="bool" value="false"/>
+      </ParameterList>
     </ParameterList>
 
     <ParameterList name="Contact">
