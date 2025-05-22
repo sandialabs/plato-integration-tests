@@ -1,7 +1,6 @@
 add_subdirectory(2D_Stochastic)
 add_subdirectory(2D_Stochastic_2_Parameters)
 add_subdirectory(2D_Stochastic_2_Performers)
-add_subdirectory(CompliantContact)
 add_subdirectory(DfDX_CompliantContact)
 add_subdirectory(DfDX_MPCs)
 add_subdirectory(Disp_MagInDirection)

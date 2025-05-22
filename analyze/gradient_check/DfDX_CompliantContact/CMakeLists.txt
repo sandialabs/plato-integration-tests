@@ -25,4 +25,4 @@ SET(CUSTOM_COMMAND "echo test has run")
 
 # Add the test
 Plato_add_custom_command_test(${TEST_COMMAND} ${TEST_NAME} ${CUSTOM_COMMAND})
-set_property(TEST ${TEST_NAME} PROPERTY LABELS "small;CPU_only")
+set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
