@@ -9,7 +9,7 @@ set( BASE_TEST_FILE_PATH "../Compliance" )
 file( GLOB TEST_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${BASE_TEST_FILE_PATH}/*.xml ${BASE_TEST_FILE_PATH}/*.gold )
 Plato_direct_copy_test_files("${TEST_FILES};${BASE_TEST_FILE_PATH}/salinas_input.i")
 
-set( TWO_LOAD_TEST_FILES "input-2-load.i" )
+set( TWO_LOAD_TEST_FILES "input-2-load.i" "input-2-load-serial.i" )
 Plato_add_test_files("${TWO_LOAD_TEST_FILES}")
 
 Plato_sierra_copy_test_data("multiblock_Lbracket.exo")
@@ -25,11 +25,11 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "large")
 
-# Run with 2 ranks so that the objectives are run on the same process.
+# Run with 1 rank so that the objectives are run on the same process.
 # This was causing a crash in SD due to caching.
-set( NUM_RANKS 2 )
-set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load.i" )
-Plato_add_numdiff_test(${TEST_COMMAND} "${TEST_NAME}_NP_2" ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+set( NUM_RANKS 1 )
+set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load-serial.i" )
+Plato_add_numdiff_test(${TEST_COMMAND} "${TEST_NAME}_Serial" ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )
