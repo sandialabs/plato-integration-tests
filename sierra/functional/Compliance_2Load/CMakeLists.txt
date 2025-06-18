@@ -24,6 +24,7 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "large")
+set_property(TEST ${TEST_NAME} PROPERTY PROCESSORS ${NUM_RANKS})
 
 # Run with 1 rank so that the objectives are run on the same process.
 # This was causing a crash in SD due to caching.
