@@ -49,6 +49,7 @@ class MaterialPropertiesOptimization:
             'version': 'coupled'
         }
         self.mat_model = Neohookean.create_material_model_functions(props)
+        self.props = Neohookean.create_material_properties(props)
 
         self.eq_settings = EquationSolver.get_settings(
             max_trust_iters=100,
@@ -96,7 +97,7 @@ class MaterialPropertiesOptimization:
 
         def energy_function_all_dofs(U, p):
             internal_variables = p[1]
-            return self.mech_funcs.compute_strain_energy(U, internal_variables)
+            return self.mech_funcs.compute_strain_energy(U, internal_variables, self.props)
 
         def energy_function(Uu, p):
             U = self.create_field(Uu, p.bc_data)
@@ -107,7 +108,7 @@ class MaterialPropertiesOptimization:
         def assemble_sparse(Uu, p):
             U = self.create_field(Uu, p.bc_data)
             internal_variables = p.state_data
-            element_stiffnesses = self.mech_funcs.compute_element_stiffnesses(U, internal_variables)
+            element_stiffnesses = self.mech_funcs.compute_element_stiffnesses(U, internal_variables, self.props)
             return SparseMatrixAssembler.\
                 assemble_sparse_stiffness_matrix(element_stiffnesses, self.func_space.mesh.conns, self.dof_manager)
     
@@ -130,7 +131,7 @@ class MaterialPropertiesOptimization:
 
             writer.add_nodal_field(name='displ', nodalData=U, fieldType=VTKWriter.VTKFieldType.VECTORS)
 
-            energyDensities = self.mech_funcs.compute_output_energy_densities_and_stresses(U, p.state_data)[0]
+            energyDensities = self.mech_funcs.compute_output_energy_densities_and_stresses(U, p.state_data, self.props)[0]
             cellEnergyDensities = FunctionSpace.project_quadrature_field_to_element_field(self.func_space, energyDensities)
             writer.add_cell_field(name='strain_energy_density',
                                   cellData=cellEnergyDensities,
@@ -174,7 +175,7 @@ class MaterialPropertiesOptimization:
             adjoint_func_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, shapeOnRef, self.mesh, self.quad_rule)
             mech_funcs = Mechanics.create_mechanics_functions(adjoint_func_space, mode2D='plane strain', materialModel=self.mat_model)
             ivs = p.state_data
-            return mech_funcs.compute_strain_energy(U, ivs)
+            return mech_funcs.compute_strain_energy(U, ivs, self.props)
 
         def energy_function_coords(Uu, p, coords):
             U = self.create_field(Uu, p.bc_data)
