@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ParameterList name="Inputs">
+  <Parameter name="variableToMatch" type="string" value="T_K" />
+  <ParameterList name="Problem Data">
+    <Parameter name="Data File" type="string" value="temperature-data.txt" />
+  </ParameterList>
+  <ParameterList name="Inverse Aria">
+    <Parameter name="Transform Design Variable" type="bool" value="false" />
+  </ParameterList>
+</ParameterList>
