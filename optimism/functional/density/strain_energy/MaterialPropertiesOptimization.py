@@ -3,7 +3,6 @@ from jax import jit
 from optimism import EquationSolver
 from optimism import VTKWriter
 from optimism import FunctionSpace
-from optimism import Interpolants
 from optimism import Mechanics
 from optimism import Mesh
 from optimism import Objective
@@ -12,15 +11,14 @@ from optimism import ReadExodusMesh
 from optimism import SparseMatrixAssembler
 from optimism.FunctionSpace import DofManager
 from optimism.FunctionSpace import EssentialBC
-from optimism.material import Neohookean
+from optimism.material import Neohookean_VariableProps
 
 import jax.numpy as np
 import numpy as onp
-from optimism.inverse import AdjointFunctionSpace
 from collections import namedtuple
 
 EnergyFunctions = namedtuple('EnergyFunctions',
-                            ['energy_function_coords'])
+                            ['energy_function_props'])
 
 # simulation parameterized on material properties
 class MaterialPropertiesOptimization:
@@ -39,17 +37,10 @@ class MaterialPropertiesOptimization:
             EssentialBC(nodeSet='yplus_sideset', component=1)
         ]
 
-        shearModulus = 0.855 # MPa
-        bulkModulus = 1000*shearModulus # MPa
-        youngModulus = 9.0*bulkModulus*shearModulus / (3.0*bulkModulus + shearModulus)
-        poissonRatio = (3.0*bulkModulus - 2.0*shearModulus) / 2.0 / (3.0*bulkModulus + shearModulus)
-        props = {
-            'elastic modulus': youngModulus,
-            'poisson ratio': poissonRatio,
-            'version': 'coupled'
+        constant_props = {
+            'density': 1.0
         }
-        self.mat_model = Neohookean.create_material_model_functions(props)
-        self.props = Neohookean.create_material_properties(props)
+        self.mat_model = Neohookean_VariableProps.create_material_model_functions(constant_props, 'adagio')
 
         self.eq_settings = EquationSolver.get_settings(
             max_trust_iters=100,
@@ -58,36 +49,44 @@ class MaterialPropertiesOptimization:
             tol=5e-8
         )
 
+        # mesh
         self.input_mesh = './window.exo'
         origMesh = ReadExodusMesh.read_exodus_mesh(self.input_mesh)
         nodeSets = Mesh.create_nodesets_from_sidesets(origMesh)
         self.mesh = Mesh.mesh_with_nodesets(origMesh, nodeSets)
-
+        self.index = (self.mesh.nodeSets['yplus_sideset'], 1)
         self.func_space = FunctionSpace.construct_function_space(self.mesh, self.quad_rule)
         self.dof_manager = DofManager(self.func_space, 2, self.ebcs)
         self.mech_funcs = Mechanics.create_mechanics_functions(self.func_space, mode2D='plane strain', materialModel=self.mat_model)
 
         self.plot_file = 'disp_control_response.npz'
-        self.steps = 20
-        self.maxDisp = -0.25
+        self.steps = 10
+        self.maxDisp = -0.125
 
     def create_field(self, Uu, disp):
         def get_ubcs(disp):
             V = np.zeros(self.mesh.coords.shape)
-            index = (self.mesh.nodeSets['yplus_sideset'], 1)
-            V = V.at[index].set(disp)
+            V = V.at[self.index].set(disp)
             return self.dof_manager.get_bc_values(V)
 
         return self.dof_manager.create_field(Uu, get_ubcs(disp))
 
-    def num_mesh_nodes(self):
-        return self.mesh.coords.shape[0]
-
-    def import_parameters(self, materialProperties=[], elementMap=[]):
+    def import_parameters(self, materialProperties=[]):
         if not materialProperties:
-            self.materialProperties = np.zeros(self.mesh.conns.shape[0])
-        else:
-            self.materialProperties = np.asarray(materialProperties)
+            raise ValueError('Material properties were not passed to MaterialParameterizedSimulation import_parameters function.')
+
+        if len(self.mesh.blocks) > 1:
+            raise ValueError('Global element ID mapping is currently only set up for single block.')
+        
+        self.elementMap = onp.argsort(self.mesh.block_maps['Block1'])
+
+        materialProperties = np.array(materialProperties)
+        matPropConv = materialProperties
+
+        props = matPropConv.at[self.elementMap].get()
+        props = props.reshape((props.shape[0], 1))
+
+        self.elementProperties = props
 
         self.stateNotStored = True
         self.state = []
@@ -97,7 +96,7 @@ class MaterialPropertiesOptimization:
 
         def energy_function_all_dofs(U, p):
             internal_variables = p[1]
-            return self.mech_funcs.compute_strain_energy(U, internal_variables, self.props)
+            return self.mech_funcs.compute_strain_energy(U, internal_variables, self.elementProperties)
 
         def energy_function(Uu, p):
             U = self.create_field(Uu, p.bc_data)
@@ -108,7 +107,7 @@ class MaterialPropertiesOptimization:
         def assemble_sparse(Uu, p):
             U = self.create_field(Uu, p.bc_data)
             internal_variables = p.state_data
-            element_stiffnesses = self.mech_funcs.compute_element_stiffnesses(U, internal_variables, self.props)
+            element_stiffnesses = self.mech_funcs.compute_element_stiffnesses(U, internal_variables, self.elementProperties)
             return SparseMatrixAssembler.\
                 assemble_sparse_stiffness_matrix(element_stiffnesses, self.func_space.mesh.conns, self.dof_manager)
     
@@ -116,8 +115,7 @@ class MaterialPropertiesOptimization:
             U = self.create_field(Uu, p.bc_data)
             f = nodal_forces(U, p)
 
-            index = (self.mesh.nodeSets['yplus_sideset'], 1)
-            force.append( onp.abs(onp.sum(onp.array(f.at[index].get()))) )
+            force.append( onp.abs(onp.sum(onp.array(f.at[self.index].get()))) )
 
             disp.append( onp.abs(dispval) )
 
@@ -131,7 +129,7 @@ class MaterialPropertiesOptimization:
 
             writer.add_nodal_field(name='displ', nodalData=U, fieldType=VTKWriter.VTKFieldType.VECTORS)
 
-            energyDensities = self.mech_funcs.compute_output_energy_densities_and_stresses(U, p.state_data, self.props)[0]
+            energyDensities = self.mech_funcs.compute_output_energy_densities_and_stresses(U, p.state_data, self.elementProperties)[0]
             cellEnergyDensities = FunctionSpace.project_quadrature_field_to_element_field(self.func_space, energyDensities)
             writer.add_cell_field(name='strain_energy_density',
                                   cellData=cellEnergyDensities,
@@ -150,6 +148,9 @@ class MaterialPropertiesOptimization:
         fd_disp = []
 
         store_force_displacement(Uu, disp, fd_force, fd_disp)
+        if self.writeOutput:
+          write_vtk_output(Uu, p, step=0)
+        self.state.append((Uu, p))
 
         disp_inc = self.maxDisp / self.steps
         for step in range(1, self.steps+1):
@@ -159,62 +160,62 @@ class MaterialPropertiesOptimization:
             disp += disp_inc
             p = Objective.param_index_update(p, 0, disp)
             Uu, solverSuccess = EquationSolver.nonlinear_equation_solve(self.objective, Uu, p, self.eq_settings)
+            if solverSuccess == False:
+                raise ValueError('Solver failed to converge.')
 
             store_force_displacement(Uu, disp, fd_force, fd_disp)
+            self.state.append((Uu, p))
 
             if self.writeOutput:
               write_vtk_output(Uu, p, step + 1)
 
-        self.state = (Uu, p)
         self.stateNotStored = False
 
     def setup_energy_functions(self):
-        shapeOnRef = Interpolants.compute_shapes(self.mesh.parentElement, self.quad_rule.xigauss)
-
-        def energy_function_all_dofs(U, p, coords):
-            adjoint_func_space = AdjointFunctionSpace.construct_function_space_for_adjoint(coords, shapeOnRef, self.mesh, self.quad_rule)
-            mech_funcs = Mechanics.create_mechanics_functions(adjoint_func_space, mode2D='plane strain', materialModel=self.mat_model)
+        def energy_function_all_dofs(U, p, props):
             ivs = p.state_data
-            return mech_funcs.compute_strain_energy(U, ivs, self.props)
+            return self.mech_funcs.compute_strain_energy(U, ivs, props)
 
-        def energy_function_coords(Uu, p, coords):
+        def energy_function_props(Uu, p, props):
             U = self.create_field(Uu, p.bc_data)
-            return energy_function_all_dofs(U, p, coords)
+            return energy_function_all_dofs(U, p, props)
 
-        return EnergyFunctions(energy_function_coords)
+        return EnergyFunctions(energy_function_props)
 
-    def compute_strain_energy(self, coordinates, energy_function_coords):
-        return energy_function_coords(self.state[0], self.state[1], coordinates)
+    def compute_strain_energy(self, Uu, p, props, energy_function_props):
+        return energy_function_props(Uu, p, props)
 
-    def compute_dummy_sum(self, parameters):
-        return np.sum(parameters)
-    
     def get_objective(self):
         if self.stateNotStored:
             self.run_simulation()
 
-        parameters = self.materialProperties
+        parameters = self.elementProperties
         energyFuncs = self.setup_energy_functions()
 
-        val = self.compute_dummy_sum(parameters) 
-        # val = self.compute_strain_energy(parameters, jit(energyFuncs.energy_function_coords)) 
+        endState = self.state[-1]
+
+        val = self.compute_strain_energy(endState[0], endState[1], parameters, jit(energyFuncs.energy_function_props)) 
         return onp.array(self.scaleObjective * val).item()      
 
     def get_gradient(self):
         if self.stateNotStored:
             self.run_simulation()
         
-        parameters = self.materialProperties
+        parameters = self.elementProperties
         energyFuncs = self.setup_energy_functions()
 
-        # gradient = grad(self.compute_strain_energy, argnums=0)(parameters, jit(energyFuncs.energy_function_coords))
-        gradient = grad(self.compute_dummy_sum, argnums=0)(parameters)
+        endState = self.state[-1]
+
+        gradient = grad(self.compute_strain_energy, argnums=2)(endState[0], endState[1], parameters, jit(energyFuncs.energy_function_props))
         return onp.array(self.scaleObjective * gradient, copy=False).flatten().tolist()
 
+
+
 if __name__ == '__main__':
-    mpo = MaterialPropertiesOptimization()
-    mpo.import_parameters()
-    val = mpo.get_objective()
-    print("\n objective value")
-    print(val)
-    grad = mpo.get_gradient()
+    sim = MaterialPropertiesOptimization()
+    densityValue = 0.5 # import dummy parameters
+    materialProperties = np.full((sim.mesh.conns.shape[0]), densityValue).tolist()
+    sim.import_parameters(materialProperties)
+    val = sim.get_objective()
+    print(f"\n objective value: {val:e}")
+    # grad = sim.get_gradient()
