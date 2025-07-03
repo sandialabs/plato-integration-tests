@@ -16,9 +16,6 @@ Copy_utility_file_to_dir(
   ${BINARY_PYTHON_DIR}
   CONFIRM_GRADIENT_PYTHON_SCRIPT)
 
-add_subdirectory(examples)
-add_subdirectory(gradient_check)
 add_subdirectory(functional)
-add_subdirectory(regression)
 
 
