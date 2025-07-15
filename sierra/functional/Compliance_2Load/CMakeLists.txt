@@ -31,6 +31,7 @@ set_property(TEST ${TEST_NAME} PROPERTY PROCESSORS ${NUM_RANKS})
 set( NUM_RANKS 1 )
 set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load-serial.i" )
 Plato_add_numdiff_test(${TEST_COMMAND} "${TEST_NAME}_Serial" ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+set_tests_properties( "${TEST_NAME}_Serial" PROPERTIES DEPENDS ${TEST_NAME})
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )

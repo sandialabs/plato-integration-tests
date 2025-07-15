@@ -1,6 +1,6 @@
 begin density_topology
     mesh_name multiblock_Lbracket.exo
-    output_name output.exo
+    output_name output_serial.exo
     fixed_blocks block_1, block_4
     initial_density_value 0.5
 end
@@ -38,4 +38,3 @@ begin rol_optimization
     export_settings_file_name rol_options.xml
     initial_search_radius 1
 end
-
