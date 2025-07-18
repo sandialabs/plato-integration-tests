@@ -1,0 +1,6 @@
+# exodiff command file for variable tolerances
+# Anything following a # is a comment.
+#
+DEFAULT TOLERANCE relative 1.E-6 floor 0.0
+COORDINATES absolute 1.E-6
+

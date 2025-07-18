@@ -1,0 +1,25 @@
+Requires_features( LEGACY_BUILD )
+
+set(exec "extract_iso")
+set(infile1 "cube_cube_tet_LSD_0.0.exo")
+set(gold_outfile1 "cube_cube_tet_LSD_0.0_np4_gold.exo")
+set(outfile1 "cube_cube_tet_LSD_0.0_np4.exo")
+set(fieldname "LSD")
+set(isovalue "0.0")
+set(minedgelength "1e-5")
+set(levelsetdata "0")
+set(isoonly "0")
+set(output_method "0")
+set(readspreadfile "0") 
+set(tolerancefile "../tolerances.txt")
+set(noinput "True")
+
+set( testFiles ${tolerancefile} ${infile1} ${gold_outfile1})
+Plato_add_test_files( "${testFiles}" )
+
+Plato_new_test(BASE_TEST_NAME)
+set( IO_COMM_INDEX 0 )
+
+set(NumProcs "4")
+set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}")
+create_extract_iso_test(${gold_outfile1})

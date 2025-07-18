@@ -1,0 +1,46 @@
+Requires_features( LEGACY_BUILD )
+
+set(exec "extract_iso")
+set(infile1 "two_block_example1.exo")
+set(gold_outfile1 "two_block_example1_np2_1.gold.exo")
+set(gold_outfile2 "two_block_example1_np2_2.gold.exo")
+set(outfile1 "two_block_example1_np2_1.exo")
+set(fieldname "LSD")
+set(minedgelength "1e-3")
+set(levelsetdata "0")
+set(isoonly "0")
+set(output_method "0")
+set(readspreadfile "0") 
+set(tolerancefile "../tolerances.txt")
+set(noinput "True")
+
+set( testFiles ${infile1} ${tolerancefile} ${gold_outfile1} ${gold_outfile2})
+Plato_add_test_files( "${testFiles}" )
+
+Plato_new_test(BASE_TEST_NAME)
+set( IO_COMM_INDEX 0 )
+
+set(NumProcs "2")
+set(isovalue "0.5")
+set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}_${isovalue}")
+set(gold_file ${gold_outfile1})
+create_extract_iso_test(${gold_file})
+
+set(NumProcs "2")
+set(isovalue "0.75")
+set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}_${isovalue}")
+set(gold_file ${gold_outfile2})
+create_extract_iso_test(${gold_file})
+
+set(NumProcs "1")
+set(isovalue "0.5")
+set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}_${isovalue}")
+set(gold_file ${gold_outfile1})
+create_extract_iso_test(${gold_file})
+
+set(NumProcs "1")
+set(isovalue "0.75")
+set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}_${isovalue}")
+set(gold_file ${gold_outfile2})
+create_extract_iso_test(${gold_file})
+
