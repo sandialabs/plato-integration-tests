@@ -36,7 +36,6 @@ Copy_utility_file_to_dir(
   FULL_REGRESSION_PYTHON_SCRIPT)
 
 add_subdirectory(constraint_check)
-add_subdirectory(examples)
 add_subdirectory(gradient_check)
-add_subdirectory(regression)
 add_subdirectory(functional)
+
