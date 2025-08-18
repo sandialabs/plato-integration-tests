@@ -9,7 +9,6 @@ function( Set_binaries )
   set(SEACAS_DECOMP "decomp" PARENT_SCOPE)
   set(PLATOMAIN_BINARY "PlatoMain" PARENT_SCOPE)
   set(PLATOESP_BINARY "PlatoESP" PARENT_SCOPE)
-  set(ANALYZE_BINARY "analyze_MPMD" PARENT_SCOPE)
   set(Python3_EXECUTABLE "python3" PARENT_SCOPE)
 endfunction()
 
