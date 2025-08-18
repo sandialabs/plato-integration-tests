@@ -23,19 +23,6 @@ Copy_utility_file_to_dir(
   ${BINARY_PYTHON_DIR} 
   GRADIENT_CHECK_PYTHON_SCRIPT)
 
-Copy_utility_file_to_dir(
-  ${ANALYZE_SOURCE_PYTHON_DIR} 
-  "finite_difference_utils.py" 
-  ${BINARY_PYTHON_DIR} 
-  FINITE_DIFFERENCE_PYTHON_SCRIPT)
-
-Copy_utility_file_to_dir(
-  ${ANALYZE_SOURCE_PYTHON_DIR} 
-  "full_regression_test.py" 
-  ${BINARY_PYTHON_DIR} 
-  FULL_REGRESSION_PYTHON_SCRIPT)
-
 add_subdirectory(constraint_check)
-add_subdirectory(gradient_check)
 add_subdirectory(functional)
 
