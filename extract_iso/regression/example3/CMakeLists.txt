@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 
 set(exec "extract_iso")
 set(infile1 "example3.exo")
@@ -27,4 +27,3 @@ create_extract_iso_test(${gold_outfile1})
 set(NumProcs "1")
 set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}")
 create_extract_iso_test(${gold_outfile1})
-

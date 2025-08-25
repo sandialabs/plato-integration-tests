@@ -23,6 +23,4 @@ Copy_utility_file_to_dir(
   ${BINARY_PYTHON_DIR} 
   GRADIENT_CHECK_PYTHON_SCRIPT)
 
-add_subdirectory(constraint_check)
 add_subdirectory(functional)
-
