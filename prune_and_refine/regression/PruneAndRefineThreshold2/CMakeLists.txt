@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 set( INPUT_MESH "prune4.exo" )
 set( OUTPUT_MESH "prune4_pruned.exo" )
 set( FIELD_NAME "density" )

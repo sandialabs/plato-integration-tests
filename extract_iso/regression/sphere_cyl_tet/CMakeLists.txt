@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 
 set(exec "extract_iso")
 set(infile1 "sphere_cyl_level_set_tet_0.0.exo")
@@ -31,4 +31,3 @@ set(isoonly "1")
 set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}_isoonly")
 set(gold_file ${gold_outfile1_isoonly})
 create_extract_iso_test(${gold_file})
-

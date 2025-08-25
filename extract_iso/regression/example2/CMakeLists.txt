@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 
 set(exec "extract_iso")
 set(infile1 "two_block_example2.exo")

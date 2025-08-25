@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 set( MESH_WITH_VARIABLE "mesh_with_variable.exo" )
 set( MESH_TO_BE_PRUNED "start_mesh.exo" )
 set( OUTPUT_MESH "pruned.exo" )
