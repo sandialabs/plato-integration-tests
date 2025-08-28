@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 Set_exodiff_files(EXODIFF_COMMAND_FILE EXODIFF_REFERENCE) 
 set( testFiles "BoxWithHoleBodyMesh.su2" ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE})
 Plato_add_test_files( "${testFiles}" )

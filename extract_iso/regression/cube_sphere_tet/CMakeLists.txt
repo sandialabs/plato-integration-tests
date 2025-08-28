@@ -1,4 +1,4 @@
-Requires_features( LEGACY_BUILD )
+
 
 set(exec "extract_iso")
 set(infile1 "cube_sphere_tet_LSD_0.0.exo")
@@ -23,4 +23,3 @@ set( IO_COMM_INDEX 0 )
 set(NumProcs "4")
 set(TEST_NAME "${BASE_TEST_NAME}_${NumProcs}")
 create_extract_iso_test(${gold_outfile1})
-
