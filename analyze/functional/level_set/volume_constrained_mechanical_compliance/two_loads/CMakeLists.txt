@@ -1,5 +1,3 @@
-
-
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
 
