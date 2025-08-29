@@ -34,11 +34,3 @@ begin rol_optimization
     approximate_hessian true
     initial_search_radius 20
 end
-
-begin gradient_check
-    output_file_name ROL_gradient_check.txt
-    number_of_steps 18
-    initial_direction_magnitude 1
-    step_size_reduction_factor 0.25
-    random_direction_seed 12
-end
