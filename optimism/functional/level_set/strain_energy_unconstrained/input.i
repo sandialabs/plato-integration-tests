@@ -27,14 +27,6 @@ begin objective strain_energy
     aggregation_weight 1.0
 end
 
-begin gradient_check
-    output_file_name ROL_gradient_check_output.txt
-    number_of_steps 10
-    initial_direction_magnitude 0.1 
-    step_size_reduction_factor 0.1
-    random_direction_seed 12
-end
-
 begin rol_optimization
     max_iterations 5
     output_design_history true
