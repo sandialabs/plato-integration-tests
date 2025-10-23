@@ -1,0 +1,2 @@
+add_subdirectory(one_load)
+add_subdirectory(two_loads)
