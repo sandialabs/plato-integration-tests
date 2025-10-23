@@ -1,5 +1,3 @@
-add_subdirectory(BrickMassProperties)
-add_subdirectory(Compliance)
-add_subdirectory(Compliance_2Load)
-add_subdirectory(Modal)
-add_subdirectory(TemperatureMatch)
+add_subdirectory(brick_shape)
+add_subdirectory(density)
+add_subdirectory(level_set)

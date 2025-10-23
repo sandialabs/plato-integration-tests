@@ -1,0 +1,3 @@
+add_subdirectory(mass_properties)
+add_subdirectory(frequency_max)
+add_subdirectory(mechanical_compliance)

@@ -5,7 +5,7 @@ Disable_test_on_any_flag(BUILD_WITH_SANITIZER_FLAGS)
 Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
-set( BASE_TEST_FILE_PATH "../Compliance" )
+set( BASE_TEST_FILE_PATH "../one_load" )
 file( GLOB TEST_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${BASE_TEST_FILE_PATH}/*.xml ${BASE_TEST_FILE_PATH}/*.gold )
 Plato_direct_copy_test_files("${TEST_FILES};${BASE_TEST_FILE_PATH}/salinas_input.i")
 
