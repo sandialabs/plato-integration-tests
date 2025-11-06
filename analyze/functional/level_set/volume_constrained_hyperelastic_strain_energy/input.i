@@ -25,7 +25,7 @@ begin objective strain_energy
     criterion platoanalyze
     input_files analyze_strain_energy.xml
     aggregation_weight 1.0
-    objective_goal maximize
+    objective_goal minimize-negation
 end
 
 begin gradient_check
