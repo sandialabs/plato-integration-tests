@@ -2,16 +2,41 @@ begin brick_shape_geometry
     mesh_name brick.exo
 end
 
-begin constraint mass_properties
+begin constraint volume
     app sierra_sd
-    criterion mass-properties
+    criterion volume
     input_files salinas_input.i
-    constraint_value_list component volume target 2.0,
-                          component mass target 4.0,
-                          component cg_x target 6.0,
+    constraint_value 2.0
+    constraint_type equal_to
+    is_linear false
+end
+
+begin constraint mass
+    app sierra_sd
+    criterion mass
+    input_files salinas_input.i
+    constraint_value 4.0
+    constraint_type equal_to
+    is_linear false
+end
+
+begin constraint cg
+    app sierra_sd
+    criterion center-of-gravity
+    input_files salinas_input.i
+    constraint_value_list component cg_x target 6.0,
                           component cg_y target 8.5,
-                          component cg_z target 10.0,
-                          component i_xx target -1.0,
+                          component cg_z target 10.0
+
+    constraint_type equal_to
+    is_linear false
+end
+
+begin constraint inertia
+    app sierra_sd
+    criterion inertia
+    input_files salinas_input.i
+    constraint_value_list component i_xx target -1.0,
                           component i_yy target 1.0,
                           component i_zz target 2.0,
                           component i_xy target 3.0,
@@ -39,4 +64,3 @@ begin constraint_check
     step_size_reduction_factor 0.1
     random_direction_seed 123
 end
-
