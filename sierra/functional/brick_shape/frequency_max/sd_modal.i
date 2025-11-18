@@ -6,7 +6,7 @@ SOLUTION
 END
 INVERSE-PROBLEM
   shape_bounds 0.1 
-  eigen_objective max 3
+  eigen_objective max sum 3
   design_variable shape
   shape_sideset all
 END

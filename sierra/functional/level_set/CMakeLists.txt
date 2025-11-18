@@ -1,1 +1,2 @@
 add_subdirectory(temperature_match)
+add_subdirectory(mass_properties)
