@@ -1,5 +1,6 @@
-
 Disable_test_on_any_flag(BUILD_WITH_SANITIZER_FLAGS)
+
+include(${COMMON_SOURCE_CMAKE_DIR}/mpi_helpers.cmake)
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -15,7 +16,8 @@ Plato_add_test_files("${TWO_LOAD_TEST_FILES}")
 Plato_sierra_copy_test_data("multiblock_Lbracket.exo")
 
 set( NUM_RANKS 4 )
-set( ADDITIONAL_MPI_FLAGS "--bind-to none" )
+set( NUM_THREADS 1 )
+openmpi_process_map_argument(${NUM_RANKS} ${NUM_THREADS} ADDITIONAL_MPI_FLAGS )
 set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load.i" )
 set( OUT_FILE "ROL_Optimizer.txt")
 set( GOLD_FILE "ROL_Optimizer.txt.gold")
@@ -25,6 +27,7 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "large")
 set_property(TEST ${TEST_NAME} PROPERTY PROCESSORS ${NUM_RANKS})
+set_property(TEST ${TEST_NAME} PROPERTY ENVIRONMENT "OMP_NUM_THREADS=${NUM_THREADS}")
 
 # Run with 1 rank so that the objectives are run on the same process.
 # This was causing a crash in SD due to caching.

@@ -8,6 +8,7 @@ Copy_cmake_utilities_to_binary_dir()
 
 # Copy python scripts
 set(COMMON_SOURCE_PYTHON_DIR "../utilities/python")
+set(COMMON_SOURCE_CMAKE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../utilities/cmake")
 set(BINARY_PYTHON_DIR "${CMAKE_CURRENT_BINARY_DIR}/utilities/python")
 set(ANALYZE_SOURCE_PYTHON_DIR "${CMAKE_CURRENT_SOURCE_DIR}/utilities")
 
