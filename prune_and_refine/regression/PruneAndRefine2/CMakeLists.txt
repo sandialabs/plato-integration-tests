@@ -13,4 +13,4 @@ set( IO_COMM_INDEX 0 )
 set( RUN_COMMAND "mpirun -n ${NUM_PROCS} prune_and_refine --mesh_with_variable=prune1.exo --mesh_to_be_pruned=prune1.exo --result_mesh=prune1_pruned.exo --field_name=brett --number_of_refines=0 --number_of_buffer_layers=0 --prune_mesh" )
 
 Plato_add_test(${RUN_COMMAND} ${TEST_NAME} ${NUM_PROCS} ${IO_COMM_INDEX} ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE} ${INPUT_MESH} ${OUTPUT_MESH})
-set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
+set_tests_properties( ${TEST_NAME} PROPERTIES LABELS "small" ENVIRONMENT "OMP_NUM_THREADS=1" PROCESSORS ${NUM_PROCS})
