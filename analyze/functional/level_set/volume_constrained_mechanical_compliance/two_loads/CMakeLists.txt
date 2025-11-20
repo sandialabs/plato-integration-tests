@@ -19,7 +19,10 @@ add_test(NAME ${TEST_FOR_COMPARISON} COMMAND plato input-1-load.i)
 # This is a parallel consistency check. The two load case uses two identical loads with half the aggregation values of the one load case.
 # The gradient check should match when run in parallel.
 set( NUM_RANKS 2 )
-set( NUM_THREADS 8 )
+set( NUM_THREADS 1 )
+if( PLATOANALYZE_ENABLE_OPENMP )
+    set( NUM_THREADS 8 )
+endif()
 openmpi_process_map_argument(${NUM_RANKS} ${NUM_THREADS} ADDITIONAL_MPI_FLAGS )
 set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load.i" )
 

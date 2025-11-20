@@ -14,7 +14,10 @@ Plato_add_test_files("${TWO_LOAD_TEST_FILES}")
 Plato_analyze_copy_test_data("lbracket.exo")
 
 set( NUM_RANKS 2 )
-set( NUM_THREADS 8 )
+set( NUM_THREADS 1 )
+if(PLATOANALYZE_ENABLE_OPENMP)
+    set( NUM_THREADS 8 )
+endif()
 openmpi_process_map_argument(${NUM_RANKS} ${NUM_THREADS} ADDITIONAL_MPI_FLAGS )
 set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load.i" )
 set( OUT_FILE "ROL_Optimizer.txt")
@@ -24,8 +27,7 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 total_processors(${NUM_RANKS} ${NUM_THREADS} NUM_PROCESSORS)
-set_property(TEST ${TEST_NAME} PROPERTY PROCESSORS ${NUM_PROCESSORS})
-set_property(TEST ${TEST_NAME} PROPERTY ENVIRONMENT "OMP_NUM_THREADS=${NUM_THREADS}")
+set_tests_properties( ${TEST_NAME} PROPERTIES PROCESSORS ${NUM_PROCESSORS} ENVIRONMENT "OMP_NUM_THREADS=${NUM_THREADS}")
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )
