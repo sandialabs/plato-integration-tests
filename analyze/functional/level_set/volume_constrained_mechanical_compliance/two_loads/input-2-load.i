@@ -2,16 +2,8 @@ begin level_set_topology
     mesh_name lbracket3d.exo
     output_name level-set-result.exo
     include_void_region true
-    sphere_pattern_bbox_min_x -.5
-    sphere_pattern_bbox_min_y -.5
-    sphere_pattern_bbox_min_z 0
-    sphere_pattern_bbox_max_x .4
-    sphere_pattern_bbox_max_y .4
-    sphere_pattern_bbox_max_z 0
-    sphere_pattern_radius .05
-    sphere_pattern_spacing .15
-    level_set_lower_bound -.02
-    level_set_upper_bound .02
+    sphere_pattern radius 0.05 spacing 0.15 min (-0.5,-0.5,0) max (0.4, 0.4, 0)
+    level_set_bounds [-0.02, 0.02]
 end
 
 begin kernel_filter

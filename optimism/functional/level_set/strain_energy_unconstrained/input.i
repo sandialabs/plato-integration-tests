@@ -2,16 +2,8 @@ begin level_set_topology
     mesh_name window_bg.exo
     output_name level-set-result.exo
     include_void_region false
-    sphere_pattern_bbox_min_x -0.5
-    sphere_pattern_bbox_min_y -0.5
-    sphere_pattern_bbox_min_z -0.5
-    sphere_pattern_bbox_max_x 0.5
-    sphere_pattern_bbox_max_y 0.5
-    sphere_pattern_bbox_max_z 0.5
-    sphere_pattern_radius .35
-    sphere_pattern_spacing 2.0
-    level_set_lower_bound -1.0
-    level_set_upper_bound 1.0
+    sphere_pattern radius 0.35 spacing 2.0 min (-0.5,-0.5,-0.5) max (0.5,0.5,0.5)
+    level_set_bounds [-1, 1]
 end
 
 begin kernel_filter

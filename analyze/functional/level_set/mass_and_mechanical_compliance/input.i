@@ -2,16 +2,8 @@ begin level_set_topology
     mesh_name unit_cube_background.exo
     output_name level-set-result.exo
     include_void_region true
-    sphere_pattern_bbox_min_x 0
-    sphere_pattern_bbox_min_y 0
-    sphere_pattern_bbox_min_z 0
-    sphere_pattern_bbox_max_x 1
-    sphere_pattern_bbox_max_y 1
-    sphere_pattern_bbox_max_z 1
-    sphere_pattern_radius .25
-    sphere_pattern_spacing 2
-    level_set_lower_bound -.2
-    level_set_upper_bound .2
+    sphere_list radius 0.25 center (0.5,0.5,0.5)
+    level_set_bounds [-0.2, 0.2]
 end
 
 begin identity_filter
