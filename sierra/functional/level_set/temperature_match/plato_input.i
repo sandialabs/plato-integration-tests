@@ -2,16 +2,8 @@ begin level_set_topology
     mesh_name background.exo
     output_name result.exo
     include_void_region false
-    sphere_pattern_bbox_min_x 0
-    sphere_pattern_bbox_min_y 0
-    sphere_pattern_bbox_min_z 0
-    sphere_pattern_bbox_max_x 0
-    sphere_pattern_bbox_max_y 0
-    sphere_pattern_bbox_max_z 0
-    sphere_pattern_radius 1.25
-    sphere_pattern_spacing 2
-    level_set_lower_bound -0.2
-    level_set_upper_bound  0.2
+    sphere_list radius 1.25 center (0,0,0)
+    level_set_bounds [-0.2, 0.2]
 end
 
 begin kernel_filter
