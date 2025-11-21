@@ -16,6 +16,10 @@ set( GOLD_FILE "ROL_Optimizer.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-2 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+
+set_num_threads_for_test( NUM_THREADS )
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
+
 Plato_disable_test(${TEST_NAME} "GC is very strange and convergence is very difficult to achieve")
 
 # Add test check ROL gradient check output

@@ -10,7 +10,7 @@ Copy_cmake_utilities_to_binary_dir()
 set(COMMON_SOURCE_PYTHON_DIR "../utilities/python")
 set(COMMON_SOURCE_CMAKE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../utilities/cmake")
 set(BINARY_PYTHON_DIR "${CMAKE_CURRENT_BINARY_DIR}/utilities/python")
-set(ANALYZE_SOURCE_PYTHON_DIR "${CMAKE_CURRENT_SOURCE_DIR}/utilities")
+set(ANALYZE_SOURCE_UTILITIES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/utilities")
 
 Copy_utility_file_to_dir(
   ${COMMON_SOURCE_PYTHON_DIR} 
@@ -19,9 +19,12 @@ Copy_utility_file_to_dir(
   CONFIRM_GRADIENT_PYTHON_SCRIPT)
 
 Copy_utility_file_to_dir(
-  ${ANALYZE_SOURCE_PYTHON_DIR} 
+  ${ANALYZE_SOURCE_UTILITIES_DIR}
   "grad_check.py" 
   ${BINARY_PYTHON_DIR} 
   GRADIENT_CHECK_PYTHON_SCRIPT)
+
+include(${COMMON_SOURCE_CMAKE_DIR}/mpi_helpers.cmake)
+include(${ANALYZE_SOURCE_UTILITIES_DIR}/openmp_helpers.cmake)
 
 add_subdirectory(functional)
