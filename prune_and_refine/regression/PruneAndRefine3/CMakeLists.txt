@@ -13,7 +13,8 @@ set( NUM_REFINES 0 )
 set( NUM_BUFFER_LAYERS 2 )
 set( IO_COMM_INDEX 0 )
 
-set( RUN_COMMAND "mpirun -n ${NUM_PROCS} prune_and_refine --mesh_with_variable=${INPUT_MESH} --mesh_to_be_pruned=${INPUT_MESH} --result_mesh=${OUTPUT_MESH} --field_name=${FIELD_NAME} --number_of_refines=${NUM_REFINES} --number_of_buffer_layers=${NUM_BUFFER_LAYERS} --prune_mesh" )
+set( RUN_COMMAND "mpirun -n ${NUM_PROCS} --bind-to socket prune_and_refine --mesh_with_variable=${INPUT_MESH} --mesh_to_be_pruned=${INPUT_MESH} --result_mesh=${OUTPUT_MESH} --field_name=${FIELD_NAME} --number_of_refines=${NUM_REFINES} --number_of_buffer_layers=${NUM_BUFFER_LAYERS} --prune_mesh" )
 
 Plato_add_test(${RUN_COMMAND} ${TEST_NAME} ${NUM_PROCS} ${IO_COMM_INDEX} ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE} ${INPUT_MESH} ${OUTPUT_MESH})
-set_tests_properties( ${TEST_NAME} PROPERTIES LABELS "small" ENVIRONMENT "OMP_NUM_THREADS=1" PROCESSORS ${NUM_PROCS})
+set_tests_properties( ${TEST_NAME} PROPERTIES LABELS "small")
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS "1")

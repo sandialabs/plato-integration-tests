@@ -17,4 +17,6 @@ Copy_utility_file_to_dir(
   ${BINARY_PYTHON_DIR}
   CONFIRM_GRADIENT_PYTHON_SCRIPT)
 
+include(${COMMON_SOURCE_CMAKE_DIR}/mpi_helpers.cmake)
+
 add_subdirectory(functional)

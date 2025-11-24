@@ -4,7 +4,7 @@
 #  OUT_MAP_ARGUMENT: The cmake variable that, on return, will contain the command line argument string.
 function(openmpi_process_map_argument NUM_RANKS NUM_THREADS OUT_MAP_ARGUMENT)
 
-set(${OUT_MAP_ARGUMENT} "--map-by ppr:${NUM_RANKS}:socket:PE=${NUM_THREADS}" PARENT_SCOPE)
+set(${OUT_MAP_ARGUMENT} "--bind-to socket --report-bindings" PARENT_SCOPE)
 
 endfunction(openmpi_process_map_argument)
 
@@ -35,6 +35,6 @@ if(NOT ARG_NUM_THREADS)
 endif()
 
 total_processors(${ARG_NUM_RANKS} ${ARG_NUM_THREADS} NUM_PROCESSORS)
-set_tests_properties( ${ARG_TEST_NAME} PROPERTIES PROCESSORS ${NUM_PROCESSORS} ENVIRONMENT "OMP_NUM_THREADS=${ARG_NUM_THREADS};OMP_PROC_BIND=close;OMP_PLACES=threads")
+set_tests_properties( ${ARG_TEST_NAME} PROPERTIES PROCESSORS ${NUM_PROCESSORS} ENVIRONMENT "OMP_NUM_THREADS=${ARG_NUM_THREADS};OMP_PROC_BIND=false;OMP_PLACES=threads;OMP_DISPLAY_ENV=true")
 
 endfunction(set_openmp_test_properties)
