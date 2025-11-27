@@ -12,6 +12,10 @@ Plato_analyze_copy_test_data("lbracket3d.exo")
 
 # Add test to run problem and check ROL optimization output
 add_test(NAME ${TEST_NAME} COMMAND plato "input.i")
+
+set_num_threads_for_test( NUM_THREADS )
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
+
 Plato_disable_test(${TEST_NAME} "GC is very strange")
 
 # Add test check ROL gradient check output

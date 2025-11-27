@@ -19,6 +19,9 @@ set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
+set( NUM_THREADS "1" ) # This test fails sporadically when multi-threaded
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
+
 # Add test check ROL gradient check output
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )

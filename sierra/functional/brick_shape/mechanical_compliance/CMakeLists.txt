@@ -15,6 +15,7 @@ set( NUMDIFF_RELATIVE_TOLERANCE 1e-5 )
 
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "large")
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS "1")
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )

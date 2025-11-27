@@ -21,6 +21,9 @@ set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 2e-2 )
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
+set_num_threads_for_test( NUM_THREADS )
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
+
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )

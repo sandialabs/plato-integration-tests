@@ -16,8 +16,12 @@ Plato_sierra_copy_test_data("startup.exo")
 
 # Set input file names for custom command
 set( NUM_RANKS 2 )
-add_test(NAME ${TEST_NAME} COMMAND ${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${MPIEXEC_PREFLAGS} plato plato_input.i)
-set_tests_properties(${TEST_NAME} PROPERTIES PROCESSORS ${NUM_RANKS})
+set( NUM_THREADS 1 )
+
+openmpi_process_map_argument(${NUM_RANKS} ${NUM_THREADS} ADDITIONAL_MPI_FLAGS )
+string(REPLACE " " ";" ADDITIONAL_MPI_FLAG_LIST ${ADDITIONAL_MPI_FLAGS} )
+add_test(NAME ${TEST_NAME} COMMAND ${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAG_LIST} ${MPIEXEC_PREFLAGS} plato plato_input.i)
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_RANKS ${NUM_RANKS} NUM_THREADS ${NUM_THREADS})
 
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )

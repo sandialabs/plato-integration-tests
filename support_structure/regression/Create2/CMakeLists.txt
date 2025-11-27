@@ -11,3 +11,4 @@ set( OUTPUT_MESH "output_mesh.exo" )
 
 Plato_add_serial_test( ${TEST_COMMAND} ${TEST_NAME} ${OUTPUT_MESH} ${EXODIFF_COMMAND_FILE} ${EXODIFF_REFERENCE} )
 set_property(TEST ${TEST_NAME} PROPERTY LABELS "small")
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS "1")

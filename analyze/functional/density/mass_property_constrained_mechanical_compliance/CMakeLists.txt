@@ -17,6 +17,8 @@ Plato_analyze_copy_test_data("lbracket.exo")
 
 # Add blank test to run problem
 add_test(NAME ${TEST_NAME} COMMAND "plato" "input.i")
+set_num_threads_for_test( NUM_THREADS )
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
 
 # Add test check ROL gradient check output
 set( INFNORM_IGNORE_ROWS 1 )

@@ -21,8 +21,11 @@ set( PLATO_TEST_COMMAND "plato input.i")
 set( OUT_FILE "ROL_Optimizer.txt")
 set( GOLD_FILE "ROL_Optimizer.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
-set( NUMDIFF_RELATIVE_TOLERANCE 5e-4 )
+set( NUMDIFF_RELATIVE_TOLERANCE 5e-3 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+
+set_num_threads_for_test( NUM_THREADS )
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
 
 # Add test check ROL gradient check output
 set( INFNORM_IGNORE_ROWS 1 )

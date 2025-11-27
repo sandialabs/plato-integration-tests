@@ -1,4 +1,5 @@
-
+include(${COMMON_SOURCE_CMAKE_DIR}/mpi_helpers.cmake)
+include(${ANALYZE_SOURCE_UTILITIES_DIR}/openmp_helpers.cmake)
 
 # Name the test with the directory name
 Plato_new_test(TEST_NAME)
@@ -14,7 +15,8 @@ Plato_add_test_files("${TWO_LOAD_TEST_FILES}")
 Plato_analyze_copy_test_data("lbracket.exo")
 
 set( NUM_RANKS 2 )
-set( ADDITIONAL_MPI_FLAGS "--bind-to none" )
+set_num_threads_for_test( NUM_THREADS )
+openmpi_process_map_argument(${NUM_RANKS} ${NUM_THREADS} ADDITIONAL_MPI_FLAGS )
 set( TEST_COMMAND "${MPIEXEC_EXECUTABLE} ${MPIEXEC_NUMPROC_FLAG} ${NUM_RANKS} ${ADDITIONAL_MPI_FLAGS} ${MPIEXEC_PREFLAGS} plato input-2-load.i" )
 set( OUT_FILE "ROL_Optimizer.txt")
 set( GOLD_FILE "ROL_Optimizer.txt.gold")
@@ -22,6 +24,7 @@ set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
 
 Plato_add_numdiff_test(${TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_RANKS ${NUM_RANKS} NUM_THREADS ${NUM_THREADS})
 
 # Set input file names for custom command
 set( INFNORM_IGNORE_ROWS 1 )

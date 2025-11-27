@@ -16,6 +16,9 @@ set( PLATO_RUN_COMMAND "plato")
 set( PLATO_INPUT "input.i")
 add_test(${TEST_NAME} ${PLATO_RUN_COMMAND} ${PLATO_INPUT})
 
+set_num_threads_for_test( NUM_THREADS )
+set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
+
 # Add test check ROL gradient check output
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )
