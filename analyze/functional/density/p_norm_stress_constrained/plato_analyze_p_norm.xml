@@ -11,6 +11,9 @@
         <Parameter name="Type" type="string" value="Scalar Function"/> 
         <Parameter name="Scalar Function Type" type="string" value="Stress P-Norm"/>
         <Parameter name="Exponent" type="double" value="12.0" />
+        <ParameterList name="Normalize">
+          <Parameter name="Type" type="string" value="Voigt Tensor L2"/>
+        </ParameterList>
         <ParameterList name="Penalty Function">
           <Parameter name="Type" type="string" value="SIMP"/>
           <Parameter name="Exponent" type="double" value="0.5"/>
