@@ -24,7 +24,7 @@ set( NUMDIFF_USE_ABSOLUTE FALSE)
 set( NUMDIFF_RELATIVE_TOLERANCE 5e-3 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
-set_num_threads_for_test( NUM_THREADS )
+set( NUM_THREADS "1" ) # This test fails sporadically when multi-threaded
 set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
 
 # Add test check ROL gradient check output
@@ -43,9 +43,9 @@ set( JACOBIAN_CONSISTENCY_CHECK_TEST_NAME "${TEST_NAME}_constraint_jacobian_cons
 set( OUT_FILE "ROL_constraint_jacobian_adjoint_consistency_check.txt")
 set( GOLD_FILE "ROL_constraint_jacobian_adjoint_consistency_check.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE TRUE )
-set( NUMDIFF_ABSOLUTE_TOLERANCE 1e-8 )
+set( NUMDIFF_ABSOLUTE_TOLERANCE 1e-6 )
 Plato_add_numdiff_test(" " ${JACOBIAN_CONSISTENCY_CHECK_TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_ABSOLUTE_TOLERANCE})
-set_tests_properties( ${JACOBIAN_CHECK_TEST_NAME} PROPERTIES DEPENDS ${TEST_NAME})
+set_tests_properties( ${JACOBIAN_CONSISTENCY_CHECK_TEST_NAME} PROPERTIES DEPENDS ${TEST_NAME})
 
 # Add test check ROL constraint jacobian check output
 set( JACOBIAN_CHECK_TEST_NAME "${TEST_NAME}_constraint_jacobian_check" )

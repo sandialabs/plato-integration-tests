@@ -5,6 +5,7 @@ Plato_new_test(TEST_NAME)
 
 # Copy Input files from source to binary dir
 set(testFiles input.i
+              ROL_gradient_check_output.txt.gold
               plato_analyze_p_norm.xml)
               
 Plato_add_test_files("${testFiles}")
@@ -16,8 +17,6 @@ add_test(NAME ${TEST_NAME} COMMAND plato "input.i")
 set_num_threads_for_test( NUM_THREADS )
 set_openmp_test_properties(TEST_NAME ${TEST_NAME} NUM_THREADS ${NUM_THREADS})
 
-Plato_disable_test(${TEST_NAME} "GC is very strange")
-
 # Add test check ROL gradient check output
 set( INFNORM_IGNORE_ROWS 1 )
 set( INFNORM_RELATIVE_TOLERANCE 1e-1 )
@@ -28,4 +27,3 @@ set( PYTHON_ARGS ${CONFIRM_GRADIENT_PYTHON_SCRIPT} ${INFNORM_IGNORE_ROWS} ${INFN
 set( GRADIENT_CHECK_TEST_NAME "${TEST_NAME}_gradient_check" )
 add_test(NAME ${GRADIENT_CHECK_TEST_NAME} COMMAND python ${PYTHON_ARGS})
 set_tests_properties( ${GRADIENT_CHECK_TEST_NAME} PROPERTIES DEPENDS ${TEST_NAME})
-Plato_disable_test(${GRADIENT_CHECK_TEST_NAME} "GC is very strange")

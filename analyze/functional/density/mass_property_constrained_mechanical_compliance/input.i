@@ -54,6 +54,7 @@ begin gradient_check
     initial_direction_magnitude 1
     step_size_reduction_factor 0.1
     random_direction_seed 1
+    direction_vector_type random
 end
 
 begin constraint_check
@@ -64,4 +65,5 @@ begin constraint_check
     initial_direction_magnitude 1
     step_size_reduction_factor 0.1
     random_direction_seed 123
+    direction_vector_type random
 end

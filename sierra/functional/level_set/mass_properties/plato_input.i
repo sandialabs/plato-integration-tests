@@ -3,11 +3,12 @@ begin level_set_topology
     output_name result.exo
     include_void_region false
     sphere_list radius 1.25 center (0,0,0)
-    level_set_bounds [-0.2, 0.2]
+    level_set_bounds [-1, 1]
+    max_edge_length_percentage_for_snapping 0
 end
 
 begin kernel_filter
-    filter_radius 0.7
+    filter_radius 0.75
     centering_type node
 end
 
@@ -36,15 +37,17 @@ begin constraint_check
     jacobian_check_output_file_name constraint_jacobian_check.txt
     jacobian_adjoint_consistency_output_file_name constraint_jacobian_adjoint_consistency_check.txt
     number_of_steps 10
-    initial_direction_magnitude 1
+    initial_direction_magnitude 0.1
     step_size_reduction_factor 0.1
     random_direction_seed 123
+    direction_vector_type uniform_positive
 end
 
 begin gradient_check
     output_file_name gradient_check.txt
     number_of_steps 10
     initial_direction_magnitude 0.1
-    step_size_reduction_factor 0.5
+    step_size_reduction_factor 0.1
     random_direction_seed 42
+    direction_vector_type uniform_positive
 end

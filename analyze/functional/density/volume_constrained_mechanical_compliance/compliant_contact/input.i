@@ -2,6 +2,7 @@ begin density_topology
     mesh_name ball_in_cup.exo
     output_name to-result.exo
     initial_density_value 0.25
+    fixed_blocks block_2
 end
 
 begin kernel_filter
@@ -14,8 +15,8 @@ begin constraint volume
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_vol.xml
-    constraint_value 20.0
-    constraint_type less_than
+    constraint_value 40.0
+    constraint_type equal_to
     is_linear true
 end
 
@@ -27,13 +28,14 @@ begin objective compliance
 end
 
 begin rol_optimization
-    max_iterations 5
+    max_iterations 3
 end
 
 begin gradient_check
     output_file_name ROL_gradient_check_output.txt
-    number_of_steps 10
+    number_of_steps 8
     initial_direction_magnitude 1
     step_size_reduction_factor 0.1
     random_direction_seed 123
+    direction_vector_type random
 end

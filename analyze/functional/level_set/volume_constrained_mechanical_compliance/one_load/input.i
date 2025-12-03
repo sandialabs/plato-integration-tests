@@ -2,8 +2,9 @@ begin level_set_topology
     mesh_name lbracket3d.exo
     output_name level-set-result.exo
     include_void_region true
-    sphere_pattern radius 0.05 spacing 0.15 min (-0.5,-0.5, 0) max (0.4,0.4,0)
-    level_set_bounds [-0.02, 0.02]
+    sphere_list radius 0.125 center (-.3,0.2,0)
+    level_set_bounds [-.1, 1]
+    max_edge_length_percentage_for_snapping 0.5
 end
 
 begin kernel_filter
@@ -12,6 +13,7 @@ begin kernel_filter
 end
 
 begin constraint volume
+    active true
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_volume.xml
@@ -24,18 +26,13 @@ begin objective compliance
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_compliance.xml
-    aggregation_weight 1.0e6
-end
-
-begin rol_optimization
-    input_file_name rol_inputs_AL.xml
-    output_design_history true
+    aggregation_weight 1.e2
 end
 
 begin gradient_check
     output_file_name ROL_gradient_check_output.txt
     number_of_steps 10
-    initial_direction_magnitude 1
-    step_size_reduction_factor 0.5
-    random_direction_seed 123
+    initial_direction_magnitude 0.05
+    step_size_reduction_factor 0.1
+    direction_vector_type uniform_positive
 end
