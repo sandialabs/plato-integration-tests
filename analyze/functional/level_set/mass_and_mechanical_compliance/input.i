@@ -26,3 +26,11 @@ end
 begin rol_optimization
     input_file_name rol_inputs_BC.xml
 end
+
+begin gradient_check
+    output_file_name ROL_gradient_check_output.txt
+    number_of_steps 10
+    initial_direction_magnitude 0.1
+    step_size_reduction_factor 0.1
+    direction_vector_type uniform_positive
+end

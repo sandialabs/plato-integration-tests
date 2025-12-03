@@ -25,7 +25,7 @@ begin objective mass
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_mass.xml
-    aggregation_weight 1.0  
+    aggregation_weight 1.0 
 end
 
 begin rol_optimization
@@ -36,9 +36,9 @@ end
 begin gradient_check
     output_file_name ROL_gradient_check.txt
     number_of_steps 10
-    initial_direction_magnitude 1
-    step_size_reduction_factor 0.5
-    random_direction_seed 1
+    initial_direction_magnitude 0.1
+    step_size_reduction_factor 0.1
+    direction_vector_type uniform_positive
 end
 
 begin constraint_check
@@ -47,6 +47,6 @@ begin constraint_check
     jacobian_adjoint_consistency_output_file_name ROL_constraint_jacobian_adjoint_consistency_check.txt
     number_of_steps 10
     initial_direction_magnitude 1
-    step_size_reduction_factor 0.5
-    random_direction_seed 123
+    step_size_reduction_factor 0.1
+    direction_vector_type uniform_positive
 end

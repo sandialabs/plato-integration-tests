@@ -26,4 +26,5 @@ begin gradient_check
     initial_direction_magnitude 0.1 
     step_size_reduction_factor 0.1
     random_direction_seed 12
+    direction_vector_type uniform_negative
 end
