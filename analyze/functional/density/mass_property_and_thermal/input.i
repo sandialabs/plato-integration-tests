@@ -16,7 +16,8 @@ begin objective mass_properties
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_mass_properties.xml
-    aggregation_weight 1000
+    normalize_by_initial_value true
+    aggregation_weight 0.9
 end
 
 begin objective thermal_compliance
@@ -24,7 +25,8 @@ begin objective thermal_compliance
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_thermal_compliance.xml
-    aggregation_weight 1.0e-5
+    normalize_by_initial_value true
+    aggregation_weight 0.1
 end
 
 begin rol_optimization

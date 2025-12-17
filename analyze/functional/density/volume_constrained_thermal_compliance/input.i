@@ -26,11 +26,12 @@ begin objective thermal_compliance
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_thermal_compliance.xml
+    normalize_by_initial_value true
     aggregation_weight 1.0
 end
 
 begin rol_optimization
-    max_iterations 2
+    max_iterations 3
 end
 
 begin gradient_check
