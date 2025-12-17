@@ -1,7 +1,7 @@
 
 Lin-More Trust-Region Method (Type B, Bound Constraints)
   iter  value          gnorm          snorm          delta          #fval     #grad     #hess     #proj     tr_flag   
-  0     2.956656e-01   1.090207e-01   ---            1.000000e+00   1         1         0         2         ---       
-  1     2.424047e-01   3.412151e-02   8.257245e-01   1.000000e+00   2         2         2         7         0         
-  2     2.303849e-01   1.748625e-02   4.992377e-01   1.000000e+00   3         3         3         11        0         
+  0     9.999554e-01   3.200559e-01   ---            1.000000e+00   1         1         0         2         ---       
+  1     8.714423e-01   1.218679e-01   6.452735e-01   1.000000e+00   2         2         1         6         0         
+  2     8.371652e-01   8.848591e-02   3.566603e-01   1.000000e+00   3         3         2         10        0         
 Optimization Terminated with Status: Iteration Limit Exceeded

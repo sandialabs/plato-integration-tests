@@ -13,14 +13,16 @@ begin objective compliance
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_compliance.xml
-    aggregation_weight 1 
+    normalize_by_initial_value true
+    aggregation_weight 0.6 
 end
 
 begin objective mass
     app platoanalyze
     criterion platoanalyze
     input_files plato_analyze_mass.xml
-    aggregation_weight 1 
+    normalize_by_initial_value true
+    aggregation_weight 0.4
 end
 
 begin rol_optimization
