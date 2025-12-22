@@ -29,6 +29,7 @@ begin objective mass
     criterion mass
     number_of_processors 2
     input_files salinas_input.i
+    normalize_by_initial_value true
     aggregation_weight 1.0
 end
 
