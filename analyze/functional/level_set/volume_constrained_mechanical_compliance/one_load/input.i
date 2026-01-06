@@ -19,7 +19,7 @@ begin constraint volume
     input_files plato_analyze_volume.xml
     is_linear false
     constraint_type equal_to
-    constraint_value 0.0
+    constraint_value 1600
 end
 
 begin objective compliance
@@ -34,5 +34,16 @@ begin gradient_check
     number_of_steps 10
     initial_direction_magnitude 0.05
     step_size_reduction_factor 0.1
+    direction_vector_type uniform_positive
+end
+
+begin constraint_check
+    linearity_check_output_file_name ROL_constraint_linearity_check_output.txt
+    jacobian_check_output_file_name ROL_constraint_jacobian_check_output.txt
+    jacobian_adjoint_consistency_output_file_name ROL_constraint_jacobian_adjoint_consistency_check_output.txt
+    number_of_steps 10
+    initial_direction_magnitude 1
+    step_size_reduction_factor 0.1
+    random_direction_seed 123
     direction_vector_type uniform_positive
 end

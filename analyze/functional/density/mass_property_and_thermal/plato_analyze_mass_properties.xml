@@ -13,6 +13,7 @@
         <Parameter name="Properties" type="Array(string)" value="{Mass, CGx,CGy,Izz}" />
         <Parameter name="Gold Values" type="Array(double)" value="{135000,-1.5,1.5,2500000}" />
         <Parameter name="Weights" type="Array(double)" value="{1,1,1,1}" />
+        <Parameter name="Least Squares Exponent" type="unsigned int" value="2" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Elliptic">

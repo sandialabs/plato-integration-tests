@@ -11,8 +11,9 @@
         <Parameter name='Linear' type='bool' value='true'/>
         <Parameter name="Type" type="string" value="Mass Properties" />
         <Parameter name="Properties" type="Array(string)" value="{Mass}" />
-        <Parameter name="Gold Values" type="Array(double)" value="{1.6e-3}" />
-        <Parameter name="Weights" type="Array(double)" value="{1e6}" />
+        <Parameter name="Gold Values" type="Array(double)" value="{0}" />
+        <Parameter name="Weights" type="Array(double)" value="{1}" />
+        <Parameter name="Least Squares Exponent" type="unsigned int" value="1" />
         <ParameterList name="Penalty Function">
           <Parameter name="Type" type="string" value="SIMP"/>
           <Parameter name="Exponent" type="double" value="1.0"/>
