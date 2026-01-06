@@ -13,6 +13,7 @@
         <Parameter name="Properties" type="Array(string)" value="{Mass}" />
         <Parameter name="Gold Values" type="Array(double)" value="{75}" />
         <Parameter name="Weights" type="Array(double)" value="{1}" />
+        <Parameter name="Least Squares Exponent" type="unsigned int" value="2" />
         <ParameterList name="Penalty Function">
           <Parameter name="Type" type="string" value="SIMP"/>
           <Parameter name="Exponent" type="double" value="1.0"/>

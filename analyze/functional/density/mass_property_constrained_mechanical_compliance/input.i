@@ -16,7 +16,7 @@ begin constraint mass_property_cgx
     criterion platoanalyze
     input_files plato_analyze_cgx.xml
     is_linear false
-    constraint_value 0 # target set within PA
+    constraint_value -0.13 
     constraint_type equal_to
 end
 
@@ -26,7 +26,7 @@ begin constraint mass_property_cgy
     criterion platoanalyze
     input_files plato_analyze_cgy.xml
     is_linear false
-    constraint_value 0 # target set within PA
+    constraint_value -0.1
     constraint_type equal_to
 end
 

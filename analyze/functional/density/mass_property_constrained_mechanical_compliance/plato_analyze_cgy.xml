@@ -11,8 +11,8 @@
         <Parameter name="Linear" type="bool" value="true" />
         <Parameter name="Type" type="string" value="Mass Properties" />
         <Parameter name="Properties" type="Array(string)" value="{CGy}" />
-        <Parameter name="Gold Values" type="Array(double)" value="{-.1}" />
         <Parameter name="Weights" type="Array(double)" value="{1}" />
+        <Parameter name="Least Squares Exponent" type="unsigned int" value="1" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Elliptic">
