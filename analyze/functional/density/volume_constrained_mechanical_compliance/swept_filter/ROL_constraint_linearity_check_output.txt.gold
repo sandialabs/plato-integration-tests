@@ -1,0 +1,4 @@
+
+  ROL::Problem::checkLinearity
+    Constraint volume:  ||c(x+alpha*y) - (c(x)+alpha*(c(y)-c(0)))|| = 1.77635684e-15
+
