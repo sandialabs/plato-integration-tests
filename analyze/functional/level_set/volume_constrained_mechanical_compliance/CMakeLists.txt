@@ -1,3 +1,4 @@
 add_subdirectory(one_load)
 add_subdirectory(two_loads)
 add_subdirectory(two_dimensional_fine_mesh)
+add_subdirectory(swept_filter)
