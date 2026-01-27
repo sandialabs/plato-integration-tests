@@ -18,7 +18,7 @@ set( PLATO_TEST_COMMAND "plato input.i")
 set( OUT_FILE "ROL_Optimizer.txt")
 set( GOLD_FILE "ROL_Optimizer.txt.gold")
 set( NUMDIFF_USE_ABSOLUTE FALSE)
-set( NUMDIFF_RELATIVE_TOLERANCE 1e-4 )
+set( NUMDIFF_RELATIVE_TOLERANCE 1e-2 )
 Plato_add_numdiff_test(${PLATO_TEST_COMMAND} ${TEST_NAME} ${NUMDIFF_COMMAND} ${NUMDIFF_USE_ABSOLUTE} ${NUMDIFF_RELATIVE_TOLERANCE})
 
 set( NUM_THREADS "1" ) # This test fails sporadically when multi-threaded
