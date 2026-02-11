@@ -23,11 +23,11 @@ begin objective thermal_compliance
     
 end
 
-begin objective volume_obj
+begin objective volume_target
     active true
     app platoanalyze
     criterion platoanalyze
-    input_files plato_analyze_volume.xml
+    input_files plato_analyze_volume_target.xml
     aggregation_weight 1 
 end
 

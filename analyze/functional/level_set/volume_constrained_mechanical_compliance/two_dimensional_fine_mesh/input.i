@@ -19,9 +19,8 @@ begin objective compliance
 end
 
 begin constraint volume
-    app platoanalyze
-    criterion platoanalyze
-    input_files plato_analyze_vol.xml
+    app platoengine
+    criterion volume
     is_linear false
     constraint_value 0.75
     constraint_type less_than

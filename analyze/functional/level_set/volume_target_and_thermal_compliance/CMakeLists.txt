@@ -6,7 +6,7 @@ Plato_new_test(TEST_NAME)
 # Copy Input files from source to binary dir
 set(testFiles input.i
               plato_analyze_thermal_compliance.xml
-              plato_analyze_volume.xml
+              plato_analyze_volume_target.xml
               ROL_gradient_check_output.txt.gold
               ROL_Optimizer.txt.gold)
 

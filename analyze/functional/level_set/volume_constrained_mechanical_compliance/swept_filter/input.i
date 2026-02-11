@@ -15,11 +15,11 @@ end
 
 begin constraint volume
     active true
-    app platoanalyze
-    criterion platoanalyze
-    input_files plato_analyze_volume.xml
+    app platoengine
+    criterion volume_fraction
+    input_files reference_volume.i
     is_linear false
-    constraint_value 38
+    constraint_value 0.76
     constraint_type equal_to
 end
 
