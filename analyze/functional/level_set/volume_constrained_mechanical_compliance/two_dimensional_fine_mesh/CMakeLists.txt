@@ -4,7 +4,6 @@ Plato_new_test(TEST_NAME)
 # Copy Input files from source to binary dir
 set(testFiles input.i
               plato_analyze_compliance.xml
-              plato_analyze_vol.xml
               ROL_gradient_check.txt.gold
               ROL_constraint_jacobian_adjoint_consistency_check.txt.gold
               ROL_constraint_jacobian_check.txt.gold
