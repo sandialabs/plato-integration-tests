@@ -51,7 +51,7 @@ begin objective modal_match
     app sierra_sd
     criterion modal
     number_of_processors 1
-    input_files sd_modal.i
+    input_files modal.i
     aggregation_weight 1.0
 end
 

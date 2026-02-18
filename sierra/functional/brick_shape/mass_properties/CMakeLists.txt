@@ -6,6 +6,7 @@ Plato_new_test(TEST_NAME)
 # Copy Input files from source to binary dir
 set(testFiles plato_input.i
               salinas_input.i
+              modal.i
               ROL_constraint_jacobian_check.txt.gold
               ROL_constraint_jacobian_adjoint_consistency_check.txt.gold)
 
