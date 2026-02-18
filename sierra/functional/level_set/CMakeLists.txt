@@ -1,2 +1,4 @@
 add_subdirectory(temperature_match)
 add_subdirectory(mass_properties)
+add_subdirectory(modal)
+add_subdirectory(p_write)
