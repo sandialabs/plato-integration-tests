@@ -1,1 +1,2 @@
+add_subdirectory(stress_constrained_volume)
 add_subdirectory(volume_constrained_mechanical_compliance)
